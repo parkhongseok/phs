@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> </title>
+  <!--폰트어썸CDN-->
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style>
+    *{margin:0; padding:0; box-sizing:border-box;}
+    ul{list-style: none;}
+    a{text-decoration: none; color:inherit;}
+
+    .container{
+      min-width:1080px;
+      height:720px;
+      background:url(img/main.jpg) center/cover;
+    }
+    .container > .wrap{
+      width:1080px;
+      margin:auto;
+      padding:160px 0;
+    }
+    .container h1{
+      font-size:36px;
+      text-align: center;
+      color:#fff;
+    }
+    .container > .wrap > p{
+      font-size:14px;
+      text-align: center;
+      margin:40px 0 80px;
+      color:#fff;
+    }
+
+    .box{
+      display:flex;
+    }
+
+    .box > li{
+      width:360px;
+      padding:40px 10px;
+      background-color:#ccc;
+      display:flex;
+      justify-content: space-between;
+      color:#333;
+      position:relative;/*pos:abs를 적용한 자식요소의 기준이 됨*/
+    }
+    .txt{
+      width:160px;
+    }
+    .txt > h2{
+      font-size:16px;
+      line-height:2.5;
+    }
+    .txt > p{
+      font-size:14px;
+    }
+
+    .box > li:hover{
+      background-color:#999;
+      color:#fff;
+    }
+    .box > li:hover img{/*요소에 마우스를올리면 이미지의 투명도를 낮춰 하이라이트 시켜줍니다.*/
+      opacity:0.5;
+    }
+
+    /*삼각형*/
+    .box > li:hover::after{/*li요소에 마우스를 올리면 가상요소가 생성됨*/
+      content:"";
+      position:absolute;
+      border:10px solid transparent;
+      border-bottom-color:#999;/*하단 외곽선만 색상을 적용하면 삼각형이 됨*/
+      left:50%; transform:translateX(-50%);
+      bottom:100%;
+    }
+  </style>    
+</head>
+
+<body>
+  <section class="container">
+    <div class="wrap">
+      <h1>Division Title</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing<br>
+        elit. Doloremque numquam perspiciatis necessitatibus
+      </p>
+      <ul class="box">
+        <li class="item">
+          <img src="http://placehold.it/160x120/ff0" />
+          <div class="txt">
+            <h2>DESCRIPTION</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde obcaecati</p>
+          </div>
+        </li>
+        <li class="item">
+          <img src="http://placehold.it/160x120/ff0" />
+          <div class="txt">
+            <h2>DESCRIPTION</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde obcaecati</p>
+          </div>
+        </li>
+        <li class="item">
+          <img src="http://placehold.it/160x120/ff0" />
+          <div class="txt">
+            <h2>DESCRIPTION</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde obcaecati</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>

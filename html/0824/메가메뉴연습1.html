@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style> 
+  *{padding: 0; border: 0;}
+  a{color:inherit; text-decoration: none;}
+
+  .wrap{
+    background-color: #333;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .wrap>a,.dropdown>a{
+    color: white;
+    font-size: 16px;
+    padding: 14px 16px;
+  }
+  header{
+      background-color:orange;
+      padding:16px;
+      color:#fff;
+      /*글자 선택 x*/
+      user-select:none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="#">home</a>
+    <a href="#">news</a>
+    <div class="dropdown">
+      <a href="#">dropdown</a>
+      <div class="subArea">
+        <header>Mega_menu</header>
+        <div class="subBox">
+          <div class="subBox1">
+            <h3>sub1</h3>
+            <a href="#">link1</a>
+            <a href="#">link2</a>
+            <a href="#">link3</a>
+          </div>
+          <div class="subBox2">
+            <h3>sub2</h3>
+            <a href="#">link1</a>
+            <a href="#">link2</a>
+            <a href="#">link3</a>
+          </div>
+          <div class="subBox3">
+            <h3>sub3</h3>
+            <a href="#">link1</a>
+            <a href="#">link2</a>
+            <a href="#">link3</a>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+</body>
+</html>

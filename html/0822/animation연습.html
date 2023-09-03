@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animation연습</title>
+  <style>
+    div{
+      margin-top:300px;
+      text-align: center;
+    }
+    img{
+      animation:ani 3s ease-in-out infinite;
+    }
+    @keyframes ani{
+      0%{transform:translateY(0) scale(1);}
+      50%{transform:translateY(-150px) scale(1.2);}
+      100%{transform:translateY(0) scale(1);}
+    }
+  </style>  
+</head>
+
+<body>
+  <div>
+    <img src="image/balloon_02.png" alt="">
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>font-face속성</title>
+  <!--폰트어썸CDN-->
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style>
+    @font-face{/*폰트 적용*/
+      /*외부폰트의 이름을 지정*/
+      font-family:"SpicyChips";
+      /*폰트를 링크*/
+      src:url(font/Spicy-Chips.otf)format('opentype'),url(font/Spicy-Chips.ttf)format('truetype'),url(font/Spicy-Chips.woff)format('woff');
+      /*
+      ttf = 대부분의 웹브라우저가 지원한다.
+      woff = 최신 표준 포맷
+      */
+    }
+
+    body{
+      font-family:"SpicyChips";
+      font-size:30px;
+      
+    }
+  </style>
+</head>
+
+<body>
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum culpa distinctio eum sapiente ducimus eveniet quaerat ad, ea natus ab debitis cupiditate dolore soluta tempore ullam minima incidunt. Asperiores, quo!
+</body>
+
+</html>

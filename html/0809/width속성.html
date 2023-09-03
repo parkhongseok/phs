@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>width_height속성</title>
+  <style>
+    .box1{
+      background-color:orange;
+      width:500px;
+      height:400px;
+    }
+    .box2{
+      background-color:lightblue;
+      /*자식요소가 더 크면 레이아웃이 무너지는 현상이 생김*/
+      width:600px;
+      height:200px;
+    }
+    span{
+      display:block;/*블록요소로 변환*/
+      background-color:#999;
+      /*인라인 요소는 width값과 height값을 가질 수 없다.*/
+      width:300px;
+      height:200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">
+    <div class="box2">
+      <span>width : 가로값</span> height : 세로값
+    </div>
+  </div>
+</body>
+</html>

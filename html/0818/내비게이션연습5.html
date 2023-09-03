@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex활용</title>
+  <style>
+    *{margin:0; padding:0;}
+    ul{list-style: none;}
+    a{text-decoration: none; color:inherit;}
+
+    header{
+      font-family: Verdana;
+      color:#111;
+      font-size:14px;
+      width:1080px;
+      margin:auto;
+      padding:40px 30px;
+      box-sizing:border-box;
+      outline:1px solid red;
+      display:flex;
+      justify-content:space-between;
+      align-items: center;
+    }
+    header > ul{
+      display:flex;
+    }
+    .l-gnb > li{
+      margin-right:40px;
+    }
+    .r-gnb > li{
+      margin-left:40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <ul class="l-gnb">
+      <li><a href="#">ABOUT</a></li>
+      <li><a href="#">NEWS</a></li>
+      <li><a href="#">PORTFOLIO</a></li>
+    </ul>
+    <div class="logo">
+      <a href="#"><img src="img/logo.png" alt=""></a>
+    </div>
+    <ul class="r-gnb">
+      <li><a href="#">BOARD</a></li>
+      <li><a href="#">ALBUM</a></li>
+      <li><a href="#">CONTACT</a></li>
+    </ul>
+  </header>
+</body>
+</html>

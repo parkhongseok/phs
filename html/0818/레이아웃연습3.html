@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex활용</title>
+  <style>
+    *{margin:0; padding:0; box-sizing:border-box;}
+    ul{list-style: none;}
+    a{text-decoration: none; color:inherit;}
+
+    .container{
+      width:1080px;
+      height:360px;
+      margin:40px auto;
+      color:#666;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      padding:0 10px;
+      display:flex;
+      flex-wrap:wrap;/*줄바꿈*/
+      justify-content:space-between;/*주축 정렬*/
+      align-content:space-between;/*교차축 정렬*/
+    }
+    .box{
+      width:520px;
+      height:160px;
+      display:flex;
+      justify-content:space-between;/*주축 정렬*/
+    }
+    .txt{
+      width:340px;
+    }
+    .txt > h2{
+      font-size:24px;
+      line-height:1.5;
+    }
+    .txt > p{
+      font-size:14px;
+      line-height:1.4;
+    }
+    .txt > .icon{
+      margin-top:10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <img src="image/animal1.png" width="160" height="160" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam rerum, culpa numquam et unde labore accusantium voluptatibus est fugiat itaque beatae inventore, dolorem amet
+        </p>
+        <div class="icon">
+          <a href="#">
+            <img src="img/facebook_b.png" alt="">
+          </a>
+          <a href="#">
+            <img src="img/pinterest_b.png" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <img src="image/animal2.png" width="160" height="160" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam rerum, culpa numquam et unde labore accusantium voluptatibus est fugiat itaque beatae inventore, dolorem amet
+        </p>
+        <div class="icon">
+          <a href="#">
+            <img src="img/facebook_b.png" alt="">
+          </a>
+          <a href="#">
+            <img src="img/pinterest_b.png" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <img src="image/animal3.png" width="160" height="160" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam rerum, culpa numquam et unde labore accusantium voluptatibus est fugiat itaque beatae inventore, dolorem amet
+        </p>
+        <div class="icon">
+          <a href="#">
+            <img src="img/facebook_b.png" alt="">
+          </a>
+          <a href="#">
+            <img src="img/pinterest_b.png" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <img src="image/animal4.png" width="160" height="160" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam rerum, culpa numquam et unde labore accusantium voluptatibus est fugiat itaque beatae inventore, dolorem amet
+        </p>
+        <div class="icon">
+          <a href="#">
+            <img src="img/facebook_b.png" alt="">
+          </a>
+          <a href="#">
+            <img src="img/pinterest_b.png" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

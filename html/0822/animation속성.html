@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animation속성</title>
+  <style>
+    div{
+      width:100px;
+      height:100px;
+      background-color:red;
+      /*animation*/
+      animation-name:example;/*이름*/
+      animation-duration:4s;/*실행시간*/
+      animation-delay:2s;/*지연시간*/
+      animation-iteration-count:3;/*반복횟수(infinite:무한반복)*/
+      animation-direction:reverse;/*재생방향(reverse반대로재생, alternate:똑바로한번 반대로한번 재생)*/
+      animation-timing-function:linear;/*타이밍제어*/
+      
+      /*축약형*/
+      animation:example 4s linear 2s infinite alternate;
+    }
+
+    /* @keyframes example{
+      from{background-color:red;}
+      to{background-color:yellow;}
+    } */
+
+    @keyframes example{
+      0%{
+        background-color:red;
+        transform:translate(0,0);
+      }
+      25%{
+        background-color:yellow;
+        transform:translate(200px,0);
+      }
+      50%{
+        background-color:skyblue;
+        transform:translate(200px,200px);
+      }
+      75%{
+        background-color:lightgreen;
+        transform:translate(0,200px);
+      }
+      100%{
+        background-color:red;
+        transform:translate(0,0);
+      }
+    }
+  </style>  
+</head>
+
+<body>
+  <div class="box1"></div>
+</body>
+
+</html>

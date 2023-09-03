@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>max-width연습2</title>
+
+
+  <style>
+    body{
+      font-family: "나눔고딕";
+      coler:#333;
+      font-size: 16px;
+    }
+    ul{
+      min-width: 800px;
+    }
+
+
+
+
+    li{
+      text-indent: +20px;
+    }
+    th.txt{
+      /* td 요소 중에서 클래스가 txt인 요소를 선택 */
+      background-color: lightgreen;
+      text-align: left;
+      max-width: 700px;
+      min-width: 600px;
+    }
+
+
+    /* 인라인 요소 중 이미지 요소의 경우 하단에 4px만큼의 여백이 생긴다. */
+    /* 인라인 요소 중 텍스트 요소의 경우 하단에 4px만큼의 여백이 생긴다. */
+/* 이를 없앨 수 있는 두가지 방법이 있다. */
+/* 이미지 요소의 하단 여백 제거하는 방법:
+1.   img{display: block;}
+2.   이미지를 감싸는 부모요소의 높이를 이미지의 높이값으로 설정한다.*/
+
+
+    img{display: block;}
+  </style>
+</head>
+
+
+
+
+
+
+
+
+<body>
+  <h1>1.요리법</h1>
+  <h3>1&#41;요리재료</h3>
+  <ul>
+    <li><b>주재료</b> : 스파게티 160g, 표고버섯 4개, 새송이 버섯 2개, 느타리 버섯 50g, 베이컨 2장, 생크림 125ml, 우유 1/2컵</li>
+    <li><b>부재료</b> : 다진 마늘 1작은술, 다진 양파 2큰술, 올리브 오일 2큰술, 소금 약간, 후춧가루 약간 </li>
+  </ul>
+
+
+
+
+  <h3>2&#41기본정보</h3>
+  <ul>
+    <li><b>조리시간</b> : 30분 </li>
+    <li><b>분량</b> : 4인 기준 </li>
+    <li><b>칼로리</b> : 298kcal &#40;1인분&#41;  </li>
+  </ul>
+
+
+  <h1>2.요리과정</h1>
+  <table>
+    <tr>
+      <!-- 1행 -->
+      <th><img src="image/1.jpg" alt="이미지1"></th>
+      <th class="txt">01. 끓는 물에 소금을 넣고 스파게티 면을 삶아 건집니다.</th>
+    </tr>
+    <tr>
+      <!-- 2행 -->
+      <th><img src="image/2.jpg" alt="이미지2"></th>
+      <th class="txt">02. 표고버섯은 밑동을 자른 뒤 얇게 저며 썰고 새송이 버섯은 반으로 잘라 저며 썹니다.</th>
+    </tr>
+    <tr>
+      <!-- 3행 -->
+      <th><img src="image/3.jpg" alt="이미지3"></th>
+      <th class="txt">03. 느타리 버섯은 손으로 반으로 가르고 베이컨은 잘게 썹니다.
+      </th>
+    </tr>
+    <tr>
+      <!-- 4행 -->
+      <th><img src="image/4.jpg" alt="이미지4"></th>
+      <th class="txt">04. 팬에 올리브오일을 두르고 다진 마늘, 양파를 볶다 베이컨을 넣고 볶습니다.</th>
+    </tr>
+    <tr>
+      <!-- 5행 -->
+      <th><img src="image/5.jpg" alt="이미지5"></th>
+      <th class="txt">05. 준비한 버섯을 넣고 생크림, 우유를 넣고 끓이다 스파게티 면을 넣고 소금, 후춧가루로 간합니다.</th>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

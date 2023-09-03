@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animation연습2</title>
+  <style>
+    *{margin:0; padding:0;}
+
+    .container{
+      color:#fff;
+      width:800px;
+      height:300px;
+      margin:auto;
+      background-color:#41c4b2;
+      position:relative;
+    }
+    .imgGroup{
+      width:380px;
+      height:100%;
+      position:relative;
+    }
+    .imgGroup > img{
+      position:absolute;
+    }
+    .cloud{
+      top:44px;
+      left:40px;
+    }
+    .space-man{
+      left:0; 
+      top:46px;
+      animation:upDown 5s cubic-bezier(.02,.8,.85,.17) infinite;
+    }
+    .mars{
+      top:48px;
+      right:12px;
+      animation:spin 3s cubic-bezier(.02,.8,.85,.17) infinite;
+    }
+
+    @keyframes upDown{
+      0%{transform:translateY(-30px);}
+      50%{transform:translateY(30px);}
+      100%{transform:translateY(-30px);}
+    }
+
+    @keyframes spin{
+      0%{transform:rotate(0deg);}
+      50%{transform:rotate(30deg);}
+      100%{transform:rotate(0deg);}
+    }
+
+    .txt{
+      width:150px;
+      position:absolute;
+      right:90px;
+      /*세로 가운데 정렬*/
+      top:50%;
+      transform:translateY(-50%);
+    }
+    .txt > h1{
+      font-size:22px;
+      font-weight: normal;
+      text-align: center;
+    }
+    .txt > p{
+      font-size:12px;
+      text-align:justify;
+      letter-spacing: -0.5px;
+      margin:20px 0;
+    }
+    .txt > button{
+      width:150px;
+      height:40px;
+      background-color:transparent;
+      border:2px solid #fff;
+      color:#fff;
+      font-size:14px;
+      letter-spacing: 1px;
+    }
+    .txt > button:hover{
+      cursor:pointer;
+      background-color:#fff;
+      color:#41c4b2;
+      font-weight: bold;
+    }
+  </style>  
+</head>
+
+<body>
+  <div class="container">
+    <div class="imgGroup">
+      <img class="cloud" src="image/cloud.png" alt="">
+      <img class="space-man" src="image/space_man.png" alt="">
+      <img class="mars" src="image/mars.png" alt="">
+    </div>
+    <div class="txt">
+      <h1>Space Tourism</h1>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error quod, ducimus suscipit expedita, voluptatum rem libero porro nulla</p>
+      <button type="button">READ MORE</button>
+    </div>
+  </div>
+</body>
+
+</html>

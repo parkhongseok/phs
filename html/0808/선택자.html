@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>선택자</title>
+    <!--css내부정의-->
+    <style>
+      /*전체 선택자*/
+      *{
+        background-color:lightgreen;
+      }
+      /*태그 선택자*/
+      div{
+        background-color:lightyellow;
+      }
+      /*아이디 선택자*/
+      #header{
+        color:red;
+      }
+      /*클래스 선택자*/
+      .part{
+        color:blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap" class="container">
+      <div id="header" class="part">
+        <p>파트1</p>
+      </div>
+      <p class="part p1">파트2</p>
+      <p class="part p2">파트2</p>
+      <ul class="part">
+        <li>목록</li>
+        <li>목록</li>
+        <li>목록</li>
+      </ul>
+    </div>
+  </body>
+</html>

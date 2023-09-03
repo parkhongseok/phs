@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이아웃연습</title>
+  <!--폰트어썸CDN-->
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style>
+    *{margin:0; padding:0;}
+    a{text-decoration: none; color:inherit;}
+    /*clearfix핵*/
+    .clearfix::after{
+      content:"";
+      display:block;
+      clear:both;
+    }
+
+    .container{
+      width:1080px;
+      margin:40px auto;
+    }
+
+    .box{
+      width:250px;
+      height:240px;
+      float:left;
+      margin:0 10px;
+      position:relative;/*pos:abs를 적용한 자식요소의 기준이 됨*/
+      overflow:hidden;
+    }
+    .txt{
+      position:absolute;
+      /*부모요소와 같은 크기의 같은 위치로 정렬*/
+      top:0; left:0; right:0; bottom:0;
+      background-color:rgba(0,0,0,0.6);
+      color:#fff;
+      padding:40px 20px;
+
+      /*투명하게 변경*/
+      visibility:hidden;
+      opacity:0;
+      transform:scale(0) rotate(-720deg);
+      /*변환효과*/
+      transition:all 0.5s;/*all : 변환효과를 적용할수 있는 모든 속성을 선택*/
+    }
+    .txt > h2{
+      font-size:24px;
+      line-height:1.6;
+    }
+    .txt > p{
+      font-size:14px;
+      line-height:1.5;
+      margin-bottom:20px;
+    }
+    .icon > a{
+      font-size:20px;
+      margin-right:5px;
+    }
+    /*.box에 마우스를 올려놓으면 .txt가 화면에서 나타남*/
+    .box:hover > .txt{
+      visibility:visible;
+      opacity:1;
+      transform:scale(1) rotate(0);
+    }
+  </style>
+</head>
+<body>
+  <section class="container clearfix">
+    <article class="box">
+      <img src="image/animal1.png" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>
+          Lorem Ipsum is simply dummy 
+          text of the printing and 
+          typesetting industry.
+        </p>
+        <div class="icon">
+          <a href="#"><i class="fab fa-facebook-square"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </article>
+    <article class="box">
+      <img src="image/animal2.png" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>
+          Lorem Ipsum is simply dummy 
+          text of the printing and 
+          typesetting industry.
+        </p>
+        <div class="icon">
+          <a href="#"><i class="fab fa-facebook-square"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </article>
+    <article class="box">
+      <img src="image/animal3.png" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>
+          Lorem Ipsum is simply dummy 
+          text of the printing and 
+          typesetting industry.
+        </p>
+        <div class="icon">
+          <a href="#"><i class="fab fa-facebook-square"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </article>
+    <article class="box">
+      <img src="image/animal4.png" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>
+          Lorem Ipsum is simply dummy 
+          text of the printing and 
+          typesetting industry.
+        </p>
+        <div class="icon">
+          <a href="#"><i class="fab fa-facebook-square"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </article>
+  </section>
+</body>
+</html>

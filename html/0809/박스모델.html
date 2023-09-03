@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>박스모델</title>
+  <style>
+    .box{
+      background-color:orange;
+      width:auto;/*자신이 채울수 있는 영역을 100%채우고 있는 상태*/
+      height:auto;/*자식의 높이따라 유동적으로 적응하는 상태*/
+      width:100px;
+      height:100px;
+      /*요소의 바깥여백*/
+      margin-left:50px;
+      margin-top:50px;
+      margin-right:50px;
+      margin-bottom:50px;
+      /*축약형*/
+      margin:50px 50px 50px 50px;/*상 우 하 좌*/
+      margin:50px 50px 50px;/*상 좌/우 하*/
+      margin:50px 50px;/*상/하 좌/우*/
+      margin:50px;
+
+      /*요소의 안쪽여백(방식은 margin과 동일)*/
+      padding:50px;
+
+      /*테두리*/
+      border-width:25px;
+      border-style:solid;
+      border-color:red;
+      /*축약형*/
+      border:25px solid red;
+    }
+
+    .box2{
+      background-color:aqua;
+      width:250px;
+      height:250px;
+      margin-left:50px;
+
+      padding:25px;
+      box-sizing:border-box;/*width와 height값 안쪽으로 border와 padding을 넣어 줌*/
+    }
+    
+    span{
+      background-color:skyblue;
+      margin:100px;
+      /*인라인 요소의 경우 상하여백이 적용되지 않는다.*/
+    }
+  </style>
+</head>
+<body>
+  <h1>박스모델</h1>
+  <p>
+    넓이와 높이를 가질수 있는 객체에 한하여<br>
+    영역이라는 곳에 영향을 주는 속성들을 box-model이라고 합니다.
+  </p>
+  <ol>
+    <li>width속성</li>
+    <li>height속성</li>
+    <li>padding속성</li>
+    <li>margin속성</li>
+    <li>border속성</li>
+  </ol>
+
+  <div class="box">text</div>
+  <div class="box2">동생</div>
+  <span>인라인요소</span>
+</body>
+</html>

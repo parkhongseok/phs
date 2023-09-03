@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이아웃연습</title>
+  <!--폰트어썸CDN-->
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style>
+    *{margin:0; padding:0; box-sizing:border-box;}
+    ul{list-style: none;}
+    a{text-decoration: none; color:inherit;}
+
+    html,body{/*최상위 요소의 높이를 100%로 설정*/
+      height:100%;
+    }
+
+    header{/*body의 자식요소의 높이를 100%로 설정하여 브라우저의 높이와 같은 값으로 설정*/
+      min-width:1080px;
+      height:100%;
+      min-height:768px;/*최소높이값 설정*/
+      background:url(img/main.jpg) center/cover;
+    }
+    header > .wrap{
+      width:1080px;
+      height:100%;
+      margin:auto;
+      position:relative;/*pos:abs적용한 자식요소의 기준이 됨*/
+      color:#fff;
+    }
+
+    /*상단 내비게이션*/
+    nav{
+      width:100%;
+      padding:20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    nav > .logo{
+      font-size:30px;
+    }
+    nav > .gnb{
+      display:flex;
+    }
+    .gnb > li{
+      margin-left:50px;
+      border-bottom:3px solid transparent;
+      padding:5px 0;
+    }
+    .gnb > li:hover{
+      border-color:#fff;
+    }
+
+    /*텍스트 콘텐츠*/
+    .txt{
+      position:absolute;
+      left:50%; top:50%;
+      transform:translate(-50%,-50%);
+
+      text-align: center;
+    }
+    .txt > h1{
+      font-size:32px;
+    }
+    .txt > .arrow-btn{
+      margin-top:40px;
+    }
+    .arrow-btn > button{
+      border:none;
+      background-color:transparent;
+      color:#fff;
+      font-size:40px;
+      margin:0 5px;
+      cursor:pointer;
+    }
+
+    /*닷 버튼*/
+    .dot{
+      position:absolute;
+      bottom:40px;
+      left:50%; 
+      transform:translateX(-50%);/*x축으로면 요소 크기의 절반값만큼 왼쪽으로 이동*/
+      display:flex;
+    }
+    .dot > li{
+      width:15px;
+      height:15px;
+      border:1px solid #fff;
+      border-radius: 50%;
+      margin:0 5px;
+      cursor:pointer;
+    }
+    .dot > .on{
+      background-color:#fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <!--상단 내비게이션-->
+      <nav>
+        <div class="logo">
+          <a href="#"><i class="fab fa-reddit"></i></a>
+        </div>
+        <ul class="gnb">
+          <li><a href="#">about</a></li>
+          <li><a href="#">news</a></li>
+          <li><a href="#">portfolio</a></li>
+          <li><a href="#">album</a></li>
+          <li><a href="#">board</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
+      </nav>
+
+      <!--텍스트 콘텐츠-->
+      <div class="txt">
+        <h1>
+          Lorem ipsum, dolor sit<br>
+          amet consectetur adipisicing elit. 
+        </h1>
+        <div class="arrow-btn">
+          <button type="button"><i class="fas fa-angle-left"></i></button>
+          <button type="button"><i class="fas fa-angle-right"></i></button>
+        </div>
+      </div>
+      <!--dot버튼-->
+      <ul class="dot">
+        <li></li>
+        <li class="on"></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </header>
+</body>
+</html>

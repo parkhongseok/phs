@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animation연습3</title>
+  <style>
+    .box{
+      width:400px;
+      height:300px;
+      outline:1px solid red;
+      overflow:hidden;/*콘텐츠가 영역밖으로 넘어가면 가려짐*/
+      position:relative;
+    }
+    .logo{
+      position:absolute;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+    }
+    .rotate{
+      width:500px;
+      height:500px;
+      position:absolute;
+      left:50%; top:50%;
+      margin-left:-250px;
+      margin-top:-250px;
+
+      background:linear-gradient(0deg, #dc2424 1%, #4a569d 100%);
+
+      animation:spin 4s linear infinite;
+    }
+    @keyframes spin{
+      to{transform:rotate(360deg);}
+    }
+  </style>  
+</head>
+
+<body>
+  <div class="box">
+    <div class="rotate"></div>
+    <img class="logo" src="image/logo.png" alt="">
+  </div>
+</body>
+
+</html>

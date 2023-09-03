@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>포트폴리오필터</title>
+  <!--폰트어썸CDN-->
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style>
+    *{margin:0; padding:0; box-sizing:border-box;}
+    body{
+      max-width:900px;
+      margin:auto;
+      padding:0 10px;
+    }
+    .toolbar{
+      margin:1em 0;
+    }
+    .btn{
+      font-size:16px;
+      padding:8px 16px;
+      border:1px solid #999;
+      outline:none;
+      color:#666;
+      background-color:transparent;
+      cursor:pointer;
+    }
+    .btn:hover{/*마우스를 올렸을때*/
+      background-color:#999;
+      color:#fff;
+    }
+    .btn:focus{/*버튼을 선택했을때*/
+      border-color:#666;  
+      background-color:#999;
+      box-shadow:0 0 1px 1px #666;
+      color:#fff;
+      font-weight: bold;
+    }
+
+    #portfolio{
+      column-count:3;/*컬럼을 3개로 정렬*/
+      column-gap:20px;/*컬럼사이 여백*/
+    }
+    .scale-content > img{
+      display:block;
+      width:100%;
+      margin-bottom:20px;
+    }
+
+    /*애니메이션 효과*/
+    .scale-content:hover{/*마우스를 올려놓으면*/
+      animation:scale 0.5s ease;
+    }
+
+    @keyframes scale{
+      0%{transform:scale(1);}
+      50%{transform:scale(1.1);}
+      100%{transform:scale(1);}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="toolbar">
+    <button class="btn" type="button">All</button>
+    <button class="btn" type="button">WebSites</button>
+    <button class="btn" type="button">Mobile</button>
+    <button class="btn" type="button">Artwork</button>
+  </div>
+  <div id="portfolio">
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/300x234">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/640x480">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/300x234">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/500x400">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/300x234">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/640x480">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/300x234">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/300x234">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/500x400">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/300x234">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/500x400">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/300x234">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/500x400">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/640x480">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/300x234">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/500x400">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/300x234">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/640x480">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/500x400">
+    </div>
+    <div class="scale-content">
+      <img src="http://via.placeholder.com/300x234">
+    </div>
+  </div>
+</body>
+
+</html>

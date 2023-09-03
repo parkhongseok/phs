@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>버튼만들기</title>
+  <style>
+    button{
+      padding:15px 25px;
+      font-size:24px;
+      cursor:pointer;
+      color:#fff;
+      background-color:#4caf50;
+      border:none;
+      border-radius: 15px;
+      box-shadow:0 9px #999;
+    }
+    /*마우스를 버튼에 올려놨을때*/
+    button:hover{background-color:#3e8e41;}
+
+    /*버튼을 클릭했을때*/
+    button:active{
+      box-shadow:0 5px #666;
+      transform:translateY(4px);
+    }
+
+  </style>
+</head>
+
+<body>
+  <button type="button">Click</button>
+</body>
+
+</html>

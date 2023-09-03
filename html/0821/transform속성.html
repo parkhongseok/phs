@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transform속성</title>
+  <style>
+    div{
+      width:300px;
+      height:100px;
+      background-color:yellow;
+      border:1px solid black;
+      margin:200px auto;
+      /*transform : 변환속성*/
+      transform:translate(100px, 100px);/*translate = 위치이동(x좌표 이동값, y좌표 이동값)*/
+      transform:rotate(90deg);/*각도 변환(deg)*/
+      transform:scale(1.5);/*크기 변환(배수)*/
+      transform:skewX(45deg);/*기울기(deg)*/
+
+      /*축약형*/
+      transform:translateX(100px) rotate(90deg) scale(1.5);
+
+      /*transition속성 : 변환효과를 적용*/
+      transition-property:width;/*속성이름*/
+      transition-duration:2s;/*변환효과가 적용되는 시간*/
+      transition-timing-function:linear;/*가속도*/
+      transition-delay:1s;/*지연시간*/
+
+      /*축약형*/
+      transition:width 2s linear 1s;
+      /*width값이 변경되면 1초 지연시간 뒤에 일정한 가속도로 2초동안 변경*/
+    }
+    div:hover{/*div요소에 마우스를 올려놓으면 width속성값이 변경*/
+      width:400px;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+
+</html>

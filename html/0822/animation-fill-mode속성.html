@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animation-fill-mode속성</title>
+  <style>
+    /*
+    animation-fill-mode:
+      forwards : 실행된 애니메이션의 마지막 keyframe에 의해 설정된 계산된 값을 유지
+
+      backwards : 애니메이션이 실행된 후 요소에 정의 된 속성 값으로 적용
+
+    animation-play-state:
+      paused : 일시 정지
+      running : 애니메이션 재생
+    */
+    div{
+      width:200px; 
+      height:200px;
+      background:red;
+
+      animation:scale 5s;
+      animation-fill-mode:backwards;
+      animation-fill-mode:forwards;
+    }
+
+    div:hover{
+      animation-play-state:paused;
+    }
+
+    @keyframes scale{
+      0%{width:50px; height:50px;}
+      100%{width:500px; height:500px;}
+    }
+  </style>  
+</head>
+
+<body>
+  <div></div>
+</body>
+
+</html>

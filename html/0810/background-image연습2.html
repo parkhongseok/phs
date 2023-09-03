@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배경이미지 연습2</title>
+  <style>
+    /*초기화*/
+    *{margin:0; padding:0;}/*모든 요소의 여백을 제거*/
+    /*------------------------*/
+    .lg{
+      width:400px;
+      padding:100px;
+      background:url(img/background1.jpg) center/cover;
+    }
+    .md{
+      width:200px;
+      padding:100px;
+      background:url(img/background2.jpg) center/cover;
+    }
+    .sm{
+      width:200px;
+      height:200px;
+      background:url(img/background3.jpg) center/cover;
+    }
+    .sm > h1{
+      color:#fff;
+      text-align: center;
+      font-size:24px;
+      padding-top:20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="lg">
+    <div class="md">
+      <div class="sm">
+        <h1>background</h1>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배경이미지 연습</title>
+  <style>
+    /*초기화*/
+    *{margin:0; padding:0;}/*모든 요소의 여백을 제거*/
+    /*------------------------*/
+    .container{
+      width:100%;
+      min-width:800px;
+      height:640px;
+      /*축약형*/
+      background:url(img/background-image.jpg) center/cover;
+      padding-top:120px;
+      box-sizing:border-box;
+    }
+    .box{
+      width:540px;
+      height:240px;
+      /*red,green,blue,alpha(투명도)*/
+      background-color:rgba(255,255,255,0.4);
+      text-align: center;
+      color:#333;
+      padding:30px; 
+      box-sizing:border-box;
+      margin:auto;/*블럭요소의 가운데 정렬*/
+      border-radius:40px;/*모서리를 둥글게*/
+    }
+    .box > h1{
+      font-family: "휴먼둥근헤드라인";
+      font-size:42px;
+      line-height:1.4;
+    }
+    .box > p{
+      font-size:24px;
+      font-weight: bold;
+      margin-top:20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <h1>
+        전좌석 안전띠 착용,<br>
+        옵션이 아닌 필수입니다.
+      </h1>
+      <p>5년간 1,300명 안전띠 미착용으로 사망!</p>
+    </div>
+  </div>
+</body>
+</html>

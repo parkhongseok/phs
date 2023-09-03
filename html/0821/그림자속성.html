@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>그림자속성</title>
+  <style>
+    h1{
+      border:3px solid black;
+      padding:10px;
+      
+      /*text-shodow속성 : 글자에 그림자를 부여하는 속성*/
+      text-shadow:5px 5px 5px black;
+      
+      /*box-shadow속성 : 태그에 그림자를 부여하는 속성*/
+      box-shadow:inset 10px 10px 30px black;
+      /*inset : 그림자를 프레임 안쪽으로 표현*/
+      /*text-shadow & box-shadow: x축 y축 흐림도 확장값(그림자 두께) 색상;*/
+
+      /*중첩사용*/
+      box-shadow:10px 10px 10px black, 10px 10px 20px orange, 10px 10px 30px red;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    TDD기반의 풀스택 개발자 양성과정
+  </h1>
+</body>
+</html>

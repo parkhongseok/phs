@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>background-origin속성</title>
+  <style>
+    div{
+      width:400px;
+      height:260px;
+      padding:20px;
+      margin:20px;
+      border:8px dashed orange;
+      background-image:url(image/christmas1.png);
+      background-repeat: no-repeat;
+      box-sizing:border-box;/*padding과 border를 width와 height값 안으로 설정*/
+    }
+    #test1{/*배경이미지가 border에서부터 시작하고 border영역까지 배경이미지를 표현*/
+      background-origin:border-box;
+      background-clip:border-box;
+    }
+
+    #test2{/*배경이미지가 padding에서부터 시작하고 padding영역까지 배경이미지를 표현*/
+      background-origin:padding-box;
+      background-clip:padding-box;
+    }
+
+    #test3{/*배경이미지가 내용 영역에서부터 시작하고 내용 영역을 벗어난 배경이미지는 표현하지 않음*/
+      background-origin:content-box;
+      background-clip:content-box;
+    }
+  </style>
+</head>
+<body>
+  <div id="test1">
+    background-origin:border-box
+  </div>
+  <div id="test2">
+    background-origin:padding-box
+  </div>
+  <div id="test3">
+    background-origin:content-box
+  </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>background-attachment속성</title>
+  <style>
+    /*vw,vh = 브라우저의 넓이와 높의 %값으로 설정*/
+    .fixed{
+      width:100%; 
+      height:100vh;
+      background-image:url(image/christmas1.png);
+      background-position:center;
+      background-size:cover;
+      background-attachment:fixed;/*배경이미지 고정, 스크롤을 내리면 배경이미지가 위로 올라가 사라짐*/
+    }
+    .scroll{
+      width:100%;
+      height:100vh;
+      background-image:url(image/christmas2.png);
+      background-position:center;
+      background-size:cover;
+      background-attachment: scroll;/*배경이미지에 스크롤 적용*/
+    }
+  </style>
+</head>
+<body>
+  <p>페이지를 위아래로 스크롤 하십시오.</p>
+  <div class="fixed"></div>
+  <div class="scroll"></div>
+  <div class="fixed"></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex속성</title>
+  <style>
+    #main{
+      width:200px;
+      height:200px;
+      border:1px solid #c3c3c3;
+      display:flex;/*자식요소들을 나란히 정렬*/
+      flex-wrap:wrap;/*줄바꿈 하도록 지정*/
+      flex-direction:column;/*주축을 세로로 변경*/
+      flex-direction:row;/*주축을 가로로 변경*/
+      justify-content:space-around;/*주축 정렬*/
+      align-content:center;/*교차축 정렬(2줄이상)*/
+    }
+    #main > div{
+      width:50px;
+      height:50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <div style="background-color:coral;">A</div>
+    <div style="background-color:lightblue;">B</div>
+    <div style="background-color:khaki;">C</div>
+    <div style="background-color:pink;">D</div>
+    <div style="background-color:lightgray;">E</div>
+    <div style="background-color:lightgreen;">F</div>
+  </div>
+</body>
+</html>

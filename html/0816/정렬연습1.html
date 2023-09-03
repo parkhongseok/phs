@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>정렬연습</title>
+  <!--폰트어썸CDN-->
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style>
+    *{margin:0; padding:0;}
+    ul{list-style:none;}
+    a{color:inherit; text-decoration:none;}
+    /*클리어픽스핵*/
+    .clearfix::after{
+      content:"";
+      display:block;
+      clear:both;
+    }
+
+    .container{
+      width:1180px;
+      margin:auto;
+      padding:40px 10px;
+    }
+    .box{
+      float:left;
+      height:240px;
+      padding:40px 50px;
+      box-sizing:border-box;
+    }
+    /*.box요소의 자식인 h2태그를 모두 선택*/
+    .box > h2{
+      font-size:16px;
+      line-height:1.6;
+      letter-spacing: -1px;
+    }
+    .box > hr{
+      width:20px;
+      margin:20px 0;
+      border:1px solid #8bb7d1;
+    }
+    .box > ul > li{
+      font-size:12px;
+      line-height:1.5;
+    }
+    /*--------------------------------*/
+    .box:nth-child(1){
+      width:360px;
+      height:480px;
+      color:#fff;
+      background-image:url(img/layout01.png);
+    }
+    .box:nth-child(1) > hr{
+      border:1px solid #fff;
+    }
+    .box:nth-child(2){
+      width:560px;
+      background-image:url(img/layout02.png);
+      color:#fff;
+    }
+    .box:nth-child(2) > .logo{
+      margin-top:20px;
+    }
+    /*3번과 4번 box는 크기가 같으므로 한번에 선택하여 속성 적용*/
+    .box:nth-child(3),
+    .box:nth-child(4){
+      width:260px;
+      color:#111;
+    }
+    .box:nth-child(5){
+      width:560px;
+      background-image:url(img/layout03.png);
+    }
+  </style>
+</head>
+<body>
+  <div class="container clearfix">
+    <div class="box">
+      <h2>제품기획&middot;개발&middot;생산</h2>
+      <hr>
+      <ul>
+        <li>UV 소독</li>
+        <li>CLEAN</li>
+        <li>소형가전</li>
+        <li>BEAUTY</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h2>
+        국내를 넘어<br>
+        세계로 도약하는 기업
+      </h2>
+      <div class="logo">
+        <img src="img/global_nobel.png" alt="logo">
+      </div>
+    </div>
+    <div class="box">
+      <h2>Research &amp; Develope</h2>
+      <hr>
+      <ul>
+        <li>센서 개발</li>
+        <li>UV LED 적용 기술</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h2>ODM / OEM</h2>
+      <hr>
+      <ul>
+        <li>제품 기획</li>
+        <li>금형 설계</li>
+        <li>디자인/설계</li>
+        <li>시제품 제작</li>
+        <li>회로 설계</li>
+        <li>양상품 제작</li>
+      </ul>
+    </div>
+    <div class="box"></div>
+  </div>
+</body>
+</html>

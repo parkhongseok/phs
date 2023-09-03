@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>box-sizing예제</title>
+<style>
+.container{
+	width:300px; height:200px;
+	background-color:pink;	
+}
+.box{
+	background-color:khaki;
+	text-align:justify;	
+	width:300px;
+	/*.box의 영역 안쪽으로 20px만큼의 여백을 설정하고 .box의 넓이가 300px이상으로 늘어나지 않도록 설정하시오.*/
+	/*====이곳에 코드를 입력하세요======*/
+	padding:20px;
+	box-sizing:border-box;
+	/*=========================*/	
+}
+</style>
+</head>
+
+<body>
+	<div class="container">
+    	<div class="box">
+        	한 남자가 폭우 속을 아무런 보호 장비 없이 나갔다. 하지만 그의 머리카락이 하나도 젖지 않았는데 이유는 무엇일까?
+        </div>
+    </div>
+</body>
+</html>

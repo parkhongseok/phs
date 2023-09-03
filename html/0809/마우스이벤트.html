@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마우스이벤트</title>
+  <style>
+    h1 > span{
+      color:orange;
+    }
+    a:link{/*기본 링크 값*/
+      color:#333;
+      text-decoration: none;/*밑줄 제거*/
+    }
+    a:visited{/*방문한 링크*/
+      color:#6c3;
+    }
+
+    a:hover{/*a요소에 마우스를 올렸을때*/
+      background-color:hotpink;
+      color:#fff;
+    }
+    a:active{/*a요소를 클릭했을때*/
+      color:#f00;
+      background-color:transparent;/*투명하게*/
+    }
+  </style>
+</head>
+<body>
+  <h1>영화흥행 순위 : <span>B</span></h1>
+  <ul>
+    <li><a href="https://movie.daum.net/moviedb/main?movieId=143538" target="_blank">콘크리트 유토피아</a></li>
+    <li><a href="https://movie.daum.net/moviedb/main?movieId=158260" target="_blank">오펜하이머</a></li>
+    <li><a href="https://movie.daum.net/moviedb/main?movieId=147080" target="_blank">밀수</a></li>
+    <li><a href="https://movie.daum.net/moviedb/main?movieId=138866" target="_blank">보호자</a></li>
+    <li><a href="https://movie.daum.net/moviedb/main?movieId=162610" target="_blank">달짝지근해</a></li>
+  </ul>
+</body>
+</html>

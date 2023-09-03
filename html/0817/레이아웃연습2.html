@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이아웃연습2</title>
+  <!--폰트어썸CDN-->
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style>
+    *{margin:0; padding:0;}
+    ul{list-style:none;}
+    a{text-decoration: none; color:inherit;}
+    /*clearfix핵*/
+    .clearfix::after{
+      content:"";
+      display:block;
+      clear:both;
+    }
+
+    .container{
+      min-width:1000px;
+      height:1080px;
+      position:relative;
+      background:url(image/bg.png) center/cover;
+    }
+    .txt{
+      position:absolute;
+      /*pos:abs 적용시 가운데 정렬방법*/
+      left:50%; top:50%;
+      transform:translate(-50%,-50%);
+      color:#fff;
+      text-align: center;
+    }
+    .txt > p{
+      font-size:18px;
+      font-weight: bold;
+      margin-top:40px;
+    }
+
+    .menu{
+      position:absolute;
+      left:0;
+      bottom:0;
+      background-color:#331a51;
+      width:100%;
+      color:#fff;
+      text-align: center;
+      padding:30px 0;
+    }
+    .menu > a{
+      font-size:14px;
+      font-weight: bold;
+      margin:0 50px;
+    }
+  </style>
+</head>
+<body>
+  <section class="container">
+    <div class="txt">
+      <img src="image/logo.png" alt="">
+      <p>
+        Lorem ipsum, dolor sit amet<br>
+        consectetur adipisicing elit. 
+      </p>
+    </div>
+    <div class="menu">
+      <a href="#">about</a>
+      <a href="#">news</a>
+      <a href="#">portfolio</a>
+      <a href="#">album</a>
+      <a href="#">board</a>
+      <a href="#">contact</a>
+    </div>
+  </section>
+</body>
+</html>

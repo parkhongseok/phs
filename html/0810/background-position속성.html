@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>background-position속성</title>
+  <style>
+    div{
+      width:1900px;
+      height:600px;
+      margin-bottom:12px;
+      background-color:#fe9;
+      background-repeat: no-repeat;/*반복 배경 없음*/
+      background-image:url(img/background-attachment_01.jpg);/*배경이미지*/
+    }
+    /*배경이미지의 위치변경*/
+    .one{
+      background-position:10px bottom;
+      /*x축 크기 y축 크기로 값을 적용할 수 있다.*/
+    }
+    .two{
+      background-position:3em 50%;
+    }
+    /*여러 배경 이미지*/
+    .three{
+      background-image:url(img/background-attachment_02.jpg), url(img/background-attachment_01.jpg);
+      background-position:0px 0px, center;
+    }
+  </style>
+</head>
+<body>
+  <div class="one">Example One</div>
+  <div class="two">Example Two</div>
+  <div class="three">Example Three</div>
+</body>
+</html>

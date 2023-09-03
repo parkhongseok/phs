@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메가메뉴</title>
+  <!--폰트어썸CDN-->
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style>
+    *{margin:0; padding:0; box-sizing: border-box;}
+    
+    .navbar{
+      background-color:#333;
+      font-family: Arial, Helvetica, sans-serif;
+      display:flex;
+    }
+    .navbar a{
+      font-size:16px;
+      color:#fff;
+      padding:14px 16px;
+      text-decoration: none;
+    }
+    .dropbtn{
+      background-color:transparent;
+      border:none;
+      font-size:16px;
+      color:#fff;
+      padding:14px 16px;
+      cursor:pointer;
+    }
+    /*모든 버튼요소에 하이라이트 효과적용*/
+    .navbar a:hover,
+    .dropdown:hover > .dropbtn{
+      background-color:orange;
+    }
+    /*드롭다운메뉴*/
+    .dropdown-content{
+      /*드롭다운콘텐츠의 부모요소에 pos:rel를 적용하지 않은 이유는 드로다운콘텐츠의 넓이를 브라우저의 100%로 정렬해야하기 때문*/
+      position:absolute;
+      background:#f9f9f9;
+      left:0;
+      width:100%;
+      box-shadow:0 8px 16px rgba(0,0,0,0.2);
+      z-index:10;
+      display:none;/*화면에서 제거*/
+    }
+    /*dropdown요소에 마우스를 올리면 콘텐츠가 나타남*/
+    .dropdown:hover > .dropdown-content{
+      display:block;
+    }
+
+    .header{
+      background-color:orange;
+      padding:16px;
+      color:#fff;
+      /*글자 선택 x*/
+      user-select:none;
+    }
+
+    /*유저가 선택한 글자의 스타일을 변경*/
+    /* h2::selection{
+      background-color:pink;
+      color:red;
+    } */
+
+    .row{
+      display:flex;
+    }
+    .column{
+      width:33.3333%;
+      padding:10px;
+      background-color:#ccc;
+      height:220px;
+    }
+    .column > h3{
+      padding:6px;
+    }
+    .column a{
+      display:block;
+      color:#111;
+    }
+    .column a:hover{background-color:#ddd;}
+  </style>    
+</head>
+
+<body>
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">News</a>
+    <div class="dropdown">
+      <button class="dropbtn">Dropdown</button>
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>Mega_menu</h2>
+        </div>
+        <div class="row">
+          <div class="column">
+            <h3>sub 1</h3>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+          <div class="column">
+            <h3>sub 2</h3>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+          <div class="column">
+            <h3>sub 3</h3>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:16px;">
+    <h3>네비게이션 바에서 전체 넓이 서브메뉴 드롭 다운</h3>
+    <p>'드롭 다운'링크 위로 마우스를 이동하면 서브메뉴가 표시됩니다.</p>
+  </div>
+</body>
+</html>

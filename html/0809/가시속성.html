@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가시속성</title>
+  <style>
+    #box{
+      background-color:orange;
+      display:none;/*요소가 화면에서 사라짐*/
+      display:inline;/*인라인 요소로 변경*/
+      display:block;/*블록 요소로 변경*/
+      display:inline-block;/*width와 height속성과 margin속성을 적용할 수 있다.*/
+      width:300px; height:50px; margin:10px;
+
+      /*visibility : hidden이 적용된 객체는 화면에서 사라지나 display:none과 는 다르게 단지 시야에서만 보이지 않게 합니다.*/
+      visibility:hidden;
+      visibility:visible;/*default*/
+
+      /*opacity : 투명도를 설정할 수 있게 합니다. 속성값은 0(투명) ~ 1(불투명)사이 소수점 값을 사용하며 0.1 ~ 0.9가 반투명한 상태입니다.*/
+      opacity:0.2;
+    }
+  </style>
+</head>
+<body>
+  <span>기업맞춤형</span>
+  <div id="box">
+    <span>TDD기반의 풀스택(Java, Spring, Vue)</span>
+  </div>
+  <span>개발자 양성과정</span>
+</body>
+</html>

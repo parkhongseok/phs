@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이아웃연습</title>
+  <!--폰트어썸CDN-->
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style>
+    *{margin:0; padding:0;}
+    ul{list-style:none;}
+    a{text-decoration: none; color:inherit;}
+    html,body{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color:#666;
+      font-size:16px;
+      line-height:1.5;
+      height:100%;
+    }
+    /*html과 body의 높이를 100%로 설정하고 body안 요소의 높이를 100%로 설정하면 브라우저 높이의 100%로 요소의 높이를 설정할 수 있음*/
+    main{
+      height:100%;
+      min-width:1024px;
+      min-height:768px;
+      background:url(image/s1.jpg) center/cover;
+      position:relative;
+    }
+
+
+    .title{
+      position:absolute;
+      text-align: center;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      background-color:rgba(255,255,255,0.6);
+      padding:20px;
+      border-radius: 20px;
+      color:#333;
+    }
+    .title > h1 > img{
+      filter: drop-shadow(5px 5px 5px gray);
+      transition:all 0.3s;
+    }
+    .title > h1 > img:hover{
+      transform:scale(1.1);
+    }
+    .title > p{
+      font-size:20px;
+      margin:20px 0;
+      font-weight: bold;
+    }
+    .title > .btn{
+      padding:6px 32px;
+      background-color:transparent;
+      border:2px solid #333;
+      color:#333;
+      font-weight: 800;
+    }
+    .title > .btn:hover{
+      background-color:#333;
+      color:#e1e1e1;
+      cursor:pointer;
+    }
+
+    .dot{
+      position:absolute;
+      right:20px;
+      top:50%;
+      transform:translateY(-50%);
+    }
+    .dot > li{
+      width:15px;
+      height:15px;
+      border:1px solid #111;
+      border-radius: 50%;
+      margin:5px 0;
+      cursor:pointer;
+    }
+    .dot > .active{
+      background-color:#111;
+    }
+
+    /*sidebar*/
+    .sidebar{
+      position:absolute;
+      width:380px;
+      height:100%;
+      left:0; top:0;
+      background-color:#5b5b66;
+      color:#fff;
+      z-index:999;
+    }
+    .close{
+      position:absolute;
+      right:10px; top:10px;
+      border:none;
+      background-color:transparent;
+      color:#fff;
+      font-size:30px;
+      cursor:pointer;
+    }
+    .sidebar > .wrap{
+      width:50%;
+      position:absolute;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+    }
+    .gnb{
+      border-bottom:1px solid #fff;
+    }
+    .gnb > li{
+      margin-bottom:30px;
+    }
+    .sidebar p{
+      font-size:12px;
+      margin:30px 0;
+    }
+    .icon{
+      display:flex;
+    }
+    .icon > li{
+      font-size:25px;
+      margin-right:10px;
+    }
+  </style>  
+</head>
+
+<body>
+  <main>
+    <div class="sidebar">
+      <button class="close"><i class="fas fa-times"></i></button>
+      <div class="wrap">
+        <ul class="gnb">
+          <li><a href="#">about</a></li>
+          <li><a href="#">news</a></li>
+          <li><a href="#">portfolio</a></li>
+          <li><a href="#">board</a></li>
+          <li><a href="#">album</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <ul class="icon">
+          <li><a href="#"><i class="far fa-user-circle"></i></a></li>
+          <li><a href="#"><i class="far fa-user-circle"></i></a></li>
+          <li><a href="#"><i class="far fa-user-circle"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="title">
+      <h1><img src="img/logo2.png" alt="" width="80"></h1>
+      <p>
+        Lorem ipsum dolor sit amet<br> consectetur adipisicing elit. Dolor
+      </p>
+      <button class="btn" type="button">BUTTON</button>
+    </div>
+    <ul class="dot">
+      <li></li>
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </main>
+</body>
+</html>

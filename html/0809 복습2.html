@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>width_height 속성</title>
+  <style>
+   .box1{
+    background-color: orange;
+    width: 500px;
+    height: 400px;
+  }
+
+
+  .box2{
+    background-color: lightblue;
+    /*자식요소가 ㄱ더 크면 레이아웃이 무너지는 현상이 생긴다.*/
+    width: 400px;
+    height: 200px;
+  }
+  span{
+    /* display: block; */
+     /*블록요소로 변환할 수 있는데 자동으로 줄바꿈이 일어나버린다. 이 떄 자동으로 줄바꿈을 하지 않고 위드랑 하이트 값을 주려면, 인라인 블럭 요소가 있다.*/
+    background-color: #999;
+    /* 인라인 요소는 width값과 height값을 가질 수 없다. */
+    width: 300px;
+    height: 200px;
+  } 
+    </style>
+</head>
+
+
+
+
+
+
+<body>
+  <div class="box1">
+    <div class="box2">
+      <span> width : 가로값 </span> height : 세로값
+    </div>
+  </div>
+</body>
+</html>

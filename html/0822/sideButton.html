@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sideButton</title>
+  <style>
+    .container{
+      width:1000px;
+      margin:auto;
+      height:900px;
+      background-color:lightyellow;
+      overflow:hidden;/*영역밖으로 넘어가는 콘텐츠를 가려줌*/
+      position:relative;
+    }
+    .sidenav{
+      position:absolute;
+      left:0; top:0;
+    }
+    .sidenav a{
+      display:block;
+      width:100px;
+      padding:15px;
+      font-size:20px;
+      color:#fff;
+      text-decoration: none;
+      border-radius: 0 5px 5px 0;/*왼상단/ 우상단 / 우하단 / 왼하단*/
+      transition:all 0.3s;/*0.3초에 걸쳐 변환효과 적용*/
+      margin:6px 0;
+      /*버튼요소들을 컨텐츠 왼쪽 밖으로 이동시킴*/
+      transform:translateX(-90px);
+    }
+    #about{
+      background-color:#4caf50;
+    }
+    #blog{
+      background-color:#2196f3;
+    }
+    #projects{
+      background-color:#f44336;
+    }
+    #contact{
+      background-color:#555;
+    }
+    /*버튼에 마우스를 올려 놓으면*/
+    .sidenav a:hover{
+      transform:translateX(0);/*콘텐츠영역 안으로 이동*/
+    }
+  </style>  
+</head>
+
+<body>
+  <section class="container">
+    <div class="sidenav">
+      <a href="#" id="about">About</a>
+      <a href="#" id="blog">Blog</a>
+      <a href="#" id="projects">Projects</a>
+      <a href="#" id="contact">Contact</a>
+    </div>
+  </section>
+</body>
+
+</html>

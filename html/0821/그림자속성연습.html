@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>그림자속성연습</title>
+  <style>
+    *{margin:0; padding:0; box-sizing:border-box;}
+
+    .container{
+      min-width:1200px;
+      background:url(img/bg.jpg) center/cover;
+    }
+    .container > .wrap{
+      width:1200px;
+      margin:auto;
+      padding:40px 10px;
+      display:flex;
+      justify-content: space-between;
+    }
+    .side-box{
+      width:280px;
+      height:520px;
+    }
+    .side-box > .item{
+      width:280px;
+      height:240px;
+      background-color:rgba(255,255,255,0.9);
+      padding:40px;
+      margin-bottom:40px;
+      box-shadow:5px 5px 10px rgba(0,0,0,0.3);
+    }
+    .side-box > .item > .top-txt{
+      display:flex;
+      justify-content: space-between;
+      margin-bottom:40px;
+    }
+    .top-txt > p{
+      font-size:14px;
+      color:#666;
+      line-height:1.6;
+    }
+
+    .bottom-txt{
+      font-size:30px;
+      font-weight: bold;
+      color:#666;
+    }
+    .bottom-txt > strong{
+      font-size:60px;
+      color:#5faad9;
+      margin-right:60px;
+      position:relative;
+      bottom:-3px;
+    }
+
+    .center-box{
+      width:580px;
+      height:520px;
+      background:url(img/car.png);
+    }
+    .center-box > h1{
+      font-size:42px;
+      text-align: center;
+      margin-top:70px;
+      color:#5faad9;
+      font-weight: normal;
+      letter-spacing:-1px;
+      line-height:1.2;
+      /*그림자속성*/
+      text-shadow:5px 5px 5px rgba(0,0,0,0.3);
+    }
+    .center-box > h1 > b{
+      font-size:60px;
+    }
+
+  </style>
+</head>
+<body>
+  <section class="container">
+    <div class="wrap">
+      <div class="side-box">
+        <div class="item">
+          <div class="top-txt">
+            <p>
+              아름답고 열매를 곳으로<br>
+              목숨이 봄바람이다.
+            </p>
+            <img src="img/icon.png" alt="">
+          </div>
+          <div class="bottom-txt">
+            <strong>15</strong>건
+          </div>
+        </div>
+        <div class="item">
+          <div class="top-txt">
+            <p>
+              아름답고 열매를 곳으로<br>
+              목숨이 봄바람이다.
+            </p>
+            <img src="img/icon.png" alt="">
+          </div>
+          <div class="bottom-txt">
+            <strong>15</strong>건
+          </div>
+        </div>
+      </div>
+      <div class="center-box">
+        <h1>
+          도로위의 잔혹사<br>
+          <b>로드킬(ROAD KILL)</b>
+        </h1>
+      </div>
+      <div class="side-box">
+        <div class="item">
+          <div class="top-txt">
+            <p>
+              아름답고 열매를 곳으로<br>
+              목숨이 봄바람이다.
+            </p>
+            <img src="img/icon.png" alt="">
+          </div>
+          <div class="bottom-txt">
+            <strong>15</strong>건
+          </div>
+        </div>
+        <div class="item">
+          <div class="top-txt">
+            <p>
+              아름답고 열매를 곳으로<br>
+              목숨이 봄바람이다.
+            </p>
+            <img src="img/icon.png" alt="">
+          </div>
+          <div class="bottom-txt">
+            <strong>15</strong>건
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

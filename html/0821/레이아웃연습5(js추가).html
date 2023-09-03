@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이아웃연습</title>
+  <!--폰트어썸CDN-->
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 1040px;
+      padding: 40px 10px;
+      margin: auto;
+    }
+
+    .imgGallery {
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /*leftImg와 rightImg를 같이 선택*/
+    .imgGallery>div {
+      width: 500px;
+      height: 520px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .leftImg>.txt {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .leftImg>.txt>h1 {
+      font-size: 24px;
+      font-weight: normal;
+      margin: 20px 0;
+    }
+
+    .leftImg>.txt>.dot {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dot>li {
+      width: 15px;
+      height: 15px;
+      border-radius: 8px;
+      background-color: #fff;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .dot>.active {
+      width: 50px;
+    }
+
+    .rightImg {
+      display: flex;
+      flex-wrap: wrap;
+      /*줄바꿈 허용*/
+      justify-content: space-between;
+      /*주축*/
+      align-content: space-between;
+      /*교차축(2중이상)*/
+    }
+
+    .rightImg>.box {
+      width: 240px;
+      height: 250px;
+      position: relative;
+    }
+
+    .rightImg > .box:nth-child(1) {
+      background-image: url(img/img1.png);
+    }
+
+    .rightImg > .box:nth-child(2) {
+      background-image: url(img/img2.png);
+    }
+
+    .rightImg > .box:nth-child(3) {
+      background-image: url(img/img3.png);
+    }
+
+    .rightImg > .box:nth-child(4) {
+      background-image: url(img/img4.png);
+    }
+
+    .box>.txt {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      color: #fff;
+    }
+    .ad{
+      display:flex;
+      justify-content: space-between;
+    }
+    .ad > div{
+      width:500px;
+      height:160px;
+    }
+    .l-area{
+      background-color:#fdd100;
+      padding:25px 60px;
+      font-size:24px;
+      color:#111;
+      line-height:1.5;
+      background-image:url(img/banner1.png);
+      background-repeat: no-repeat;
+      background-position:85% 50%;
+    }
+    .r-area{
+      display: flex;
+      flex-wrap: wrap;
+      /*줄바꿈 허용*/
+      justify-content: space-between;
+      /*주축*/
+      align-content: space-between;
+      /*교차축(2중이상)*/
+    }
+    .r-area > .box{
+      border:1px solid #999;
+      width:240px; height:70px;
+      overflow:hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="container">
+    <div class="imgGallery">
+      <div class="leftImg">
+        <ul class="thumbs">
+          <li><img src="img/color.png" alt=""></li>
+          <li><img src="img/color1.png" alt=""></li>
+          <li><img src="img/color2.png" alt=""></li>
+          <li><img src="img/color3.png" alt=""></li>
+        </ul>
+        <div class="txt">
+          <h1>Lorem Ipsum</h1>
+          <ul class="dot">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rightImg">
+        <div class="box">
+          <div class="txt">
+            Lorem Ipsum
+          </div>
+        </div>
+        <div class="box">
+          <div class="txt">
+            Lorem Ipsum
+          </div>
+        </div>
+        <div class="box">
+          <div class="txt">
+            Lorem Ipsum
+          </div>
+        </div>
+        <div class="box">
+          <div class="txt">
+            Lorem Ipsum
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ad">
+      <div class="l-area">
+        <b>디자인하우스</b>에서<br>
+        더 많은 인사이트를<br>
+        발견하세요!
+      </div>
+      <div class="r-area">
+        <div class="box">
+          <a href="#"><img src="img/banner2.png"></a>
+        </div>
+        <div class="box">
+          <a href="#"><img src="img/banner3.png"></a>
+        </div>
+        <div class="box">
+          <a href="#"><img src="img/banner4.png"></a>
+        </div>
+        <div class="box">
+          <a href="#"><img src="img/banner5.png"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style> 
+  *{margin: 0; padding: 0;}
+  a{text-decoration: none; color: inherit;}
+  .clearfix::after{
+    content:"";
+    display:bloock;
+    clear:both;
+  }
+
+  .container{
+      width:1080px;
+      margin:40px auto;
+  }
+
+    .box{
+      width:250px;
+      height:240px;
+      float:left;
+      margin:0 10px;
+      position:relative;
+    }
+
+    .txt{
+      position:absolute;
+      /*부모요소와 같은 크기의 같은 위치로 정렬*/
+      top:0; left:0; right:0; bottom:0;
+      background-color:rgba(0,0,0,0.6);
+      color:#ccc;
+      padding:40px 20px;
+      display:none;
+    }
+      .txt > h2{
+      font-size:24px;
+      line-height:1.6;
+    }
+    .box:hover > .txt{
+      display:block;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="container clearfix">
+    <article class="box">
+      <img src="../img/images/콘텐츠정렬_연습예제_03.jpg" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>
+          Lorem Ipsum is simply dummy 
+          text of the printing and 
+          typesetting industry.
+        </p>
+        <div class="icon">
+          <a href="#"><i class="fab fa-facebook-square"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </article>
+    <article class="box">
+      <img src="../img/images/콘텐츠정렬_연습예제_03.jpg" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>
+          Lorem Ipsum is simply dummy 
+          text of the printing and 
+          typesetting industry.
+        </p>
+        <div class="icon">
+          <a href="#"><i class="fab fa-facebook-square"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </article>
+    <article class="box">
+      <img src="../img/images/콘텐츠정렬_연습예제_03.jpg" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>
+          Lorem Ipsum is simply dummy 
+          text of the printing and 
+          typesetting industry.
+        </p>
+      </div>
+    </article>
+    <article class="box">
+      <img src="../img/images/콘텐츠정렬_연습예제_03.jpg" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>
+          Lorem Ipsum is simply dummy 
+          text of the printing and 
+          typesetting industry.
+        </p>
+      </div>
+    </article>
+  </section>
+</body>
+</html>

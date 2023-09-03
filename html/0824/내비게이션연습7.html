@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내비게이션</title>
+  <!--폰트어썸CDN-->
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    ul{list-style:none;}
+    a{
+      text-decoration: none;
+      color:inherit;
+    }
+    nav{
+      min-width:1080px;
+      background-color:orange;
+      color:#fff;
+      font-size:14px;
+      line-height:1.5;
+    }
+    nav > .wrap{
+      width:1080px;
+      margin:auto;
+      padding:0 20px;
+      position:relative;/*pos:abs를 적용한 자손(후손)요소의 기준이 됨*/
+      display:flex;
+      justify-content:space-between;
+      align-items: center;
+    }
+    .logo{
+      font-size:18px;
+      font-weight: bold;
+    }
+    .gnb{
+      display:flex;
+    }
+    .gnb > li{
+      margin-left:60px;
+    }
+    .gnb > li > a{
+      display:block;
+      padding:10px 0;
+    }
+    .sub{
+      position:absolute;
+      left:0;
+      width:100%;
+      background-color:#ccc;
+      display:none;/*화면에서 제거*/
+      justify-content: space-between;
+      padding:20px;
+      line-height:1.7;
+    }
+    .thumbs{
+      display:flex;
+    }
+    .thumbs > li{
+      margin-left:20px;
+    }
+
+    /*메뉴에 마우스를 올리면 서브메뉴가 나타남*/
+    .gnb > li:hover > .sub{
+      display:flex;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="wrap">
+      <div class="logo"><a href="#">SHAMMAH</a></div>
+
+      <ul class="gnb">
+        <li>
+          <a href="#">MENU1</a>
+          <div class="sub">
+            <ul class="sub-menu">
+              <li><a href="#">menu1-1</a></li>
+              <li><a href="#">menu1-2</a></li>
+              <li><a href="#">menu1-3</a></li>
+            </ul>
+            <ul class="thumbs">
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#">MENU2</a>
+          <div class="sub">
+            <ul class="sub-menu">
+              <li><a href="#">menu2-1</a></li>
+              <li><a href="#">menu2-2</a></li>
+            </ul>
+            <ul class="thumbs">
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#">MENU3</a>
+          <div class="sub">
+            <ul class="sub-menu">
+              <li><a href="#">menu3-1</a></li>
+              <li><a href="#">menu3-2</a></li>
+              <li><a href="#">menu3-3</a></li>
+            </ul>
+            <ul class="thumbs">
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="#">MENU4</a>
+          <div class="sub">
+            <ul class="sub-menu">
+              <li><a href="#">menu4-1</a></li>
+              <li><a href="#">menu4-2</a></li>
+            </ul>
+            <ul class="thumbs">
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+              <li><img src="http://via.placeholder.com/90x80/fc0"></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</body>
+
+</html>
