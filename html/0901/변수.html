@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>변수</title>
+</head>
+<body>
+  <script>
+   // var 변수명 = 변수값
+
+   //변수 선언할때는 var, let, const 키워드를 사용한다.(let과 const는 ES6에서 도입된 키워드)
+
+   //변수는 하나의 값을 저장하기 위한 수단이다.
+   var userId = 1;
+   var userName = 'Lee';
+
+   //변수값을 콘솔창에 출력
+   console.log(userId, userName); //1 Lee
+
+   //객체나 배열 같은 자료구조를 사용하면 여러개의 값을 하나로 그룹화해서 하나의 값처럼 사용할 수 있다.
+
+   var user = { id:1, name:"Lee" };
+   var users = [
+    {id:1, name: "Lee"},
+    {id:2, name: "Kim"},
+    {id:3, name: "park"}
+   ];
+   console.log(users)
+
+   console.log(score); // undefined
+
+   var score; //변수 선언(변수 선언문)
+   //변수 호이스팅이란 변수 선언문이 코드의 선두로 끌어 올려진 것처럼 동작하는 자바스크립트 고유 특징이다.
+   
+   //값의 할당
+    score = 80;
+    console.log(score); //80
+
+    //값을 변경
+    score = 100;
+    console.log(score); //100
+  </script>
+</body>
+</html>

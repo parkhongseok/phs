@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>데이터타입</title>
+</head>
+<body>
+  <script>
+    //숫자(number)
+    var integer = 10; // 정수
+    var double = 10.12; // 실수
+    var negative = -20; //음의 정수
+
+    //숫자 타입은 추가적으로 세가지 특별한 값도 표현
+    var infi = 10 / 0; //Infinity : 양의 무한대
+    var infiNega = 10 / -0; //-Infinity : 음의 무한대
+    var nan = 1 * 'String'; //NaN : 산술 연산 불가(Not a Number)
+    console.log(infi, infiNega, nan)
+
+    //문자열(string)
+    //문자열은 작은따옴표(''), 큰따옴표(""), 백틱(``)으로 텍스트를 감싼다.
+    var string;
+    string = '문자열';
+    string = "문자열";
+    string = `문자열`; // (ES6)
+
+    string = '작은따옴표로 감싼 문자열 내의 "큰따옴표는"는 문자열로 인식된다.'
+    string = "큰따옴표로 감싼 문자열 내의 '작은따옴표'는 문자열로 인식된다."
+    console.log(string)
+
+    //따옴표로 감싸지 않은 문자는 식별자로 인식한다.
+    //string = hello;
+
+    //불리언 : 논리값 (참, 거짓을 나타내는 true와 false로 표현)
+    //조건에 의해 프로그램의 흐름을 제어하는 조건문에서 자주 사용한다.
+    var foo = true;
+    console.log(foo); // true
+    foo = false;
+    console.log(foo); // false
+
+    //undefined : 변수가 선언 이후 값이 할당된 적이 없다는 뜻
+    var bar;
+    console.log(bar); // undefined
+
+    //null : 변수에 값이 없다는 것을 의도적으로 명시할 때 사용
+    bar = 'Lee';
+    bar = null; //이전에 할당되어 있던 값에 대한 참조를 제거.
+    console.log(bar)
+
+
+    var element = document.querySelector('.myClass');//.myClass인 요소를 element변수에 할당
+    console.log(element)//html 문서에 myClass 클래스를 갖는 요소가 없다면 null을 반환한다.
+
+    //심벌 값 생성
+    var key = Symbol('key');
+    console.log(typeof key)//typeof 연산자는 데이터 타입을 반환
+    //객체 생성
+    var obj = {};
+    //obj객체에 key프로퍼티를 생성하고 value값을 할당
+    obj[key] = 'value';
+    //이름이 충돌할 위험이 없는 유일무이한 값인 심벌을 프로퍼티 키로 사용함
+    console.log(obj[key]);
+
+    //객체
+    //자바스크립트는 객체 기반의 언어이며, 자바스크립트를 이루고 있는 거의 모든 것이 객체이다.
+    //객체 생성
+    var obj = {};
+  </script>
+</body>
+</html>

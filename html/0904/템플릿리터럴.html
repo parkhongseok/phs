@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>템플릿리터럴</title>
+</head>
+<body>
+  <script>
+    //템플릿 리터럴(``)
+    //멀티라인 문자열, 표현식 삽입, 태그드 템플릿 등 편리한 문자열 기능을 제공
+
+    var template = `Template literal`;
+    console.log(template)
+
+    //일반 문자열 내에서는 줄바꿈이 허용되지 않는다.
+    // var str = 'hello
+    // world'; //오류 발생 
+
+    //멀티라인 문자열
+    template = `<ul>
+      <li><a href="#">Home</a></li>
+</ul>`;
+    console.log(template)
+    //템플릿 리터럴 내에서는 이스케이프 시퀀스를 사용하지 않고도 줄바꿈이 허용되며, 모든 공백도 그대로 적용된다.
+
+    //표현식 삽입
+    //문자열은 연산자 +를 사용해 연결할 수 있다.
+    var first = 'MinKyu';
+    var last = 'Jang';
+
+    //ES5 : 문자열 연결
+    console.log('My name is ' + first + ' ' + last + '.');
+
+    //ES6 : 표현식 삽입 : 간단히 문자열을 삽입
+    console.log(`My name is ${first} ${last}.`);
+  </script>
+</body>
+</html>
