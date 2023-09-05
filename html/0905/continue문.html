@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>continue문</title>
+
+</head>
+<body>
+  <script>
+    //continue : 반복문의 코드 블록 실행을 현 지점에서 중단하고 반복문의 증감식으로 실행 흐름을 이동시킨다.(break문처럼 반복문을 탈출하지는 않는다.)
+
+    //문자열에서 특정 문자의 갯수를 세는 예제
+    //string변수에서 l이라는 갯수를 count변수에 할당
+    var string = "Hello World";
+    var search = 'l';
+    var count = 0; 
+    //length프로퍼티로 문자열의 갯수를 알수 있다.
+    for(var i=0; i < string.length; i++){//string변수의 글자 갯수만큼 반복
+      //i번째의 글자가 l 이 아니면 현 지점에서 실행을 중단하고 반복문의 증감식으로 이동한다.
+      if(string[i] !== search) continue;
+
+      count++;//continue문이 실행되면 이 문은 실행되지 않는다.
+    }
+    console.log(count);//3
+  </script>
+</body>
+</html>

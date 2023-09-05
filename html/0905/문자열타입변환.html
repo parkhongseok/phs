@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문자열타입변환</title>
+
+</head>
+<body>
+  <script>
+    //1. String 생성자 함수를 new연산자 없이 호출하는 방법
+    //숫자 => 문자열
+    console.log(String(1)); //"1"
+    console.log(String(NaN)); //"NaN"
+    console.log(String(Infinity)); //"Infinity"
+    //불러언 => 문자열
+    console.log(String(true)); //"true"
+    console.log(String(false)); //"false"
+
+    //2. Object.prototype.toString 메서드를 사용하는 방법
+    //숫자 => 문자열
+    (1).toString();
+    (NaN).toString();
+    (Infinity).toString();
+    (true).toString();
+    (false).toString();
+
+    //3. 문자열 연결 연산자를 이용하는 방법
+    1+""; //"1"
+
+    //숫자 타입으로 변환
+    //1. Number생성자 함수
+    console.log(typeof Number("10"))
+
+    //2. parseInt, parseFloat함수를 사용하는 방법
+    console.log(parseInt("10.564점"))//소수점은 제거(정수만 반환)
+    console.log(parseFloat("10.564점"))//소수점까지 숫자로 변경
+
+    //3. +단항 산술 연산자
+    +"0"; // -> 0
+
+    //4. *산술 연산자
+    "0"*1 // -> 0
+
+    //불리언 타입으로 변환
+    //1. Boolean 생성자 함수
+    Boolean("x") // true
+
+    //2. !부정연산자를 두번 사용하는 방법
+    console.log(!!1)
+  </script>
+</body>
+</html>

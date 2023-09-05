@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>while문</title>
+
+</head>
+<body>
+  <script>
+    //조건식의 평가 결과가 참이면 코드 블록을 계속해서 반복 실행한다.
+    var count = 0;
+
+    //count변수가 3보다 작으면 코드 블록을 계속 반복 실행
+    while(count < 3){
+      console.log(count)//count값을 콘솔에 출력
+      count++;//count값을 증가
+    }
+
+    //do while문 : 코드블록을 먼저 실행하고 조건식을 평가한다.(무조건 한 번이상 실행)
+    count = 0;
+    //count가 3보다 작으면 코드 블록을 계속 반복 실행
+    do{
+      console.log(count)
+      count++;
+    }while(count < 3); // 0 1 2
+  </script>
+</body>
+</html>

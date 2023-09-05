@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>과체중테스트</title>
+
+</head>
+<body>
+  <script>
+    var name = prompt("당신의 이름은?","");
+    var height = prompt("당신의 신장은?","");
+    var weight = prompt("당신의 몸무게는?","");
+    //console.log(name, height, weight)
+    //평균 체중 = (키 - 100) * 0.9;
+    var normal_w = (height - 100) * 0.9;//입력한 키에 맞는 평균체중
+    var result = normal_w - 5 <= weight && normal_w + 5 >= weight;
+    //삼항 연산자
+    result = result ? '적정 체중입니다.' : "적정 체중이 아닙니다."
+
+    //평균체중의 +-5안에 들어오면 "적정 체중입니다"라는 문자를 출력 그렇지 않으면 '적정 체중이 아닙니다'라는 문자를 출력
+    // if(normal_w - 5 <= weight && normal_w + 5 >= weight){
+    //   result = "적정 체중입니다."
+    // }else{
+    //   result = "적정 체중이 아닙니다."
+    // }
+
+    //조건문 추가
+    if(normal_w - 5 > weight){
+      result = "저체중 입니다."
+    }else if(normal_w + 5 < weight){
+      result = "과체중 입니다."
+    }else{
+      result = "적정 체중입니다."
+    }
+
+    document.write(name + "님은 " + result)
+  </script>
+</body>
+</html>

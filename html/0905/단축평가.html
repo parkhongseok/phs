@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>단축평가</title>
+
+</head>
+<body>
+  <script>
+    //어떤 조건이 참일 때 무언가를 해결해야 한다면 논리곱(&&)연산자 표현식으로 if문을 대체할 수 있다.
+
+    var done = true;
+    var message = '';
+
+    //주어진 조건이 true일 때
+    //if(done) message = "완료";
+
+    //if문은 단축 평가로 대체 가능하다.
+    //done이 true라면 message에 완료를 할당.
+    message = done && "완료";
+    console.log(message)
+
+    //조건이 거짓일 때 무언가를 해야한다면 논리합(||)연산자 표현식으로 if문을 대체할 수 있다.
+    done = false;
+    //done이 false라면 message에 "미완료"를 할당
+    message = done || "미완료";
+    console.log(message)
+  </script>
+</body>
+</html>
