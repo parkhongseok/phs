@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>let과const</title>
+
+</head>
+<body>
+  <script>
+    //var키워드는 중복선언이 가능하다.
+    var x = 1;//전역변수(코드 전역에서 사용할수 있는 변수)
+    var y = 1;
+    //var 키워드로 선언된 변수는 같은 스코프(유효범위)내에서 중복선언을 허용한다.
+    var x = 100;
+    var y;//초기화문이 없는 변수 선언문은 무시된다.
+
+    console.log(x,y); //100 1
+
+    //함수 레벨 스코프(유효범위)
+    if(true){
+      var x = 10;//지역변수(하나의 코드블럭 내에서만 사용할 수 있는 변수)
+
+      //x는 전역 변수다. 이미 선언된 전역 변수 x가 있으므로 x변수는 중복 선언된다. (의도치 않게 변수값이 변경되는 부작용 발생)
+    }
+    console.log(x); //10
+
+    foo = 1; //전역 변수 var,let,const 키워드를 생략하면 전역변수로 변수가 생성됨(var키워드로 변수를 생성한 것처럼)
+
+    {//var 중복선언시 중복선언된 변수가 무시된다.
+      //console.log(foo);
+      let foo = 2;//지역변수
+      //예제에서 지역변수로 선언한 foo의 변수 호이스팅이 발생하지 않는다면 전역 변수 foo의 값을 출력해야 한다.
+      //하지만 let키워드로 선언한 변수도 호이스팅이 발생하기 때문에 참조에러(referenceError)가 발생한다.
+
+      //*let, const, class는 호이스팅이 발생하지 않는 것 처럼 동작을 합니다.
+    }
+    console.dir(window)
+    
+    //세전 가격
+    let preTaxPrice = 100;
+
+    //세후 가격
+    //0.1의 의미를 명확히 알기 어렵기 때문에 가독성이 좋지 않다.
+    let afterTaxPrice = preTaxPrice + (preTaxPrice * 0.1);
+
+    console.log(afterTaxPrice); //110
+
+    //const키워드로 선언된 변수에 객체를 할당한 경우 값을 변경할 수 있다.
+
+    const person = {
+      name: 'Lee'
+    }
+
+    person.name = "Kim"
+
+    console.log(person) 
+  </script>
+</body>
+</html>

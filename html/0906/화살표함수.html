@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화살표함수</title>
+
+</head>
+<body>
+  <script>
+    //화살표 함수
+    const arrFunc = (x, y) => x + y;
+    console.log(arrFunc(2,5)) //7
+
+    //arguments객체는 함수를 정의할 때 매개변수 개수를 확정할 수 없는 가변인자함수를 구현할때 유용하게 사용된다.
+    function add(x, y){
+      console.log(arguments)
+      //Arguments(3)[2,5,10...]
+      return x+y;
+    }
+    console.log(add(2,5,10));
+
+    //에러발생
+    function add1(x, y){
+      //x와 y가 숫자가 아니면 에러를 발생시킵니다.
+      if(typeof x !== 'number' || typeof y !== 'number'){
+        throw new TypeError('인수는 모두 숫자 값이어야 합니다.');
+      }
+      return x + y;
+    }
+    //console.log(add1(2))
+    //console.log(add1("a","b"));
+
+    //매개변수에 기본값을 설정
+    function add2(a,b,c){
+      a = a || 0;
+      b = b || 0;
+      c = c || 0;
+      return a+b+c;
+    }
+    console.log(add2(1,2))
+
+    //ES6 : 매개변수 기본값 설정
+    function add3(a=0,b=0,c=0){
+      return a+b+c;
+    }
+  </script>
+</body>
+</html>

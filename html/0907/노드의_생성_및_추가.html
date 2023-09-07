@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노드의_생성_및_추가</title>
+
+</head>
+<body>
+  <ul id="fruits">
+    <li>Apple</li>
+  </ul>
+  <script>
+    //#fruits선택
+    const fruits = document.querySelector('#fruits');
+    //요소 노드 생성
+    const li = document.createElement('li');
+
+    //텍스트 노드 생성
+    const textNode = document.createTextNode('Banana');
+
+    //텍스트 노드를 li요소 노드의 자식 노드로 추가
+    li.appendChild(textNode);
+    console.log(li);
+    //li요소노드를 fruits요소 노드의 마지막 자식 노드로 추가
+    fruits.appendChild(li);
+
+    //복수의 노드 생성과 추가
+
+    //createDocumentFragment로 Dom을 한번만 변경하여 복수 노드를 추가하는것이 가능해 진다.
+    const fragment = document.createDocumentFragment();
+
+    //Array.forEach()함수 = 선택된 Array요소의 배열아이템을 하나씩 순환하면서 함수를 실행
+    ['Peach','Orange','mango'].forEach(text => {//첫번째 인자인 text는 배열의 요소를 순차적으로 담아서 함수 내부로 전달합니다.
+      //요소 노드 생성
+      const li = document.createElement('li');
+
+      //텍스트 노드 생성(text에 peach,orange,mango가 순차적으로 할당되어 참조됨)
+      const textNode = document.createTextNode(text);
+
+      //텍스트 노드를 li요소노드의 자식노드로 추가
+      li.appendChild(textNode);
+        
+      //li요소노드를 documentFragment노드의 마지막 자식 노드로 추가
+      fragment.appendChild(li);
+    });
+
+    //DocumentFragment노드를 fruits 요소 노드의 마지막 자식 노드로 추가
+    fruits.appendChild(fragment)
+
+    //요소생성
+    const li2 = document.createElement('li');
+    //텍스트 노드를 li요소노드의 자식노드로 추가
+    li2.appendChild(document.createTextNode('pineapple'));
+    //li요소 노드를 fruits요소 노드의 마지막 자식 요소 앞에 삽입
+    fruits.insertBefore(li2,fruits.lastElementChild);
+
+    //노드 이동
+    //이미 존재하는 노드를 appendChild 또는 insertBefore메서드를 사용하여 dom에 다시 추가하면 위치를 이동 시킬 수 있음
+
+    //이미 존재하는 요소 노드를 취득
+     const [apple, banana, peach, orange, pineapple, mango] = fruits.children;//fruit의 자식요소들을 하나씩 차례대로 변수에 할당
+     console.log(orange);
+
+     //이미 존재하는 apple요소 노드를 fruits요소 노드의 마지막 노드로 이동
+     fruits.appendChild(apple)
+
+     //이미 존재하는 mango요소노드를 fruits요소의 첫번째 자식 노드 앞으로 이동
+     fruits.insertBefore(mango, fruits.firstElementChild);
+  </script>
+</body>
+</html>

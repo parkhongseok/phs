@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문자열자르기</title>
+
+</head>
+<body>
+  <script>
+    //split메서드
+    var text = "Hello,world!";
+    //,를 구분자로 문자를 나눠줍니다. 이때 나눠진 문자는 배열로 할당
+    var splitResult = text.split(','); // ["Hello","world"]
+    console.log(splitResult);
+    //두번째 인자로 나눠진 문자의 배열요소를 몇개까지 넣어줄지 정할수 있음.
+    console.log(text.split(",",0)) 
+    console.log(text.split(",",1))
+    console.log(text.split(",",2))
+
+    //substring메서드
+    console.log(text.substring(0,1)) //H
+    console.log(text.substring(1,0)) //H
+    console.log(text.substring(0,5)) //Hello
+    console.log(text.substring(5)) //,world!
+    console.log(text.substring(0)) //Hello,world!
+
+    //substr메서드
+    console.log(text.substr(0,1)) //H
+    console.log(text.substring(1,0)) //
+    console.log(text.substring(0,5)) //Hello
+    console.log(text.substring(5)) //,world!
+    console.log(text.substring(0)) //Hello,world!
+  </script>
+</body>
+</html>

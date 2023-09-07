@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문자열찍기2</title>
+
+</head>
+<body>
+  <p id="typing"></p>
+  
+  <script>
+    //typing요소에 들어갈 글자
+    var x = "Heaven helps those who help themselves.";
+    var i = 0; //글자의 순번을 담을 변수
+
+    var count = 0; //입력되는 횟수를 저장할 변수
+    //typing요소선택
+    var typing = document.querySelector("#typing");
+
+    function typeWriter(){// typeWriter함수 생성
+      //글자의 갯수만큼 글자를 p태그에 출력
+      if(i < x.length){
+        typing.innerHTML += x[i];//typing요소에 x변수의 글자중 순번이 i번째인 글자를 추가하여 출력
+        i++;//i변수값을 증가
+        setTimeout(typeWriter,200); // setTimeout(함수,시간) : 해당 시간(밀리세컨드단위)이 경과된 후 함수를 실행
+      }else{//글자의 갯수보다 i가 숫자가 커졌을때
+        count++;
+        if(count>2) return false; //count값이 3이상이 되면 return false로 함수를 실행하지 않음
+        
+        i = 0; //i를 0으로 초기화
+        setTimeout(recall,1000);// recall함수를 1초뒤에 호출
+      }
+    }
+
+    //recall함수 생성
+    function recall(){
+      typing.textContent = "";//typing요소의 글자요소를 비워줍니다.
+      typeWriter();//다시 typeWriter함수를 호출
+    }
+
+    typeWriter();//함수 호출
+  </script>
+</body>
+</html>
