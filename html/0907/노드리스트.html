@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노드리스트</title>
+</head>
+<body>
+  <h1>노드 리스트</h1>
+  <ul id="list">
+    <li>첫 번째 아이템</li>
+    <li>두 번째 아이템</li>
+    <li>세 번째 아이템</li>
+  </ul>
+  <p id="text"></p>
+  <!--버튼을 클릭하면 changeTextColor함수 호출-->
+  <button onclick="changeTextColor()">글자색 변경</button>
+  <script>
+    //아이디가 list인 요소의 모든 자식 노드들을 선택(childNodes = text와 태그가 같이 선택되기 때문에 children으로 변경(HTMLcollect이라는 유사배열로 할당))
+    const listItems = document.querySelector("#list").children;
+    console.log(listItems)
+    listItems[1].firstChild.nodeValue = "HTML 요소의 내용을 변경했어요"
+
+    //글자색을 변경하는 코드
+    function changeTextColor(){
+      for(var i=0; i<listItems.length; i++){//0부터 listItems의 갯수만큼 반복
+        listItems[i].style.color = "orange"; //모든 자식 노드들의 글자색을 변경함.
+      }
+    }
+  </script>
+</body>
+</html>

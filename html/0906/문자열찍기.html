@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문자열찍기</title>
+
+</head>
+<body>
+  <script>
+    //res변수를 생성하고 빈문자열 생성
+    var res = "";
+
+    function st(txt){
+      //txt매개변수의 갯수만큼 반복
+      for(var count=0; count < txt.length; count++){
+        //콘솔에 한글자씩 출력
+        if( count%2 == 0){ //짝수 글자만 출력
+          console.log(res += txt[count]);
+        }
+      }
+    }
+    st("abcdefgh");
+
+    //7의 배수인 순번의 글자를 *로 표시
+    var tempString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //문자의 갯수만큼 반복
+    for(var i=0; i<tempString.length; i++){
+      if(i%7 != 0){//문자의 순번이 7의 배수가 아닐경우
+        document.write(tempString[i]);
+      }else{//문자의 순번이 7의 배수일 경우
+        document.write("*")
+      }
+    }
+
+    //toLocaleString함수를 사용하여 간단하게 천단위마다 콤마를 추가할 수 있습니다.
+    var n = 123456576879;
+    var cn = n.toLocaleString('ko-KR');
+    console.log(cn)
+
+  </script>
+</body>
+</html>

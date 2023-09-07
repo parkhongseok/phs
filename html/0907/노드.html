@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노드</title>
+
+</head>
+<body>
+  <h1>nodeName프로퍼티</h1>
+  <p id="document"></p>
+  <p id="html"></p>
+  <script>
+    console.log(document.querySelector("body").childNodes)
+    //nodeName : 노드 고유의 이름을 저장(읽기 전용)
+    //HTML 문서의 모든 자식 노드중에서 두번재 노드의 이름을 선택
+    document.querySelector("#document").innerHTML = document.childNodes[1].nodeName;
+
+    document.querySelector("#html").innerHTML = document.childNodes[1].childNodes[0].nodeName; //HEAD
+
+    //nodeValue : 노드의 값을 저장
+    var headingText = document.querySelector("h1").firstChild.nodeValue;
+    console.log(headingText)
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노드복제와_교체</title>
+
+</head>
+<body>
+  <button onclick="cloneElement()">노드 복제!</button>
+  <h2 id="item">Vuejs</h2>
+  <div id="list">
+    <p>HTML</p>
+    <p>CSS</p>
+    <p>JAVASCRIPT</p>
+  </div>
+  <hr>
+
+  <!--요소 노드 교체-->
+  <div id="parent">
+    <p id="first">첫번째 요소</p>
+    <p>두번째 요소</p>
+  </div>
+  <p id="third">세번째 요소</p>
+  <button onclick="changeNode()">요소노드교체!</button>
+
+  <!--노드의 제거-->
+  <button onclick="remove()">요소노드삭제</button>
+
+  <script>
+    const parentEl = document.querySelector("#list"); //list요소 선택
+    //요소노드 복제
+    function cloneElement(){
+      
+      const originItem = document.querySelector("#item");//item요소 선택
+
+      parentEl.appendChild(originItem.cloneNode(true));//해당 노드를 복재하여 리스트의 맨 마지막에 추가함.
+    }
+
+    //요소노드 교체
+    const parent = document.querySelector("#parent") 
+    const first = document.querySelector("#first")
+    const third = document.querySelector("#third")
+    function changeNode(){
+      //first요소를 삭제하고, 그 대신 third요소를 삽입함
+      parent.replaceChild(third, first);
+    }
+
+    //노드 제거
+    function remove(){
+      const body = document.querySelector("body")
+      body.removeChild(parentEl);//body요소의 자식요소중 parentEl요소를 삭제
+    }
+  </script>
+</body>
+</html>
