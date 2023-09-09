@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>어트리뷰트</title>
+
+</head>
+<body>
+  <input id="user" type="text" value="Jang">
+  <script>
+    //요소의 attribute 프로퍼티는 요소 노드의 어트리뷰트 노드의 참조가 담긴 NamedNodeMap 객체를 반환한다.
+    const { attributes } = document.querySelector("#user");
+    console.log(attributes)
+
+    //어트리뷰트 값 취득
+    console.log(attributes.id.value); //user
+    console.log(attributes.type.value); //text
+    console.log(attributes.value.value); //Jang
+
+    //=========================================================
+    
+    //getAttribute와 setAttribute메서드를 사용하면 HTML 어트리뷰트 값을 취득하거나 변경할 수 있다.
+    const input = document.querySelector('input');
+    
+    //value어트리뷰트 값을 취득
+    const inputValue = input.getAttribute('value');
+    console.log(inputValue)
+
+    //value 어트리뷰트 값을 변경
+    input.setAttribute("value","foo");
+
+    //hasAttribute 메서드로 어트리뷰트 존재확인
+    if(input.hasAttribute('value')){
+      //removeAttribute로 삭제할 수 있다.
+      input.removeAttribute('value');
+    }
+    console.log(input.hasAttribute('value'))
+  </script>
+</body>
+</html>

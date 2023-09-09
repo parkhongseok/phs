@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5초간격_이미지변환</title>
+  <style>
+    #pic{
+      width:300px;
+      height:auto;
+      border-radius: 10px;
+      box-shadow:1px 1px 2px black;
+    }
+  </style>
+</head>
+<body>
+  <img src="image/pic1.jpg" alt="이미지" id="pic">
+  <script>
+    const pic = document.querySelector("#pic");//이미지요소 선택
+    //pic요소의 src속성값의 뒤에서 5번째 1글자를 변수 sNum에 할당
+    let sNum = pic.getAttribute('src').substr(-5,1);
+
+    setInterval(gogo,5000);// gogo함수를 5초에 한번씩 반복 호출
+
+    //gogo함수 생성
+    function gogo(){
+      if(sNum >= 3){//sNum변수가 3보다 크거나 같으면 실행
+        sNum = 0; //sNum변수의 값을 0로 변경
+      }else{
+        sNum++;//sNum변수값을 1증가
+        //pic요소의 src속성의 이미지경로를 변경하여 이미지를 변환
+        pic.setAttribute("src","image/pic"+sNum+".jpg");
+      }
+    }
+  </script>
+</body>
+</html>

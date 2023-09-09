@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클래스조작</title>
+  <style>
+    .box{
+      width:100px;
+      height:100px;
+      background-color:antiquewhite;
+    }
+    .red{
+      color:red;
+    }
+    .blue{
+      color:blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="box red">Hello World</div>
+  <script>
+    const box = document.querySelector(".box");//box선택
+    //className프로퍼티는 HTML요소의 class어트리뷰트 값을 취득 또는 변경한다.
+    //.box요소의 class어트리뷰트 값을 취득
+    console.log(box.className)
+
+    //.box 요소의 class 어트리뷰트 값 중에서 red만 blue로 변경
+    box.className = box.className.replace('red', 'blue');
+
+    //classList프로퍼티는 class어트리뷰트의 정보를 담은 DOMTokenList 객체를 반환한다.
+    console.log(box.classList)
+
+    //.box요소의 class어트리뷰트 값 중에서 blue만 red로 변경
+    box.classList.replace("blue", "red")
+  </script>
+</body>
+</html>

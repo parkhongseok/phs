@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마우스를_따라오는_내비게이션</title>
+  <style>
+    *{margin:0; padding:0;}
+    #container{
+      width:100%;
+      height:900px;
+      position:relative;
+      overflow:hidden;
+      background-color:lightyellow;
+      margin-bottom:200px;
+    }
+
+    #nav{
+      width:600px;
+      height:200px;
+      position:absolute;
+      left:0; top:0;
+      z-index: 9999;
+    }
+    #home{
+      width:50px;
+      height:200px;
+      background:#f99;
+      position:absolute;
+      left:0; top:0; 
+      z-index: 2;
+    }
+    #menu{
+      width:600px;
+      height:200px;
+      list-style: none;
+      position:absolute;
+      top:0; left:-600px;
+      display:flex;
+      z-index: 1;
+      transition:all 0.5s ease;
+    }
+    #menu > li{
+      opacity:0.7;
+    }
+    #menu > li:hover{opacity:1;}
+    /*menu에 on클래스가 추가되면 브라우저안쪽으로 나타남*/
+    #menu.on{left:50px;}
+  </style>
+</head>
+<body>
+  <section id="container">
+    <div id="nav">
+      <div id="home">home</div>
+      <ul id="menu">
+        <li><img src="image/th_bg1.jpg" alt=""></li>
+        <li><img src="image/th_bg2.jpg" alt=""></li>
+        <li><img src="image/th_bg3.jpg" alt=""></li>
+      </ul>
+    </div>
+  </section>
+  <script>
+    //홈버튼 클릭시 메뉴가 나타나거나 사라짐
+    //홈버튼 선택
+    const home = document.querySelector("#home");
+    home.addEventListener("click",() => { //홈버튼 클릭 시
+      //home버튼의 다음 형제요소를 선택하여 on클래스를 추가 또는 제거
+      home.nextElementSibling.classList.toggle("on");
+    });
+
+    //내비가 y축으로 마우스를 쫓아오는 구문
+    window.addEventListener('mousemove',(e) => { //이벤트 객체 전달
+      //nav요소
+      const nav = document.querySelector("#nav");
+      //menu요소의 높이의 절반값을 숫자로 변환하여 height변수에 할당
+      let height = parseInt(window.getComputedStyle(nav).height) / 2;
+      console.log(height)
+      //마우스의 y축 위치값(메뉴요소의 절반값만큼 빼서 마우스위치가 메뉴 중간에 오게함)
+      let pos = e.pageY - height; 
+      //pos값을 nav의 top속성값으로 설정
+      nav.style.top = pos+"px";
+    })
+  </script>
+</body>
+</html>

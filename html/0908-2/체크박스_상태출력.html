@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>체크박스_상태출력</title>
+
+</head>
+<body>
+  <input type="checkbox">
+  <em class="message">off</em>
+  <script>
+    const checkbox = document.querySelector('input[type=checkbox]');
+    const msg = document.querySelector('.message');
+
+    //change 이벤트가 발생하면 event타입의 이벤트 객체가 생성된다.
+    checkbox.addEventListener("change", (e) => {
+      //e.target은 change이벤트를 발생시킨 dom요소 checkbox를 가리키고
+      //e.currentTarget은 이벤트 핸들러가 바인딩된 dom요소 checkbox를 가리킨다.
+      console.log(e.target === e.currentTarget); //true
+
+      //e.targe.checked는 체크박스 요소의 현재 체크 상태를 나타낸다.
+      msg.textContent = e.target.checked ? "on" : "off"
+    })
+  </script>
+</body>
+</html>

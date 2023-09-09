@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트핸들러제거</title>
+ 
+</head>
+
+<body>
+  <button class="btn">click</button>
+
+  <script>
+    //handleClick함수가 호출되면 콘솔에 button click글자가 출력
+    const handleClick = () => console.log('button click');
+
+    const btn = document.querySelector(".btn");//btn선택
+    //이벤트 핸들러 등록
+    btn.addEventListener('click',handleClick);
+
+    //이벤트 핸들러 제거
+    btn.removeEventListener('click',handleClick)
+  </script>
+</body>
+</html>
