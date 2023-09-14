@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=10, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const increase = (function(){
+      let num = 0;
+
+      return function(){
+        return ++num
+      }
+    })()
+
+    console.log(increase())
+    console.log(increase())
+    console.log(increase())
+    console.log(increase())
+
+
+    //함수를 반환하는 고차함수
+    //이 함수는 카운트 상태를 유지하기 위한 자유 변수 couter를 기억하는 클로저를 반환한다.
+    const COUNTER = (function(){
+      //카운트 상태를 유지하기 위한 자유 변수
+      let counter = 0;
+      //함수를 인수로 전달받는 클로저를 반환
+      return function(aux){
+        //인수로 전달받은 보조 함수의 상태 변경을 위임한다.
+        counter =aux(counter);
+        return counter;
+      }
+    })()
+
+    //보조 함수 
+    function increase1(n){
+      //매개변수 n으로 인수인 counter값을 전달받음(참조한다.)
+      //n값을 증가하여 호출한 곳을 돌려줍니다.
+      return ++n;
+    }
+
+    //보조 함수
+    function decrease(n){
+      return --n;
+    }
+
+    //보조함수를 전달하여 호출
+
+    console.log(COUNTER(increase1))
+    console.log(COUNTER(increase1))
+    console.log(COUNTER(increase1))
+    console.log(COUNTER(increase1))
+    console.log(COUNTER(increase1))
+    console.log(COUNTER(increase1))
+    console.log(COUNTER(increase1))
+    console.log(COUNTER(increase1))
+
+
+  </script>
+  
+</body>
+</html>

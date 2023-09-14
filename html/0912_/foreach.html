@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoREach</title>
+</head>
+<body>
+
+  <script>
+    //for each문은 반복문을 추상화한 고차함수이다. 배열에 연결해야 하므로 배열고차함수이다.
+    //Array.prototype.forEach(callback)
+    const numbers = [1, 2, 3]
+    let pows = [];
+
+    //forEach 메서드는 numbers 백열의 모든 요소를 순회하면서 콜백함수를 반복호출한다.
+    numbers.forEach(item=>pows.push(item**2))
+    console.log(pows)
+
+    numbers.forEach((item, index, arr)=> {
+      console.log(`요소값 : ${item}`)
+    })
+    
+
+</script>
+</body>
+</html>

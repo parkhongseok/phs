@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //setTimeout(function, delay, parameter1, 2, 3, ...)
+    // 대기시간이 지난 후 지정된 함수가 한 번만 호출됩니다람쥐
+    //parameter = 콜백함수에 전달해야할 인수가 존재하는 경우
+    const F = function(){alert('3초 뒤에 호출됩니다.')};
+
+    let timerId = setTimeout(F, 3000)
+    clearTimeout(timerId)
+
+
+    let count = 1;
+
+    function gallery(){
+      console.log('다음사진')
+      if(count === 5){
+        clearInterval(clearId);
+      }
+      count++;
+    }
+
+    let clearId = setInterval(gallery, 1000);
+
+  </script>
+</body>
+</html>

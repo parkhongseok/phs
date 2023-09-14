@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    //화살표함수는 constructor를 가질 수 없다.
+    //constructor는 생성자함수가 객체에 프로토타입을 할당하기 위한 것이다.
+    const Person1 = name => {
+      this.name = name
+    }
+
+    console.log(Person1.prototype);
+
+    function person(name){
+      this.name = name;
+    }
+
+    Person.prototype.sayHello  function(){
+      console.log(`Hi! my name is ${this.name}`)
+    }
+
+    const me1 = new Person('lee');
+    console.log(me1.sayHello());
+    const you = new Person('Kim');
+
+  </script>
+</body>
+</html>

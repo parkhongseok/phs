@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .accordion{
+      background-color: #eee;
+      color: #444;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border:none;
+      outline: none;
+      transition: 0.4;
+    }
+
+    .active, .accordion:hover{
+      background-color: #ccc;
+    }
+
+    .panel{
+      padding: 0 18px;
+      background-color: #dedce0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+    }
+
+    .accordion::after{
+      content:'\2795';
+      font-size:13px; 
+      color: #777;
+      float: right; 
+    }
+    .active::after{
+      content:'\2796'
+    }
+
+  </style>
+</head>
+
+<body>
+  <button class="accordion">Section 1</button>
+  <div class="panel">
+    <p>panel 1</p>
+  </div>
+
+  <button class="accordion">Section 2</button>
+  <div class="panel">
+    <p>panel 2</p>
+  </div>
+
+  <button class="accordion">Section 3</button>
+  <div class="panel">
+    <p>panel 3</p>
+  </div>
+
+
+
+<script>
+  //document.q~aAll 하면 nodeList의 유사배열로 복수의 요소를 선택가능해진다.
+  const acc = document.querySelectorAll('.accordion')
+  console.log(acc)
+
+  acc.forEach(item => item.addEventListener('click',()=>{
+    item.classList.toggle('active')
+    const panel = item.nextElementSibling;
+    if(panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    }else{
+      panel.style.maxHeight = panel.scrollHeight + 'px'
+    }
+    //element.scrollHeight : 읽기 전용 속성이다. 이는 요소 콘텐츠의 총 높이를 나타내며 바깥으로 넘쳐서 보이지 않는 콘텐츠도 포함한다.
+  }))
+
+
+
+</script>
+
+</body>
+</html>

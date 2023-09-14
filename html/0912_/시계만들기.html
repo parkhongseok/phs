@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .frame{
+      width: 500px;
+      display: inline-block;
+      padding: 8px;
+      border-radius: 8px;
+      background-color: skyblue;
+      position: absolute;
+      
+    }
+    .clock{
+      color:white;
+      font-family:Arial, Helvetica, sans-serif;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .large_text{font-size: 75px;}
+    .small_text{font-size: 20px;}
+    .date_box{font-size: 15px;}
+    .colon{
+      font-size: 55px;
+    vertical-align: text-bottom;
+    animation:blink 1s step-start 0s infinite
+    }
+    @keyframes blink { 
+      50%{opacity: 0;}
+    }
+
+    </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="clock">
+      <div class="time_box">
+        <span id="hours" class="large_text"></span>
+        <span class="colon">:</span>
+        <span id="minute" class="large_text"></span>
+        <span id="seconds" class="small_text"></span>
+      </div>
+      <div class="date_box">
+        <span id="year"></span>
+        <span>.</span>
+        <span id="month"></span>
+        <span>.</span>
+        <span id="date"></span>
+        <span id="day"></span>
+      </div>
+    </div>
+  </div>
+  <script>
+    const watchClock = () => {
+      
+      function leftPad(number){ 
+        if(number <10){
+          return `0${number}`;
+        return `0${number}`
+        };
+        return `${number}`
+        };
+        function setText(selector, text){
+          const targetElement = document.querySelector(selector);
+          if(!targetElement){
+            return;
+          }
+          targetElement.textContent = text;
+        };
+
+        //오늘의 요일 정보를 글자로 변경하는 함수
+        function getDayText(index){
+          const days = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
+          return days[index];
+        }
+        const present = new Date();
+        // console.log(present)
+        const hours = leftPad(present.getHours())
+        const minute = leftPad(present.getMinutes())
+        const seconds = leftPad(present.getSeconds())
+
+        setText('#hours', hours)
+        setText('#minute', minute)
+        setText('#seconds', seconds)
+      
+        const year = present.getFullYear();
+        const month = leftPad(present.getMonth() + 1);
+        const date = leftPad(present.getDate());
+        const day = getDayText(present.getDay());
+
+        setText('#year', year);
+        setText('#month', month);
+        setText('#date', date);
+        setText('#day', day);
+
+      }
+
+      watchClock();
+      const clockInterval = setInterval(watchClock, 1000);
+
+      // watchClock();
+
+  </script>
+</body>
+</html>

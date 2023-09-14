@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+        *{margin:0; padding:0;}
+        #wrapper{
+            width:200px;
+            height:200px;
+            border:1px solid red;
+            background-color:yellow;
+            padding:150px;
+        }
+        #targetBox{
+            width:200px;
+            height:200px;
+            background-color:red;
+        }
+  </style>
+
+</head>
+<body>
+  <div id="wrapper">
+    <div id="targetBox"></div>
+</div>
+
+<a href="https://www.google.com">go</a>
+<input type="checkbox">
+<script>
+    const Wrapper = document.querySelector('#wrapper');
+    const Box = document.querySelector('#targetBox');
+    
+    const G = function (tag){
+      tag.stopPropagation();
+      Box.style.backgroundColor = 'black'
+    }
+
+    const F = function (tag){
+      Wrapper.style.backgroundColor = 'blue'
+    }
+    
+    Box.addEventListener('click', G)
+    Wrapper.addEventListener('click', F)
+
+
+
+    const A = document.querySelector('a')
+    const Input = document.querySelector('input[type=checkbox]') 
+
+    const H = function(tag){tag.preventDefault();}
+    const I = function(tag){tag.preventDefault();}
+
+    A.addEventListener('click', H)
+    Input.addEventListener('click', I)
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

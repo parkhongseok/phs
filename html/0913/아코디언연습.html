@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아코디언연습</title>
+  <style>
+    *{margin:0; padding:0; box-sizing:border-box;}
+    .container{
+      width:1000px;
+      margin:20px auto;
+      padding:0 10px;
+    }
+    .box{
+      border-radius: 5px;
+      overflow:hidden;
+      margin-bottom:10px;
+    }
+    .accordion{
+      background-color:#333;
+      padding:30px 20px;
+      color:#fff;
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor:pointer;
+    }
+    .accordion > .txt{
+      display:flex;
+      align-items: center;
+    }
+
+    .accordion > .txt > .number{
+      width:40px;
+      height:40px;
+      border-radius: 50%;
+      background-color:#1b1b1b;
+      text-align: center;
+      line-height:40px;
+      margin-right:20px;
+      color:#ff814a;
+      font-weight: bold;
+    }
+    .accordion > .txt > p{
+      font-weight: bold;
+      font-size:18px;
+    }
+    .accordion > .caret{
+      font-size:20px;
+      font-weight: bold;
+    }
+    /*active클래스 추가 또는 hover시 */
+    .active,
+    .accordion:hover{
+      background:linear-gradient(90deg,#ff814a , #de2937);
+    }
+    .active > .txt > .number,
+    .accordion:hover > .txt > .number{
+      background-color:#f56445;
+      color:#fff;
+    }
+    .active > .caret{
+      transform:rotate(180deg);
+    }
+
+    /*panel*/
+    .panel{
+      background-color:#1b1b1b;
+      color:#fff;
+      max-height:0;
+      transition:max-height 0.2s ease-out;
+    }
+    .panel > .wrap{
+      padding:40px 80px;
+      display:flex;
+      justify-content: space-between;
+      border-bottom:5px solid #ff814a;
+    }
+    .panel .thumbs{
+      width:200px;
+      height:160px;
+      background:url(img/accordion.jpg) center/cover;
+      border-radius: 5px;
+    }
+    .panel .txt{
+      width:600px;
+    }
+    .panel .txt h2{
+      font-size:16px;
+      margin:20px 0;
+    }
+    .panel .txt button{
+      width:40px; 
+      height:40px;
+      border-radius: 50%;
+      border:none;
+      outline:none;
+      font-size:24px;
+      color:#1b1b1b;
+      font-weight: bold;
+      float:right;
+      margin-top:10px;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <div class="accordion">
+        <div class="txt">
+          <div class="number">1</div>
+          <p>Lorem Ipsum is simply dummy text of the printing</p>
+        </div>
+        <div class="caret">&#94;</div>
+      </div>
+      <div class="panel">
+        <div class="wrap">
+          <div class="thumbs"></div>
+          <div class="txt">
+            <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+            <p>
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make      
+            </p>
+            <button type="button">&#62;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="accordion">
+        <div class="txt">
+          <div class="number">2</div>
+          <p>Lorem Ipsum is simply dummy text of the printing</p>
+        </div>
+        <div class="caret">&#94;</div>
+      </div>
+      <div class="panel">
+        <div class="wrap">
+          <div class="thumbs"></div>
+          <div class="txt">
+            <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+            <p>
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make      
+            </p>
+            <button type="button">&#62;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="accordion">
+        <div class="txt">
+          <div class="number">3</div>
+          <p>Lorem Ipsum is simply dummy text of the printing</p>
+        </div>
+        <div class="caret">&#94;</div>
+      </div>
+      <div class="panel">
+        <div class="wrap">
+          <div class="thumbs"></div>
+          <div class="txt">
+            <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+            <p>
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make      
+            </p>
+            <button type="button">&#62;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="accordion">
+        <div class="txt">
+          <div class="number">4</div>
+          <p>Lorem Ipsum is simply dummy text of the printing</p>
+        </div>
+        <div class="caret">&#94;</div>
+      </div>
+      <div class="panel">
+        <div class="wrap">
+          <div class="thumbs"></div>
+          <div class="txt">
+            <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+            <p>
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make      
+            </p>
+            <button type="button">&#62;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="accordion">
+        <div class="txt">
+          <div class="number">5</div>
+          <p>Lorem Ipsum is simply dummy text of the printing</p>
+        </div>
+        <div class="caret">&#94;</div>
+      </div>
+      <div class="panel">
+        <div class="wrap">
+          <div class="thumbs"></div>
+          <div class="txt">
+            <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+            <p>
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make      
+            </p>
+            <button type="button">&#62;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    //document.querySelectorAll() = NodeList(유사배열)로 복수의 요소를 선택
+    const acc = document.querySelectorAll('.accordion');
+    console.log(acc)
+
+    //아코디언(버튼)요소를 순회하면서 클릭이벤트를 적용
+    acc.forEach(item => item.addEventListener('click',() => {
+      //클릭한 버튼요소에 active클래스를 추가 또는 제거
+      item.classList.toggle("active");
+
+      //클릭한 버튼요소의 다음 형제요소인 패널요소를 선택
+      const panel = item.nextElementSibling;
+      if(panel.style.maxHeight){//maxHeight값이 0이 아니면 구문 실행
+        panel.style.maxHeight = null; //해당 패널을 접어줍니다.
+      }else{ //maxHeight값이 0이면 구문 실행
+        panel.style.maxHeight = panel.scrollHeight + "px"//해당 패널을 펼쳐줍니다.
+      }
+      //element.scrollHeight : 읽기 전용 속성은 요소 콘텐츠의 총 높이를 나타내며 바깥으로 넘쳐서 보이지 않는 콘텐츠도 포함합니다.
+    }));
+  </script>
+</body>
+</html>

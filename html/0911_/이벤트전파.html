@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트전파</title>
+    <style>
+        *{margin: 0; padding: 0;}
+
+        #wrapper{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            background-color: yellow;
+            padding: 150px;
+        }
+
+        #targetBox{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="targetBox">
+
+        </div>
+    </div>
+
+    <a href="https://www.google.com">go</a>
+    <input type="checkbox">
+    <script>
+        const wrapper = document.querySelector('#wrapper');
+        const box = document.querySelector('#targetBox')
+        box.addEventListener('click', (e)=>{
+            e.stopPropagation();//자식 객체가 클릭되었을 때 부모 객체로 전달되지 않도록 메서드를 호출하여 버블링을 차단
+            box.style.backgroundColor = 'black'
+        })
+
+        wrapper.addEventListener('click', (e)=>{
+            wrapper.style.backgroundColor='blue'
+        })
+
+        document.querySelector('a').addEventListener('click', (e)=>{
+            e.preventDefault();
+        })
+        document.querySelector('input[type=checkbox]').addEventListener('click', e => {
+            e.preventDefault();
+        })
+      +  </script>
+ 0
+
+
+</body>
+</html>

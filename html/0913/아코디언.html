@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아코디언</title>
+  <style>
+    .accordion{
+      background-color:#eee;
+      color:#444;
+      cursor:pointer;
+      padding:18px;
+      width:100%;
+      text-align: left;
+      border:none;
+      outline:none;
+      transition:0.4s;
+    }
+    .active, 
+    .accordion:hover{
+      background-color:#ccc;
+    }
+
+    .panel{
+      padding:0 18px;
+      background-color:#f9f9f9;
+      max-height:0;
+      overflow: hidden;
+      transition:max-height 0.2s ease-out;/*max-height값이 변경되면 0.2초에 걸쳐 변경됨*/
+    }
+    .panel > p{
+      padding:10px 0;
+    }
+
+    .accordion::after{
+      content:'\2795';/*유니코드 특수문자(plus)*/
+      font-size:13px;
+      color:#777;
+      float:right;
+    }
+    /*버튼을 클릭하면 -부호로 변경*/
+    .active::after{
+      content:'\2796'; /*minus*/
+    }
+  </style>
+</head>
+<body>
+  <button class="accordion">Section 1</button>
+  <div class="panel">
+    <p>panel 1</p>
+  </div>
+  <button class="accordion">Section 2</button>
+  <div class="panel">
+    <p>panel 2</p>
+  </div>
+  <button class="accordion">Section 3</button>
+  <div class="panel">
+    <p>panel 3</p>
+  </div>
+  <script>
+    //document.querySelectorAll() = NodeList(유사배열)로 복수의 요소를 선택
+    const acc = document.querySelectorAll('.accordion');
+    console.log(acc)
+
+    //아코디언(버튼)요소를 순회하면서 클릭이벤트를 적용
+    acc.forEach(item => item.addEventListener('click',() => {
+      //클릭한 버튼요소에 active클래스를 추가 또는 제거
+      item.classList.toggle("active");
+
+      //클릭한 버튼요소의 다음 형제요소인 패널요소를 선택
+      const panel = item.nextElementSibling;
+      if(panel.style.maxHeight){//maxHeight값이 0이 아니면 구문 실행
+        panel.style.maxHeight = null; //해당 패널을 접어줍니다.
+      }else{ //maxHeight값이 0이면 구문 실행
+        panel.style.maxHeight = panel.scrollHeight + "px"//해당 패널을 펼쳐줍니다.
+      }
+      //element.scrollHeight : 읽기 전용 속성은 요소 콘텐츠의 총 높이를 나타내며 바깥으로 넘쳐서 보이지 않는 콘텐츠도 포함합니다.
+    }));
+  </script>
+</body>
+</html>

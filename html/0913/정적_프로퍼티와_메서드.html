@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정적_프로퍼티와_메서드</title>
+
+</head>
+<body>
+  <script>
+    //생성자 함수
+    function Person(name){
+      this.name = name;
+    }
+    //프로토타입 메서드     
+    Person.prototype.sayHello = function(){
+        console.log(`Hey! ${this.name}`)
+    } 
+
+    //정적 프로퍼티
+    Person.staticProp = 'static prop'
+    //정적 메서드
+    Person.staticMethod = function(){
+      console.log('static Method')
+    }
+
+    // 생성자 함수에 추가한 정적 프로퍼티/메서드는 생성자 함수로 참조/호출된다.
+    Person.staticMethod();
+
+    const me = new Person('Lee');
+    //정적 프로퍼티/메서드는 생성자 함수가 생성한 인스턴스로 참조/호출할 수 없다
+    // me.staticMethod();
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시계만들기</title>
+  <style>
+    .frame{
+      display:inline-block;
+      padding:8px;
+      border-radius: 8px;
+      background-color:#000;
+    }
+    .clock{
+      color:#fff;
+      font-family: 'Roboto',sans-serif;
+      text-align: center;
+      box-sizing:border-box;
+    }
+
+    .large_text{font-size:75px;}
+    .small_text{font-size:20px;}
+    .date_box{
+      font-size:15px;
+    }
+    .colon{
+      font-size:55px;
+      vertical-align: text-bottom;
+      animation:blink 1s step-start infinite;
+    }
+    @keyframes blink {
+      50%{opacity:0;}
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="clock">
+      <div class="time_box">
+        <span id="hours" class="large_text"></span>
+        <span class="colon">:</span>
+        <span id="minute" class="large_text"></span>
+        <span id="seconds" class="small_text"></span>
+      </div>
+      <div class="date_box">
+        <span id="year"></span>
+        <span>.</span>
+        <span id="month"></span>
+        <span>.</span>
+        <span id="date"></span>
+        <span id="day"></span>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    //watchClock함수 생성
+    const watchClock = () => {
+      //숫자가 한자리일때 앞에 0을 붙이는 함수
+      function leftPad(number){ //number로 숫자정보를 함수내부로 전달
+        if(number < 10){ //number가 한자리 숫자면
+          return `0${number}`;//number앞에 0을 붙여 반환
+        }
+        return number; //number가 두자리숫자 이상이면 그대로 반환
+      };
+
+      //매개변수로 selector(선택요소)를 전달받고 text(요소안에 넣어줄 글자 내용)을 전달 받아서 선택요소에 내용을 채워넣는 함수
+      function setText(selector, text){
+        const targetElement = document.querySelector(selector);//targetElement로 seletor를 선택
+        if(!targetElement){//targetElement가 빈요소일때 return으로 함수를 종료
+          return;
+        }
+        targetElement.textContent = text;
+      };
+
+      //오늘의 요일 정보를 글자로 변경하는 함수
+      function getDayText(index){
+        const days = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일']
+        return days[index];
+      }
+      //날짜 정보를 present에 저장
+      const present = new Date();
+      //console.log(present)
+      const hours = leftPad(present.getHours()); //현재 시간을 leftpad함수의 인자로 전달
+      const minute = leftPad(present.getMinutes()); //현재 분을 leftpad함수의 인자로 전달
+      const seconds = leftPad(present.getSeconds()); //현재 초를 leftpad함수의 인자로 전달
+
+      setText('#hours',hours); //setText함수의 인자로 #hours요소와 현재 시간을 전달
+      setText('#minute',minute);
+      setText('#seconds',seconds);
+
+      const year = present.getFullYear(); //현재 연도를 year에 저장
+      const month = leftPad(present.getMonth() + 1);//현재 달을 month에 저장(0이 1월 이기때문에 +1해줌)
+      const date = leftPad(present.getDate());//현재 날짜를 date에 저장
+      const day = getDayText(present.getDay()); //현재 요일을 day에 저장
+
+      setText('#year',year)
+      setText('#month',month)
+      setText('#date',date)
+      setText('#day',day)
+    }
+    watchClock(); //watchClock함수 호출
+    const clockInterval = setInterval(watchClock, 1000);//1초에 한번씩 watchClock함수를 실행
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수2</title>
+</head>
+<body>
+  <script>
+    //매개변수 primitive는 원시값을 전달받고, obj는 객체를 전달 받는다.
+    function changeVal(primitive, obj){
+      primitive += 100;
+      obj.name = 'Kim';
+    }
+
+    //외부 상태
+    var num = 100;
+    var person = {name: "Lee"};
+
+    //원시값은 값 자체가 복사되어 전달되고 객체는 참조값이 복사되어 전달된다.
+    changeVal(num, person);
+
+    //원시값은 원본이 훼손되지 않는다.
+    console.log(num);
+    //객체는 원본이 훼손된다.
+    console.log(person)
+
+    //즉시 실행 함수도 일반 함수처럼 값을 반환할 수 있다.
+    var res = (function(){
+      var a = 3;
+      var b = 5;
+      return a*b;
+    }())
+    console.log(res) //15
+
+    //일반함수처럼 인수를 전달할 수 있다.
+    res = (function(a, b){
+      return a * b
+    }(4,5))
+    console.log(res)
+  </script>
+</body>
+</html>

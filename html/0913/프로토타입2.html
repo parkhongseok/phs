@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로토타입2</title>
+ 
+</head>
+<body>
+
+  <script>
+    //화살표 함수는 non-constructor다
+    const Person1 = name => {
+      this.name = name
+    }
+    //non-constructor는 프로토타입을 생성하지 않는다.
+    console.log(Person1.prototype);//undefined
+
+    function Person(name){
+      this.name = name;
+    }
+
+    //프로토타입 메서드
+    Person.prototype.sayHello = function(){
+      console.log(`Hi! My name is ${this.name}`);
+    }
+    const me1 = new Person('Lee');
+    console.log(me1.sayHello())
+
+    const you = new Person("Kim")
+    console.log(you.sayHello())
+
+    //프로토타입 체인
+    //변수나 함수에 스코프체인 있듯이 프로토타입에도 체인이 존재한다.
+
+    //hasOwnProperty는 Object.prototype의 메서드다.
+    console.log(me1.hasOwnProperty('name')); //true
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+const x = 1;
+function outer(){
+  const x = 10;
+  const inner = function(){console.log(x)}
+    // debugger;
+    console.log(x)
+
+  return inner; //inner함수를 반환
+}
+
+//outer함수의 실행 컨텍스트는 실행 컨텍스트 스택에서 팝되어 제거된다.
+//outer함수를 실행하고 반환되는 inner함수를 innerFunction에 할당
+const innerFunc = outer();
+
+innerFunc();
+//외부 함수보다 중첩함수가 더 오래 유지되는 경우 중첩함수는 이미 생명 주기가 종료한 외부 함수의 변수를 참조할 수 있다.
+//이러한 중첩 함수를 클로저라고 부른다.
+//상태가 의도치 않게 변경되지 않도록 상태를 안전하게 은닉하고 특정 함수에게만 상태 변경을 허용하기 위해 사용한다.
+
+//카운트 상태 변수
+
+//카운트 상태 변경 함수
+const increase2 = function(){
+  let num = 0;
+  return ++num;
+}
+
+console.log(increase2()); //1
+console.log(increase2()); //1
+console.log(increase2()); //1
+
+
+
+
+
+
+  </script>
+</body>
+</html>

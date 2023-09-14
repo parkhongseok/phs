@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>in연산자</title>
+ 
+</head>
+<body>
+  <script>
+    //in연산자 : 객체 내에 특정 프로퍼티가 존재하는지 여부를 확인
+    
+    //문법 : key in object
+    //key : 프로퍼티 키
+    //object : 객체로 평가되는 표현식
+    const person = {
+      name: 'Lee',
+      address: 'ansan'
+    }
+
+    console.log('name' in person); //true
+    console.log('address' in person); //true
+    console.log('age' in person); //false
+    console.log(Object.prototype)
+
+    //프로퍼티 열거
+    //for ...in문
+    //객체의 모든 프로퍼티를 순회하면 열거(for(변수선언문 in 객체){...})
+
+    for(const key in person){
+      console.log(key + ":" + person[key])
+    }
+  </script>
+</body>
+</html>

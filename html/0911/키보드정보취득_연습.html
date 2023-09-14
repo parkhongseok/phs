@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text">
+  <em id="message"></em>
+  
+  <script>
+    const Input = document.querySelector('input[type=text]')
+    const Msg = document.querySelector('#message')
+
+    const F = function(tag){
+      const TV=tag.target.value
+      if (tag.key == 'Enter'){
+        Msg.textContent = TV
+      } 
+    }
+
+    Input.addEventListener('keyup', F)
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스코프(유효범위)</title>
+</head>
+<body>
+  <script>
+    var var1 = 1; //코드의 가장 바깥 영역에서 선언한 변수(전역변수)
+
+    if(true){
+      var var2 = 2; // 코드 블록 내에서 선언한 변수
+      if(true){
+        var var3 = 3; //중첩 코드 블록 내에서 선언한 변수
+      }
+      let let1 = 1;
+    }
+
+    function foo(){
+      var var4 = 4; //함수 내에서 선언한 변수
+      function bar(){
+        var var5 = 5; //중첩된 함수 내에서 선언한 변수
+      }
+    }
+
+    console.log(var1);//전역변수
+    console.log(var2);//if문안
+    console.log(var3);//중첩if문안
+    console.log(let1);//let또는 const의 경우 코드블럭(if,for문등)내에서 선언한 변수는 유효범위가 해당 코드블럭이다.
+    //console.log(var4);//오류발생
+  </script>
+</body>
+</html>

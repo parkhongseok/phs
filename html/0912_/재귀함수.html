@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  
+    function countdown(n){
+      for(let i = n; i >= 0; i--) console.log(i);
+    }
+    countdown(10)
+
+
+    function countdown2(n){
+      if(n<0) return;
+      console.log(n);
+      countdown2(n-1);
+    }
+    
+  countdown2(10)
+
+  //factorial
+
+  function factorial(n){
+    if(n<=1) return 1;
+    return n*factorial(n-1);
+  }
+
+  console.log(factorial(0))
+</script>
+</body>
+</html>

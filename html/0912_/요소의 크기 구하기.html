@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      background-color: aquamarine;
+      border: 2px solid black;
+      overflow: scroll; 
+    }
+
+    .child{
+      width: 500px;
+      height: 500px;
+      background-color: firebrick;
+    }
+
+    .item{
+      width: 200px;
+      height: 200px;
+      transform: scale(0.5);
+      background-color: red;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="child">
+
+    </div>
+  </div>
+<div class="item"></div>
+  <script>
+    //offsetWidth,offsetHeight : 이 속성은 요소의 패딩과 보더와 스크롤바의 사이즈를 포함한 값을 리턴한다람쥐.
+    const box = document.querySelector('.box');
+    console.log(box.offsetWidth, box.offsetHeight)
+    console.log(box.clientWidth, box.clientHeight)
+    console.log(box.scrollWidth, box.scrollHeight)
+
+//getBoundingClientRect() offetWidth와 거의 같은 값을 리턴한다. 하지만 transform이 적용되어 있다면 달라진다.
+const item = document.querySelector('.item');
+console.log(item.offsetWidth);
+console.log(item.getBoundingClientRect().width);
+  </script>
+  
+</body>
+</html>

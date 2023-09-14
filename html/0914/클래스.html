@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클래스</title>
+ 
+</head>
+<body>
+
+  <script>
+    //생성자 함수와 마찬가지로 파스칼케이스를 사용하는 것이 일반적이다.
+    //클래스 선언문
+    // class Person{}
+
+    //클래스 몸체에서 정의할 수 있는 메서드는 constructor, 프로로토타입 메서드, 정적 메서드 세 가지가 있다
+
+    class Person{
+      //생성자
+      constructor(name){
+        //인스턴스 생성 및 초기화
+        this.name = name; // name프로퍼티는 public하다.
+      }
+      //프로토타입 메서드
+      sayHi(){
+        console.log(`my name is ${this.name}`)
+      }
+      //정적 메서드
+      static sayHello(){
+        console.log('Hello!')
+      }
+    }
+
+    //인스턴스 생성
+    const me = new Person('Lee');
+
+    //프로퍼티 참조
+    console.log(me.name) // Lee
+    //메소드 호출
+    me.sayHi();// Lee
+    //정적 메소드 호출
+    Person.sayHello();
+
+    //접근자 프로퍼티
+    class Person2{
+      constructor(firstName, lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+      } 
+      //fullName은 접근자 함수로 구성된 접근자 프로퍼티다.
+      
+      //getter함수
+      get fullName(){
+        return `${this.firstName} ${this.lastName}`;
+      }
+
+      //setter함수
+      set fullName(name){
+        //배열 디스트럭처링 할당
+        [this.firstName, this.lastName] = name.split(' ');
+      }
+    }
+
+    //인스턴스 생성
+    const me1 = new Person2('Minkyu','Jang');
+    //데이터 프로퍼티를 통한 프로퍼티 값의 참조
+    console.log(me1.firstName, me1.lastName)
+
+    //접근자 프로퍼티 fullName에 접근하면 getter함수가 호출된다
+    console.log(me1.fullName)
+
+    //접근자 프로퍼티 fullName에 값을 저장 하면 setter함수가 호출된다.
+    me1.fullName = 'Hongseok park';
+    console.log(me1.fullName)
+    me1.lastName = 'Lee';
+    console.log(me1.fullName)
+  </script>
+</body>
+</html>

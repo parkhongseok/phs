@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+//객체의 상태와 동장을 숨기는데 사용한다.
+    function Person(name, age){
+      this.name = name; //public
+      let _age = age;
+      //인스턴스 메서드
+      this.sayHi = function(){
+        console.log(`Hi! My name is ${this.name}. I am ${_age}.`)
+      }
+    }
+
+    const ME = new Person('Lee', 20);
+    //외부에서 접근하느냐 할 수 없느냐의 차이다.
+    ME.sayHi(); //Hi! My name is Lee. I am 20.
+
+    console.log(ME.name)
+    console.log(ME._age)
+  </script>
+</body>
+</html>

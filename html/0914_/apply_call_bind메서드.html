@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //간접호출할 때 사용한다.
+    //function.prototype.apply/call/bind 메서드에 의한 간접 호출
+    //이들 메서드는 모든 함수가 상속받아 사용할 수 있다.
+    //function.prototype.apply(thisArgument, argumentArray);
+    //thisArgument = this로 사용할 객체
+    //argsArray = 함수에게 전달할 인수 리스트의 배열 또는 유사 배열 객체
+
+    //Function.prototype.call(thisaArg, arg1, arg2, ...)
+    //thisArg = this로 사용할 객체
+    //arg1, 2... = 함수에게 전달할 인수 리스트
+
+    function getThisBindg(){
+      console.log(argument);
+      return this;
+    }
+
+    //this로 사용할 객체
+    const thisArg = {a:1}
+
+    //getThisBinding함수를 호출하면서 인수로 전달한 객체를 
+    //getThisBinding함수의 this에 바인딩한다. 
+
+    //apply메서드는 호출할 함수의 인수를 배열로 묶어 전달한다.
+    console.log(getThisBindg.apply(thisArg, [1, 2, 3]))
+
+    //function.prototype.bind메서드는 apply와 call메서드와 달리 함수를 호출하지 않고 this로 사용할 객체만 전달한다.
+    //bind메서드는 첫번째 인수로 전달한 thisArg로 this 바인딩이 교체된 getthisBinding 함수를 새롭게 생성해 반환한다.
+
+    console.log(getThisBingding.bind(thisArg));
+
+
+
+//=================//
+//bind 메서드는 메서드의 this와 메서드 내부의 중첩함수 또는 콜백함수의 this가 불일치하는 문제를 해결하기 위해 사용된다.
+const person = {
+  name : 'Lee',
+  foo(callback){
+    //bind메서드로 callback함수 내부의 this 바인딩을 전달
+    setTimeout(callback.bind(this), 100)
+  }
+}
+
+person.foo(function(){
+  //일반함수로 호출된 콜백 함수 내부의 this.name은 window.name과 같다.
+  console.log(`Hi! my name is ${this.name}`) 
+  //Hi! my name is Lee
+  //콜백 함수 내부의 this를 외부함수 내부의 this와 일치시켜야한다.
+  //bind메서드를 사용하여 this를 일치시킬 수 있다.
+})
+
+  </script>
+
+</body>
+</html>

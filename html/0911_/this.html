@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="btn1">0</button>
+  <button class="btn2">0</button>
+  <script>
+    const btn1 = document.querySelector('.btn1')
+    const btn2 = document.querySelector('.btn2')
+
+    //event handdler property 
+    btn1.onclick = function(e){
+      console.log(this);
+      ++this.textContent;
+    }
+
+const F = function (e){
+  console.log(this);
+}
+
+    btn2.addEventListener('click', F)
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>요소의위치</title>
+  <style>
+    div{
+      height:900px;
+    }
+    .about{
+      background-color:pink;
+    }
+    .news{
+      background-color:aquamarine;
+    }
+    .skill{
+      background-color:chocolate;
+      position:relative
+    }
+    .blog{
+      background-color:bisque;
+    }
+    img{
+      position:absolute;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      opacity:0;
+      transition:all 1s;
+    }
+  </style>
+</head>
+<body>
+  <div class="about"></div>
+  <div class="news"></div>
+  <div class="skill">
+    <img src="img/accordion.jpg" alt="">
+  </div>
+  <div class="blog"></div>
+  <script>
+    //브라우저내에서 스크롤이벤트 발생 시
+    window.addEventListener("scroll",() => {
+      //scrollY = 스크롤 이동값
+      //console.log(window.scrollY);
+      const skill = document.querySelector(".skill");
+      //viewport의 시작지점(브라우저의 상단)을 기준으로한 상대좌표 y값
+      //console.log(skill.getBoundingClientRect().top)
+      
+      //브라우저의 스크롤 이동값
+      const scroll = window.scrollY;
+      //절대 좌표 구하기(스크롤이동값 + 요소의 상대좌표 y값)
+      const absoluteTop = scroll + skill.getBoundingClientRect().top
+      
+      const img = document.querySelector('img');
+      
+      if(scroll > absoluteTop){//.skill요소의 top절대 좌표값보다 스크롤 이동값이 커지면       
+        img.style.opacity = 1;
+      }else{
+        img.style.opacity = 0;
+      }
+      
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    function outer(){
+      let x= 1;
+      function inner(){
+        let y = 2;
+        console.log(x+y)
+      }
+      inner();
+    }
+    outer();
+
+    //콜백 함수
+    function repeat(n){
+      for(let i = 0; i < n; i ++) console.log(i)
+    }
+  repeat(5);
+
+  function repeat2(n){
+    for(let i = 0; i < n ; i ++){
+      if(i%2) console.log(i);
+    }
+  }
+
+  // 외부에서 전달받은 f를 n만큼 반복 호출한다.
+  function repeat3(n, f){}
+  for(let i = 0; i < n ; i ++){
+    f(i);
+  }
+    
+  const logAll = function(i){
+    console.log(i)
+  }
+
+const logOdds = function(i){
+  if (i%2) console.log(i);
+}
+
+  //callback함수
+  repeat3(5, logAll);
+
+  // repeat3은 고차함수다
+
+
+
+
+
+
+  </script>
+</body>
+</html>

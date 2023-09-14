@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정보은닉</title>
+</head>
+<body>
+  <script>
+    var Counter = (function(){
+      //private 변수
+      var num = 0; //프라이빗 멤버(외부에 노출되는 프로퍼티를 퍼블릭 멤버라고 한다.)
+
+      //외부로 공개할 데이터나 메서드를 프로퍼티로 추가한 객체를 반환한다.
+      return{
+        increase(){
+          return ++num; //num값을 증가하여 함수를 호출한 곳으로 반환
+        },
+        decrease(){
+          return --num; //num값을 감소하여 함수를 호출한 곳으로 반환
+        }
+      }
+    }());
+    //private변수는 외부로 노출되지 않는다.
+    console.log(Counter.num)
+    
+    console.log(Counter.increase())
+    console.log(Counter.increase())
+    console.log(Counter.increase())
+    console.log(Counter.decrease())
+    console.log(Counter.decrease())
+    console.log(Counter.decrease())
+  </script>
+</body>
+</html>

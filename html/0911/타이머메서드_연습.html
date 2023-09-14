@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<script>
+  const F = function(){
+    alert('3초 뒤에 호출됩니까');}
+    let timerId = setTimeout(F, 3000)
+
+
+    let count = 1;
+
+    function gallery(){
+      console.log('다음사진')
+      if(count == 5){
+        clearInterval(clearId)
+      }
+    }
+
+
+</script>
+</body>
+</html>

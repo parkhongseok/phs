@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // const person = {
+    //   name : 'Zee',
+    //   address : 'Ansan'
+    // // }
+    // // const circle = {
+    // //   radius : 5, ㅎ
+    // //   gatDiameter(){
+    // //     return 2*this.radius;
+    // //   }
+    // // }
+
+
+// function Circle(radius){
+//   this.radius = radius;
+//   this.getArea = function(){
+//     return Math.PI * this.radius**2
+//   }
+// }
+
+//   const circle1 = new Circle(1)
+//   const circle2 = new Circle(2)
+//   console.log(circle1.getArea === circle2.getArea);
+  
+  function Circle2(radius){
+    this.radius = radius;
+  };
+
+  Circle2.prototype.getDiameter()
+  {return 2*this.radius;}
+
+  const circle3 = new Circle2(1)
+  const circle4 = new Circle2(2)
+  </script>
+</body>
+</html>

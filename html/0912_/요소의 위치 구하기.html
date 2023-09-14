@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+div{
+  height: 900px;
+}
+
+.about{
+  background-color: pink;
+}
+.news{
+  background-color: rgb(190, 97, 113);
+}
+.skill{
+  background-color: rgb(90, 51, 153);
+  position: relative;
+}
+.blog{
+  background-color: rgb(155, 15, 38);
+}
+img{
+  opacity: 0;
+  transition: all 1s;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+  </style>
+</head>
+<body>
+  <div class="about"></div>
+  <div class="news"></div>
+  <div class="skill">
+    <img src="/img/img2.jpg" alt="img">
+  </div>
+  <div class="blog"></div>
+  
+  
+  
+  <script>
+    window.addEventListener('scroll', ()=>{
+      //scrollY = 스크롤 이동값
+      // console.log(window.scrollY)
+      const skill = document.querySelector('.skill');
+      // console.log(skill.getBoundingClientRect().top)
+      
+      const scroll = window.scrollY
+      const absoluteTop =scroll + skill.getBoundingClientRect().top
+      const img = document.querySelector('img');
+
+      if (scroll > absoluteTop){
+        img.style.opacity = 1;
+      }else (img.style.opacity=0)
+    })
+
+  </script>
+
+
+
+
+</body>
+</html>

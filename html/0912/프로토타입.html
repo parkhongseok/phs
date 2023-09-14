@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로토타입</title>
+  
+</head>
+<body>
+
+  <script>
+    //이름과 주소 속성을 갖는 객체
+    const person = {
+      name: 'Lee',
+      address: 'ansan'
+    }
+
+    console.log(person)
+
+    const circle = {
+      radius: 5,//반지름 <= 원의 '상태'를 나타내는 데이터
+      //원의 지름 : 2r <= 원의 지름, 둘레, 넓이 등을 구하는 것은 '동작'이다
+      getDiameter(){
+        return 2 * this.radius;
+      },
+      //원의 둘레: 2πr
+      getPerimeter(){
+        return 2 * Math.PI * this.radius;
+      },
+      //원의 넓이 : πrr
+      getArea() {
+        return Math.PI * this.radius ** 2;
+      }
+    }
+    console.log(circle)
+    console.log(circle.getDiameter())
+    console.log(circle.getPerimeter())
+    console.log(circle.getArea())
+
+    //상속 : 객체의 프로퍼티 또는 메서드를 다른 객체가 상속받아 그대로 사용할 수 있는 것
+
+    //생성자 함수
+    function Circle(radius) {
+      this.radius = radius;
+      this.getArea = function(){
+        //Math.PI는 원주율을 나타내는 상수
+        return Math.PI * this.radius ** 2;
+      }
+    }
+    //인스턴스 생성
+    const circle1 = new Circle(1);
+    const circle2 = new Circle(2);
+
+    console.log(circle1.getArea === circle2.getArea);
+    console.log(circle1.getArea(), circle2.getArea())
+
+    //프로토타입을 기반으로 상속을 구현한다(불필요한 중복을 제거)
+    //생성자 함수
+    function Circle2(radius){
+      this.radius = radius;
+    }
+    console.dir(Circle2.prototype);
+    //Circle생성자 함수가 생성한 모든 인스턴스가 getDiameter메서드를 공유해서 사용할 수 있도록 프로토타입에 추가한다.
+    Circle2.prototype.getDiameter = function(){
+      return 2 * this.radius
+    };
+    
+
+    //인스턴스 생성
+    const circle3 = new Circle2(1);
+    const circle4 = new Circle2(2);
+
+    console.log(circle3.getDiameter === circle4.getDiameter);
+    console.log(circle3.getDiameter()) //2
+    console.log(circle4.getDiameter()) //4
+
+  </script>
+</body>
+</html>

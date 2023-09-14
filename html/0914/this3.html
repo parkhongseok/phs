@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this키워드</title>
+ 
+</head>
+<body>
+
+  <script>
+    //메서드 내부의 중첩 함수나 콜백 함수의 this바인딩을 메서드의 this바인딩과 일치시키는 방법
+    
+    var value = 1;
+
+    const obj = {
+      value: 100,
+      foo(){
+        //this 바인딩(obj)을 변수 that에 할당한다.
+        const that = this;
+
+        //메서드 내에서 정의한 중첩함수
+        function bar(){
+          console.log('bar this.value = ',that.value);// 100
+          console.log('this.value = ',this.value); //1
+        }
+        bar()
+      }
+    }
+    obj.foo()
+
+    //화살표 함수를 사용해 this바인딩을 일치시킬 수 있다.
+    const obj2 = {
+      value:100,
+      foo(){
+        //화살표 함수 내부의 this는 상위 스코프의 this를 가리킨다.
+        setTimeout(() => {
+          console.log(this.value); //100
+        },100)
+      }
+    }
+    obj2.foo();
+  </script>
+</body>
+</html>

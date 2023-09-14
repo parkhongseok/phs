@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    const increase = function (num){
+      return ++num;
+    }
+    const decrease = function (num){
+      return --num;
+    }
+    
+    const auxs = {increase, decrease}
+    
+    function makeCounter(x){
+      let num = 0;
+      return function(){
+        num = x(num);
+        return num;
+      }
+    }
+    
+    const increaser = makeCounter(auxs.increase);
+
+
+    console.log(increaser())
+    console.log(increaser())
+    console.log(increaser())
+    console.log(increaser())
+
+    </script>
+</body>
+</html>

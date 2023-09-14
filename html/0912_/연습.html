@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  input{
+    padding:10px;
+    font-size: 35px;
+    border-radius: 10px;
+    border: 3px dashed rgb(12, 70, 94);
+    background-color: whitesmoke;
+  }
+
+em{
+  font-size: 35px;
+  color: white;
+
+}
+
+
+a{
+  text-align: center;
+  position: relative;
+  left: 45%;
+}
+
+.Yaho{
+  display: none;
+  text-align: center;
+  background-color: skyblue;
+  padding: 10px 0;
+  border: 3px solid rgb(12, 70, 94);
+  border-radius: 10px;
+  color: rgb(67, 74, 179);
+  font-size: 35px;
+}
+
+
+input{
+  outline:none;
+  color: skyblue;
+}
+</style>
+<body>
+  <a id="hello2" href="#">재설정
+  </a> <br><br>
+  <a id="hello" href="#">올때메로나</a> <br><br>
+
+
+
+  <div class="Yaho">  
+    <input type="text"> <br>
+    당신의 이름은 <em id="msg">--</em> 입니다.
+
+  </div>
+
+
+
+<script>
+
+  const H1 = document.querySelector('#hello')    
+  const H2 = document.querySelector('#hello2')    
+  const Input = document.querySelector('input[type=text]')
+  const Em = document.querySelector('#msg')
+  const Div = document.querySelector('.Yaho')
+
+  H1.textContent = '닉네임'
+  H1.style.fontSize = '32px'
+  H1.style.color = 'black'
+  H1.style.textDecoration = 'none'
+  H1.style.fontWeight = 'bold'
+
+  H2.style.fontSize = '32px'
+  H2.style.color = 'black'
+  H2.style.textDecoration = 'none'
+  H2.style.fontWeight = 'bold'
+
+  const f = function(e){
+    if(e.key == 'Enter'){
+      Em.textContent  =e.target.value
+      Input.value = ''
+    }
+  }
+  Input.addEventListener('keyup', f)
+
+  const g = function(e){
+    Div.style.display = 'block'
+  }
+
+  const h = function(e){
+    Div.style.display = 'none'
+
+  }
+
+  H1.addEventListener('click', g)
+  H2.addEventListener('click', h)
+</script>
+
+</body>
+</html>

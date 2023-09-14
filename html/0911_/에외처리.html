@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>예외발생</h1>
+  <button id="throwExBtn">예외 발생!</button>
+  <p id="text"></p>
+  <script>
+    const btn = document.querySelector('#throwExBtn');
+    btn.addEventListener('click', throwEx);
+
+    function throwEx(){
+      try{
+        throw new Error('직접 발생시킨 오류입니까.')
+      }catch(ex){ 
+        document.querySelector('#text')
+        console.log(ex.name)
+        text.innerHTML = ex.name + '<br>';
+      }
+    }
+  </script>
+</body>
+</html>
