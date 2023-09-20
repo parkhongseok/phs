@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #myImg{
+      width: 300px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .myImg:hover{opacity: 0.7;}
+
+    .modal{
+      position:fixed;
+      z-index: 1;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      padding-top: 100px;
+      overflow: auto;
+      display: none;
+    }
+
+    .modal-content{
+      display: block;
+      width: 80%;
+      margin:auto;
+      max-width: 700px;
+    }
+    .caption{
+      width: 80%;
+      max-width: 700px;
+      margin:auto;
+      text-align: center;
+      color: #ccc;
+      padding-top: 10px;
+    }
+
+    .close{
+      position:absolute;
+      top: 15px; right: 35px;
+      color:#f1f1f1;
+      font-size: 40px;
+      font-weight: bolder;
+      cursor: pointer;
+    }
+    .close:hover{
+      color:#bbb;
+    }
+
+    .modal-content, .caption{
+      animation: zoom 0.6s;
+    }
+    @keyframes zoom {
+      0%{transform: scale(0);}
+      100%{transform: scale(1);}
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <h2>Image Modal</h2>
+  <img class="myImg" src="../../광수.jpg" alt="팝업이미지">
+  <img class="myImg" src="../../광수.jpg" alt="팝업이미지">
+  <img class="myImg" src="../../광수.jpg" alt="팝업이미지">
+  <img class="myImg" src="../../광수.jpg" alt="팝업이미지">
+
+  <div class="modal">
+    <span class="close">&times;</span>
+    <img class="modar-content">
+    <div class="caption"></div>
+  </div>
+  <script>
+    const myImgs = document.querySelectorAll('.myimg')
+    const modal = document.querySelector('.modal')
+
+    myImgs.forEach(F)
+    function F(e){
+      e.addEventListner('click', G)
+    }
+
+    function G(e){
+      let src = e.getAttribute('src');
+      console.log(src)
+      document.querySelector(".modal-content").setAttribute('src', src)
+      let alt = e.getAttribute('alt')
+      document.querySelector('.caption').textContent = alt
+      modal.style.display = 'block'
+      }
+
+      const close = document.querySelector('.close');
+      
+      close.addEventListner('click',()=>{
+        modal.style.display = 'none'
+      })
+
+      //modal영역을 클릭하면 modal창이 닫히는 구문
+      window.addEventListener('click', (e)=>{
+        console.log(e.target)
+        //evet 타깃이 modal일 경우 dispalsy asdf asdf 를 mnonenoeneoen으로 주면 된다
+        if (e.target === modal){
+          modal.style.display='none'
+        }
+      })
+
+
+
+  </script>
+</body>
+</html>

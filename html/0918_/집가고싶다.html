@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body{
+      height: 100%;
+    }
+    .bgimg{
+      background: url(../image/searchbg.jpg) center/cover;
+      height: 100%;
+      position: relative;
+      color: white;
+      font-family:'Times New Roman', Times, serif;
+      font-size: 25px;
+    }
+.bottom{
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+.middle{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+hr{
+  margin:auto;
+  width: 40%;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div class="bgimg">
+    <div class="topleft">
+      <p>logo</p>
+    </div>
+    <div class="middle">
+      <h1>뭐랄까 <br>
+        집에 가고싶어..</h1>
+      <hr>
+      <p id="demo" style="font-size:30px;"></p>
+    </div>
+    <div class="bottom">
+      <p>Some text</p>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    //카운트다운 날짜를 설정합니까.
+    const countDownDate = new Date('Sep 18, 2023 14:20:00').getTime()
+
+    let timer = setInterval(function(){
+    const now = new Date().getTime();
+
+    const distance = countDownDate - now;
+    const days = Math.floor(distance / (1000*60*60*24))
+    const hours = Math.floor(distance % (1000*60*60*24)/(1000*60*60))
+    const minutes = Math.floor(distance % (1000*60*60)/(1000*60))
+    const seconds = Math.floor(distance % (1000*60)/(1000))
+
+
+
+    document.querySelector('#demo').innerHTML= days + "일" + ' '+ hours+'시간'+ ' '+ minutes+'분'+seconds+'초'
+    //카운트다운이 완료되면 이벤트 종료라는 문자 출력
+    if(distance<0){ 
+      clearInterval(timer)
+      document.querySelector('#demo').innerHTML = '이벤트 종료'
+    }
+  },1000)
+    
+
+
+
+
+
+
+  </script>
+</body>
+</html>

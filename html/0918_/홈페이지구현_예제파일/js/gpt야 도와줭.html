@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <style>
+        .board {
+            display: grid;
+            gap: 2px;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tic-Tac-Toe</h1>
+
+    <!-- 모드 선택 라디오 버튼 -->
+    <label>
+        <input type="radio" name="mode" value="3x3" checked> 3x3 모드
+    </label>
+    <label>
+        <input type="radio" name="mode" value="4x4"> 4x4 모드
+    </label>
+
+    <div class="board" id="board"></div>
+    <div id="message"></div>
+
+    <script>
+        const board = document.getElementById('board');
+        const message = document.getElementById('message');
+        const cells = [];
+        let currentPlayer = 'X';
+        let boardState = [];
+        let gameActive = true;
+        let boardSize = 3; // 기본 모드는 3x3
+
+        // 모드 선택 라디오 버튼 변경 이벤트 핸들러
+        const modeButtons = document.querySelectorAll('input[name="mode"]');
+        modeButtons.forEach(button => {
+            button.addEventListener('change', () => {
+                if (button.checked) {
+                    boardSize = parseInt(button.value.charAt(0)); // 선택된 모드에 따라 보드 크기 설정
+                    resetGame();
+                }
+            });
+        });
+
+        // 게임 초기화 함수
+        function resetGame() {
+            boardState = Array(boardSize * boardSize).fill('');
+            currentPlayer = 'X';
+            gameActive = true;
+            message.textContent = '';
+            cells.length = 0;
+            board.innerHTML = '';
+
+            // 보드 생성
+            board.style.gridTemplateColumns = `repeat(${boardSize}, 100px)`;
+            for (let i = 0; i < boardSize * boardSize; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'cell';
+                board.appendChild(cell);
+                cells.push(cell);
+
+                cell.addEventListener('click', () => handleCellClick(i));
+            }
+        }
+
+        // 초기 게임 설정
+        resetGame();
+
+        function checkWinner() {
+            // 이전 코드와 동일한 승리 체크 로직
+            // ...
+
+            if (!boardState.includes('') && gameActive) {
+                gameActive = false;
+                message.textContent = "It's a draw!";
+            }
+        }
+
+        function handleCellClick(cellIndex) {
+            const cell = cells[cellIndex];
+
+            if (boardState[cellIndex] === '' && gameActive) {
+                cell.textContent = currentPlayer;
+                boardState[cellIndex] = currentPlayer;
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                checkWinner();
+            }
+        }
+    </script>
+</body>
+</html>

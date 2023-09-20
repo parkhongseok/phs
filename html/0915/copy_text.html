@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>copy_text</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <!--버튼을 클릭하면 input에 입력한 글자가 저장-->
+  <input type="text" value="Hello World" id="myInput">
+  
+  <button id="btn" type="button">Copy text</button>
+  
+  <script>
+    //버튼 요소선택
+    const btn = document.querySelector("#btn");
+    btn.addEventListener('click',() => { //버튼 클릭시
+      //input요소 선택
+      const copyText = document.querySelector("#myInput");
+      
+      //입력한 글자 선택
+      //copyText.select();
+      //글자가 선택되는 범위 지정(for mobile devices)
+      //copyText.setSelectionRange(0, 99999)
+
+      //입력한 글자를 클립보드에 저장
+      navigator.clipboard.writeText(copyText.value);
+
+      //입력된 글자를 경고창에 출력
+      alert(copyText.value)
+    })
+  </script>
+</body>
+</html>

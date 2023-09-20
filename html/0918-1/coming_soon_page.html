@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>coming_soon_page</title>
+  <style>
+    html,body{height:100%; margin:0;}
+    .bgimg{
+      background:url(../image/bg.jpg) center/cover;
+      height:100%;
+      position:relative;
+      color:#fff;
+      font-family: 'Courier New', Courier, monospace;
+      font-size:25px;
+    }
+    .topleft{
+      position:absolute;
+      top:0; left:16px;
+    }
+    .bottom{
+      position:absolute;
+      bottom:0;
+      left:16px;
+    }
+    .middle{
+      position:absolute;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      text-align: center;
+    }
+    hr{
+      margin:auto;
+      width:40%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bgimg">
+    <div class="topleft">
+      <p>Logo</p>
+    </div>
+    <div class="middle">
+      <h1>COMING SOON</h1>
+      <hr>
+      <!--이벤트날짜까지 남은 시간정보를 담을 태그-->
+      <p id="demo" style="font-size:30px;"></p>
+    </div>
+    <div class="bottom">
+      <p>Some text</p>
+    </div>
+  </div>
+
+  <script>
+    //카운트다운 날짜를 설정합니다. (getTime() = 밀리초단위로 시간을 구해줌)
+    const countDownDate = new Date("Sep 18, 2023 14:20:00").getTime();
+    // console.log(countDownDate)
+
+    //1초마다 카운트다운 업데이트
+    let timer = setInterval(function(){
+      //오늘 날짜 및 시간 정보를 밀리초로 변수에 할당.
+      const now = new Date().getTime();
+
+      //카운트다운 날짜 - 오늘 날짜 = 남은 시간(밀리초 단위로 값이 반환)
+      const distance = countDownDate - now;
+      //console.log(distance)
+
+      //일, 시간, 분 및 초에 대한 시간 계산
+      const days = Math.floor(distance / (1000*60*60*24))
+      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60))
+      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60))
+      const seconds = Math.floor((distance % (1000*60)) / 1000)
+
+      //#demo요소에 결과 표시
+      document.querySelector('#demo').innerHTML = `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`
+
+      //카운트 다운이 완료되면 "이벤트 종료"라는 문자 출력
+      if(distance < 0){
+        clearInterval(timer)//clearInterval로 setInterval함수를 종료
+        document.querySelector("#demo").innterHTML = "이벤트 종료!!"
+      }
+    },1000)
+    
+  </script>
+</body>
+</html>

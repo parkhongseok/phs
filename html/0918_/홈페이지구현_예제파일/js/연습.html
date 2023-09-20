@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+      .SIZE{
+    display: flex;
+    justify-content: center;
+    margin: 5px 10px;
+
+  }
+
+  .SIZE > span{
+    font-size: 20px;
+    display: inline-block;
+    box-sizing: border-box;
+    font-weight: bolder;
+    padding-top: 1px;
+  }
+
+  .sizeBox{
+    display: flex;
+    justify-content: center;
+    border: 5px solid #ebdfdf;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  #numText{
+    text-align: center;
+    font-size: 30px;
+    font-family:'Times New Roman', Times, serif
+  }
+  #num{
+    font-size: 80px;
+  }
+
+
+  </style>
+</head>
+<body>
+  <div class="sizeBox">
+    <div class="SIZE">
+      <span>3x3</span><input data-id="3" type="radio" name="size">
+    </div>
+    <div class="SIZE">
+      <span>4x4 </span><input data-id="4" type="radio" name="size">
+    </div>
+    <div class="SIZE">
+      <span>5x5 </span><input data-id="5" type="radio" name="size">
+    </div>
+  </div>
+  <span id="numText">
+    <p>The number is <br><span id="num">this</span></p>
+  </span>
+
+
+  <script>
+const radioList = document.querySelectorAll('input[name="size"]');
+const THIS = document.querySelector('#num')
+
+size = null;
+
+radioList.forEach(F);
+
+function F(radioButton){
+  radioButton.addEventListener('change', G);
+}
+
+
+function G(e){
+  if(e.target.checked){
+    size = e.target.getAttribute('data-id');
+    size = parseInt(size)
+    THIS.textContent = size;
+  }
+}
+
+  </script>
+</body>
+</html>

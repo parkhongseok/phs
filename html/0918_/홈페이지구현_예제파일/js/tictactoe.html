@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  *{
+    box-sizing: border-box;
+  }
+  body {
+    max-width: 600px;   
+    margin: 0 auto;
+    background: #ebdfdf;
+  }
+  .container {
+    min-height: 500px;
+    margin: 50px; 
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 2rem;
+    /*flex로 아이템이 중앙에 위치할수있게 한다.*/
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
+  .game {
+    text-align: center; /* 버튼의 위치가 가운데에 올수있게 작성해준다.*/
+    margin: 50px;
+    color: #454545;
+  }
+  /*퍼즐 요소를 담을 요소*/
+  .tictactoe {
+    margin: 50px;
+  }
+  /*나중에 추가할 퍼즐요소의 스타일*/
+  .node{
+    border: 1px solid black;
+    background-color: rgba(222, 184, 135, 0.25);
+    border-radius: 10px;
+    border:1px solid rgb(187, 177, 177);
+    min-width: 100px; /* 정사각형 유지 */
+    height: 100px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  /*승부가 났을 때 추가 되는 글자를 담을 요소*/
+  .show{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*위 세개를 묶어서 생각하자 정중앙!!*/  
+    border-radius: 2rem;
+    width: 300px;
+    height: 80px;
+    font-size: 30px;
+    color: white;
+  }
+  /*버튼 요소*/
+  #play {
+    font-size: 17px;
+    width: 150px; height: 40px;
+    border-radius: 1rem;
+    background-color:rgba(121, 104, 104, 0.7);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .SIZE{
+    display: flex;
+    justify-content: center;
+    margin: 5px 10px;
+
+  }
+
+  .SIZE > span{
+    font-size: 15px;
+    display: inline-block;
+    box-sizing: border-box;
+    font-weight: bolder;
+    padding-top: 1px;
+  }
+
+  .sizeBox{
+    display: flex;
+    justify-content: center;
+    border: 5px solid #ebdfdf;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  #numText{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  #num{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="game">
+      <h1>Overwatch</h1>
+      <!-- 퍼즐이들어갈 요소 -->
+      <div class="tictactoe"></div>
+      <button id="play">Start</button> <br><br>
+
+      <div class="sizeBox">
+        <div class="SIZE">
+          <span>3x3</span><input data-id="3" type="radio" name="size">
+        </div>
+        <div class="SIZE">
+          <span>4x4 </span><input data-id="4" type="radio" name="size">
+        </div>
+        <div class="SIZE">
+          <span>5x5 </span><input data-id="5" type="radio" name="size">
+        </div>
+      </div> <br>
+      <span id="numText">
+        <span id="num">this</span> Line Mode
+      </span>
+    </div>
+  </div>
+
+  <script>
+/*size 할당하기*/
+const radioList = document.querySelectorAll('input[name="size"]');
+const THIS = document.querySelector('#num')
+size = null;
+
+radioList.forEach(F);
+
+function F(radioButton){
+  radioButton.addEventListener('change', G);
+}
+
+
+function G(e){
+  if(e.target.checked){
+    size = e.target.getAttribute('data-id');
+    size = parseInt(size)
+    THIS.textContent = size;
+
+  }
+}
+
+/*그 함수는 선택된 요소의 타캣이 된 녀석이 채크 되어 있따면, 변수를 저장한다.
+그 중 id라는 임의의 속성값을 가져온다.*/
+function saveFunction(event){
+    if (event.target.checked) 
+      size = parseInt(event.target.getAttribute('data-id'));
+  }
+
+    // console.log(size)
+    const SIZEBOX = document.querySelector('.sizeBox')
+    const gameDiv = document.querySelector(".game");
+    //퍼즐을 담을 요소를 변수에 할당
+    const tictactoeDiv = document.querySelector(".tictactoe");
+    //버튼요소를 변수에 할당
+    const playbutton = document.querySelector("#play");
+
+    let nodeList = [];  //퍼즐 요소를 담을 배열
+    // let size = 3;  // 게임의 크기를 정한다.
+    let turn = -1;  // 게임의 턴을 카운트할 변수
+    let playername = "";  // 게임 종료 시 승리한 플레이어의 이름을 담을 변수
+    let color = "";  //컬러를 넣어줄 변수를 생성한다.
+
+    //플레이 버튼 클릭시 실행될 함수
+    const nodeEvent = function(e) {
+        target = e.target;  // 여기서 target 은 node 이다. 
+        if(String(target.textContent) === ""){       
+            if(turn%2==0){ // turn값이 짝수(2의 배수)일 경우
+                // 클릭한 타겟에 O 이 출력 
+                target.textContent = "O";
+                color = "#9acdfb70";
+                playername = "∙ Blue ";
+            }else{ // turn값이 홀수일 경우
+                // 클릭한 타겟에 x 가 출력
+                target.textContent = "X";
+                color = "#ffafaf70";
+                playername = "∙ Pink ";
+            }
+
+            target.style.backgroundColor = color; //target의 배경색을 color변수값으로 할당
+            turn++; //turn값을 증가 시킵니다.
+            //size가 3이면 5번째 턴부터 승리자가 나올수 있고 size가 4이면 7번째 턴부터 승리자가 나올 수 있으므로 조건식을 해당 값 이상 나왔을 때 실행되는 코드를 작성
+            if(turn > (size*2)-2){  
+                win_check(target.textContent); //win_check함수를 호출하고 target의 textContent를 인수로 전달
+            } 
+        }
+    }
+    //win_check함수 생성(매개변수check를 전달 받음)
+    function win_check(check){
+        //대각선 방향에 퍼즐이 몇개나 일치하는 지 카운트 할 변수
+        let left = 0; let right = 0;
+        for(let i=0; i<size; i++){//size값 만큼 반복되는 구문(가로)
+            //가로 세로 방향의 퍼즐이 몇개나 일치하는 지 카운트 할 변수
+            let y=0; let x=0; 
+            for(let j=0; j<size; j++){//size값 만큼 반복되는 구문(세로)
+                text = nodeList[i][j].textContent; //가로를 체크하는 변수
+                text2 = nodeList[j][i].textContent; //세로를 체크하는 변수
+                if(check === text){//클릭한 target의 text(check)와 가로축 node의 text가 일치하면
+                    x++; //x값에 1을 증가
+                    if(i === j){ //i와 j가 일치할 경우 \대각선
+                        left++; // left변수에 1을 증가
+                    }
+                }
+                if(check === text2){// 클릭한 target의 text(check)와 세로축 node의 text가 일치하면
+                    y++; //y값에 1을 증가
+                    if(j === size-i-1){// j0 = i2, j1 = i1, j2 = i0,  /대각선
+                        right++; //right변수에 1을 증가
+                    }
+                }
+                if(y===size || x===size || left===size || right===size){ // 조건식이 하나라도 일치하면 
+                    turn = 0; win_show(); return; //turn을 0을로 초기화 하고 win_show()함수 호출하고 함수 종료
+                }
+                if(turn >= size * size){ // 무승부인 경우 turn을 초기화 하지 않고 win_show()함수 호출
+                    win_show(); 
+                }
+            }
+        }
+    }
+    //승부가 났을경우
+    function win_show(){ 
+        //0.3초뒤에 함수 실행
+        setTimeout (function(){
+            //gameDiv 안에 생성된 모든 코드를 없애준다.
+            tictactoeDiv.innerHTML = "";
+            //show라는 클래스로 div요소 생성 하고 .tictactoeDiv요소의 자손으로 추가
+            var show = document.createElement("div");
+            show.classList.add('show');
+            tictactoeDiv.appendChild(show);
+            if(turn != 0){// turn값이 0이 아니면 .show에 "무승부" 글자를 넣어줌
+                show.style.backgroundColor = "#ebdfdf";
+                show.textContent = "∙ 무 승 부 ∙";
+            }else{// turn이 0이면 .show에 이긴 플레이어의 이름을 출력
+                show.style.backgroundColor = color;
+                show.textContent = playername+" WIN! ∙";
+            }
+            //버튼의 글자를 play Again으로 변경
+            playbutton.textContent = "Play Again";
+        },300);
+    }
+//플레이 버튼 클릭 시
+playbutton.addEventListener("click",PLAY)
+    function PLAY(){
+            if(turn === -1){ //turn값이 -1일 때 구문 실행
+              turn++; //(게임이 재생성되지않도록 +1 해준다.)
+                //play버튼을 reset버튼으로 변경
+                playbutton.textContent = "Reset"; 
+                //table태그 생성
+                const table = document.createElement("table");
+                //size의 갯수만큼 tr태그 생성하고 nodeList배열에 추가
+                for(let i=0; i<size; i++){
+                    const line = document.createElement("tr");
+                    nodeList.push([]);
+                    //size의 갯수 만큼 td태그를 생성하고 node클래스 추가
+                    for(var j = 0; j<size; j++){
+                        var node = document.createElement("td");
+                        node.classList.add('node');
+                        //클릭이벤트 생성하고 이벤트 발생시 nodeEvent함수 호출
+                        node.addEventListener("click",nodeEvent);             
+                        //node요소에 textcontent를 제거
+                        node.textContent = "";
+                        //생성된 td를 tr요소에 추가
+                        line.append(node);
+                        // nodeList배열에 생성된 node를 추가
+                        nodeList[i].push(node);
+                    }
+                    //table안에 생성된 tr,td태그를 추가합니다.
+                    table.append(line);
+                }
+                // tictactoeDiv 안에 table 을 넣어준다.
+                tictactoeDiv.appendChild(table);
+                SIZEBOX.style.display='none'
+            }else{//turn값이 -1이 아니면
+                //처음 페이지로 돌아감(초기화)
+                history.go(0);
+            }
+        }
+  </script>
+</body>
+</html>

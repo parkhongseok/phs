@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>random</title>
+ 
+</head>
+<body>
+  <img src="image/slide1.jpg" alt="">
+  <script>
+    //0 에서 1미만(0.9999...)의 숫자를 반환
+    console.log(Math.random())
+
+    //1~10범위의 랜덤 정수 취득
+    const random = Math.floor((Math.random() * 10) + 1)
+    console.log(random)
+
+    function imgChange(){
+      //이미지 요소 선택
+      const img = document.querySelector("img");
+      //1부터 4까지의 숫자를 랜덤으로 생성
+      const number = Math.floor((Math.random()*4)+1);
+      console.log(number)
+      //랜덤 숫자를 이용하여 src경로 값을 srcValue할당
+      const srcValue = `image/slide${number}.jpg`;
+      //img요소의 src속성값을 srcValue로 변경
+      img.setAttribute('src',srcValue)
+    }
+    
+    setInterval(imgChange,5000);//5초 딜레이타임 후에 imgChange함수를 반복실행
+
+  </script>
+</body>
+</html>

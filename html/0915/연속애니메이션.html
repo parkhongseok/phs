@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연속애니메이션</title>
+  <style>
+    div{
+      width:320px;
+      height:240px;
+      position:relative;
+      background:url(image/bg.jpg);
+    }
+    div > img{
+      position:absolute;
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  
+  <script>
+    //setInerval함수를 호출할때 setInterval에서 id를 주는데 이때의 id값을 저장할 변수(clearInterval시 필요)
+    let timer;
+    //count 변수는 setInterval에서 주기적으로 함수를 호출할때 이미지의 위치가 저장됨
+    let count = 0;
+    //div요소 선택
+    const parent = document.querySelector('div');
+    //0부터 20까지 반복
+    for(let i=0; i<21; i++){
+      //innerHTML로 div요소의 내부에 img태그를 삽입
+      parent.innerHTML += `<img src="image/seq/seq${i}.png" alt="이미지${i}">`
+    }
+    parent.firstElementChild.style.display = "inline";
+
+    //parent요소에 마우스를 올려놨을때
+    parent.addEventListener('mouseover',() => {
+      //timer변수에 setInterval함수가 할당되었으면 clearInterval로 setInterval메서드를 종료
+      if(timer) clearInterval(timer)
+      
+      //0.05초마다 한번씩 nextFrame함수를 호출
+      timer = setInterval(nextFrame,50)
+    })
+    
+    //parent요소에서 마우스가 떠났을때
+    parent.addEventListener("mouseout",() => {
+      if(timer) clearInterval(timer)
+      timer = setInterval(prevFrame, 50);
+    })    
+
+    //이미지 요소들을 images에 할당
+    const images = document.querySelectorAll("img");
+    //console.log(images)
+    //nextFrame함수 생성
+    function nextFrame(){
+      //이미지 순번이 count와 같은 순번요소를 선택(초기값은0)하여 display를 none으로 화면에서 가려줍니다.
+      images[count].style.display="none";
+      
+      //count값을 증가
+      count++;
+      if(count > 20){//count값이 20보다 커졌을때 count변수값을 20으로 고정, clearInterval로 setInterval을 종료
+        count = 20;
+        clearInterval(timer)
+      }
+      console.log(count)
+      //증가된 count값과 같은 순번의 이미지의 display를 inline으로 변경하여 화면에 표시
+      images[count].style.display= "inline";
+    }
+
+    //prevFrame생성
+    function prevFrame(){
+      images[count].style.display = "none";
+      //count값을 감소
+      count--; 
+      //count값이 0보다 작으면 count값을 0으로 고정,clearInterval로 setInterval을 종료 
+      if(count < 0){
+        count = 0;
+        clearInterval(timer)
+      }
+      images[count].style.display = "inline";
+    }
+  </script>
+</body>
+</html>

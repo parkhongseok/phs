@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+*{margin: 0; padding: 0;}
+section{
+  width: 100%;
+  height: 100vh;
+}
+section:nth-child(1){background-color: skyblue;}
+section:nth-child(2){background-color: rgb(49, 177, 182);}
+section:nth-child(3){background-color: rgb(28, 96, 122);}
+section:nth-child(4){background-color: rgb(0, 49, 68);}
+</style>
+</head>
+<body>
+  <div class="box">
+      <section id="1"></section>
+      <section id="2"></section>
+      <section id="3"></section>
+      <section id="4"></section>
+    </div>
+    <script>
+    const contains = document.querySelectorAll('section');
+
+    contains.forEach(F)
+
+    function F(contain, index){
+      contain.addEventListener('wheel', G)
+    }
+
+    function G(e){
+      e.preventDefault();
+      if(e.deltaY < 0){
+
+      }else if(e.deltaY > 0){
+        const nextScrollTop = (index + 1)*window.innerHeight
+        window.scrollTo({
+          behavior :'smooth',
+          left:0,
+          top:nextScrollTop
+        })
+      }
+  }
+
+  
+
+
+  </script>
+</body>
+</html>

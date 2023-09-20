@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{box-sizing: border-box;}
+    .slideshow{
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    .mySlides{
+      display: none;
+      animation: fade 1.5s;
+    }
+    @keyframes fade{
+      0%{opacity: 0.4;}
+      100%{opacity: 1;}
+    }
+    .mySlides img{
+      width: 100%;
+    }
+    .numbertext{
+      color: #f2f2f2;
+      position: absolute;
+      padding: 8px 12px;
+      font-size: 12px;
+    }
+    .caption{
+      color: #f2f2f2;
+      font-size: 15px;
+      position: absolute;
+      bottom: 8px;
+      text-align: center;
+      padding: 8px 12px;
+    }
+
+.prev, .next{
+  cursor:pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+  font-size: 30px;
+  transform: translateY(-50%);
+  color: #f2f2f2;
+  font-weight: bold;
+  user-select: none;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  padding: 10px;
+}
+.next{
+  right:0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover,.next:hover{
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.dot{
+  cursor:pointer;
+  width: 15px;
+  height: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  display: inline-block;
+  border-radius: 50%;
+  transition: background-color 0.6s ease;
+}
+.dotGroup{
+  text-align: center;
+}
+.active,.dot:hover{
+  background-color: #717171;
+}
+
+  </style>
+</head>
+<body>
+  <div class="slideshow">
+    <div class="mySlides">
+      <div class="numbertext"> 1 / 4 </div>
+      <img src="../../광수.jpg" alt="">
+      <div class="caption">Caption 1</div>
+    </div>
+    <div class="mySlides">
+      <div class="numbertext"> 2 / 4 </div>
+      <img src="../../c0192fba0362fb3a07bbb599faab235e.jpg" alt="">
+      <div class="caption">Caption 2</div>
+    </div>
+    <div class="mySlides">
+      <div class="numbertext"> 3 / 4 </div>
+      <img src="../../f8a3361b309d537672568ea8b11c6223.jpg" alt="">
+      <div class="caption">Caption 3</div>
+    </div>
+    <div class="mySlides">
+      <div class="numbertext"> 4 / 4 </div>
+      <img src="../../img.jpg" alt="">
+      <div class="caption">Caption 4</div>
+    </div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>
+<!-- dot버튼 -->
+<div class="dotGroup">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+</div>
+<script>
+  let slideIndex = 0;
+  function showSlides(){
+    const slides = document.querySelectorAll('.mySlides');
+    slides.forEach(slide => slide.style.display = 'none')
+
+    slideIndex++; 
+    if(slideIndex > slides.length) slideIndex = 1;
+    slides[slideIndex-1].style.display = 'block';
+    setTimeout(showSlides, 2000)
+  }
+showSlides();
+
+
+const slideshow = document.querySelector('.slideshow')
+const dotGroup = document.querySelector('.dotGroup')
+slideshow.addEventListener('mouseover', ()=> {
+  clearTimeout(timer);
+})
+
+
+</script>
+</body>
+</html>

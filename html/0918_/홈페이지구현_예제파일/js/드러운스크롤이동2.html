@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+*{margin: 0; padding: 0;}
+section{
+  width: 100%;
+  height: 100vh;
+}
+section:nth-child(1){background-color: skyblue;}
+section:nth-child(2){background-color: rgb(49, 177, 182);}
+section:nth-child(3){background-color: rgb(28, 96, 122);}
+section:nth-child(4){background-color: rgb(0, 49, 68);}
+
+  </style>
+</head>
+<body>
+  <section></section>
+  <section></section>
+  <section></section>
+  <section></section>
+
+  <script>
+    //body를 선택해서 스코롤을 멈추게 한다.
+    //마우스 휠을 돌리는 값을 인자로 받는다. (델타Y)
+    //델타Y가 양수면 위치를 변경해준다.
+
+    const Box = document.querySelector('.box')
+    const Contains = document.querySelectorAll('section');
+
+    Contains.forEach(F);
+
+    function F(contain){
+    contain.addEventListener('wheel', G)
+    }
+
+
+    function G(e){
+      let i = [...Contains].indexOf(e.target)
+      console.log(i)
+      e.preventDefault();
+      if(e.deltaY > 0){
+        const nextScrollTop = (i + 1)*window.innerHeight
+        window.scrollTo({
+          behavior : 'smooth',
+          left : 0,
+          top:nextScrollTop
+        })
+      }
+    }
+
+  </script>
+</body>
+</html>

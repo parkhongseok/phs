@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //replace
+    //카라멜은너무달아
+    function camelToSnake(camelCase){
+      replace camelCase.replace(/.[A-Z]/g, match =>{
+      console.log(match);
+      return match[0] + "_"+ match[1].toLowercase();
+    })
+    }
+    const camelCase = 'pizzaIsGood';
+    camelToSnake(camelCase); //hello_world
+
+
+
+
+
+</script>
+  
+</body>
+</html>

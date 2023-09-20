@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배열메서드</title>
+ 
+</head>
+<body>
+
+  <script>
+    //Array.prototype.indexOf : 원본배열에서 인수로 전달된 요소를 검색하여 인덱스를 반환한다.
+    let arr = [1,2,2,3];
+
+    //배열 arr에서 요소 2를 검색하여 첫 번째로 검색된 요소의 인덱스를 반환한다.
+    console.log(arr.indexOf(2));  //1
+    //배열 arr에 요소 4가 없으므로 -1을 반환
+    console.log(arr.indexOf(4)); //-1
+    //두번째 인수는 검색을 시작할 인덱스다. 두번재 인수를 생략하면 처음부터 검색한다.
+    console.log(arr.indexOf(2, 2)); //2
+
+    //배열에 특정 요소가 존재하는지 확인할 때 유용하다.
+    const foods = ['apple', 'banana'];
+
+    //foods배열에 orange요소가 존재하는지 확인한다.
+    if(foods.indexOf('orange') === -1){
+      //foods배열에 orange가 없으면 orange요소를 추가
+      foods.push('orange')
+    }
+    console.log(foods)
+
+    //es7에서 도입된 includes메서드를 사용하면 가독성이 더 좋다.
+    if(!foods.includes('orange')){
+      foods.push('orange')
+    }
+
+    //pop() : 원본 배열에서 마지막 요소를 제거하고 제거한 요소를 반환
+    arr = [1,2];
+    let result = arr.pop();
+    console.log(result)
+    console.log(arr)
+
+    //pop는 요소를 완전히 제거하고 delete연산자는 배열요소값만 제거한다.(빈 배열요소는 그대로 남아있는다.)
+    const arr2 = [1,2]
+    delete arr2[1];
+    console.log(arr2)
+
+    //클래스로 구현한 스택
+    class Stack {
+      #array; //private class member
+
+      constructor(array = []){
+        //array값이 배열이 아니면 실행
+        if(!Array.isArray(array)){//에러처리
+          //오류 메시지 출력
+          throw new TypeError(`${array}은 배열이 아닙니다.`)
+        }
+        //class member인 #array에 array를 할당
+        this.#array = array;
+      }
+      //스택의 가장 마지막에 데이터를 밀어 넣는다.
+      push(value){
+        return this.#array.push(value);
+      }
+      //스택의 가장 마지막 데이터, 즉 가장 나중에 밀어넣은 최신 데이터를 꺼낸다.
+      pop(){
+        return this.#array.pop()
+      }
+
+      //스택의 복사본 배열을 반환한다.
+      entries(){
+        return [...this.#array]
+      }
+    }
+    //인스턴스 생성
+    const stack = new Stack([1,2])
+    console.log(stack.entries());
+
+    stack.push(3);
+    console.log(stack.entries());
+
+    stack.pop();
+    console.log(stack.entries());
+    
+
+    //큐 : 데이터를 마지막에 밀어 놓고, 처음 데이터를 먼저 꺼내는 선입 선출 방식의 자료구조
+    class Queue{
+      #array
+      constructor(array = []){
+        //array값이 배열이 아니면 실행
+        if(!Array.isArray(array)){//에러처리
+          //오류 메시지 출력
+          throw new TypeError(`${array}은 배열이 아닙니다.`)
+        }
+        //class member인 #array에 array를 할당
+        this.#array = array;
+      }
+
+      //큐의 가장 마지막에 데이터를 밀어 넣는다.
+      enqueue(value){
+        return this.#array.push(value)
+      }
+      //큐의 가장 처음 데이터, 즉 가장 먼저 밀어 넣은 데이터를 꺼낸다.
+      dequeue(){
+        return this.#array.shift()
+      }
+      //큐의 목사본 배열을 반환한다.
+      entries(){
+        return [...this.#array]
+      }
+    }
+    //queue인스턴스 생성
+    const queue = new Queue([4,5])
+    console.log(queue.entries())
+
+    queue.enqueue(6);
+    console.log(queue.entries())
+    
+    queue.dequeue();
+    console.log(queue.entries())
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슬라이드다운_내비</title>
+  <style>
+    *{margin:0; padding:0;}
+    a{text-decoration: none; color:inherit;}
+    ul{list-style:none;}
+
+    .gnb{
+      width:800px;
+      margin:auto;
+      display:flex;
+    }
+    .gnb > li{
+      width:200px;
+      text-align: center;
+      position:relative;
+    }
+    .gnb > li > a{
+      display:block;
+      width:100%;
+      line-height:40px;
+      background-color:#f2f2f2;
+    }
+    .gnb > li:hover > a{
+      background-color:#0a3d62;
+      color:#fff;
+    }
+
+    /*sub*/
+    .sub{
+      width:200px;
+      position:absolute;
+      left:0;
+      max-height:0;
+      overflow:hidden;
+      /*슬라이드업다운되는 시간 설정*/
+      transition:max-height 0.4s ease;
+    }
+    .sub > li > a{
+      display:block;
+      width:100%;
+      line-height:40px;
+      background-color:#f2f2f2;
+    }
+    .sub > li > a:hover{
+      background-color:#60a3bc;
+      color:#fff;
+    }
+  </style>
+  <!--js 외부정의 (async = html이 모두 parsing된 후에 js를 fetching해줌)-->
+  <script async src="slideDownNav.js"></script>
+</head>
+<body>
+  <ul class="gnb">
+    <li>
+      <a href="#">메뉴</a>
+      <ul class="sub">
+        <li><a href="#">서브</a></li>
+        <li><a href="#">서브</a></li>
+        <li><a href="#">서브</a></li>
+        <li><a href="#">서브</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">메뉴</a>
+      <ul class="sub">
+        <li><a href="#">서브</a></li>
+        <li><a href="#">서브</a></li>
+        <li><a href="#">서브</a></li>
+        <li><a href="#">서브</a></li>
+        <li><a href="#">서브</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">메뉴</a>
+      <ul class="sub">
+        <li><a href="#">서브</a></li>
+        <li><a href="#">서브</a></li>
+        <li><a href="#">서브</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">메뉴</a>
+      <ul class="sub">
+        <li><a href="#">서브</a></li>
+        <li><a href="#">서브</a></li>
+      </ul>
+    </li>
+  </ul>
+  
+</body>
+</html>
