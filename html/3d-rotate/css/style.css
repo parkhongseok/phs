@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+*{margin:0; padding:0;}
+ul{list-style:none;}
+a{text-decoration: none; color:inherit;}
+html,body{
+  background-color:#111;
+  font-family: "Orbitron";
+  color:#bbb;
+  height:100%;/*body안쪽의 자식요소의 높이를 브라우저의 100%로 설정하기 위해서 적용*/
+}
+.wrap{
+  position:relative;
+  width:100%; height:100%;
+  min-width:1024px;
+  min-height:768px;
+  perspective:900px;/*900px만큼 깊이감을 설정(컨텐츠를 입체적으로 회전시키기 위해 적용)*/
+}
+
+/*메뉴 아이콘*/
+.btnMenu{
+  position:absolute;
+  top:50px;
+  left:40px;
+  font-size:40px;
+  color:#fff;
+  z-index: 3;
+  animation:ani 0.5s infinite alternate;
+}
+/*.btnMenu에 on클래스 추가시 btnMenu를 화면에서 가려줌*/
+.btnMenu.on{
+  display:none;
+}
+@keyframes ani{
+  0%{
+    transform:scale(1); 
+    opacity:1; 
+    color:#fff;
+  }
+  100%{
+    transform:scale(1.5); 
+    opacity:0.8; 
+    color:#888;
+  }
+}
+
+/*카테고리 그룹*/
+nav{
+  position:absolute;
+  width:150px;
+  height:100%;
+  background:#eee;
+  z-index: 2;
+  transform:rotateY(120deg);/*nav를 y축으로 120도 회전시킴*/
+  transform-origin:left center;/*nav의 기준축을 왼쪽을 변경*/
+  opacity:0;
+  transition:0.8s;
+}
+nav.on{/*nav에 on클래스가 추가되면 nav가 회전하면서 서서히 나타남*/
+  transform:rotateY(15deg);
+  opacity:1;
+}
+/*로고*/
+nav h1{
+  width:100px;
+  position:absolute;
+  top:80px;
+  left:50%;
+  margin-left:-50px;
+}
+nav h1 img{width:100%;}
+
+/*카테고리 메뉴*/
+#gnb{
+  position:absolute;
+  top:35%;
+  width:100%;
+}
+#gnb a{
+  display:block;
+  width:100%;
+  line-height:4;
+  font-size:18px;
+  text-align: center;
+  color:#1b1b1b;
+  transition:0.5s;
+}
+#gnb a:hover{
+  background-color:#1b1b1b;
+  color:#f1f1f1;
+}
+
+/*컨텐츠 그룹*/
+section{
+  position:absolute;
+  width:100%; height:100%;
+  z-index: 1;
+  background:#555;
+  transform-origin:right center;/*section의 기준축을 오른쪽으로 설정*/
+  transition:0.5s;
+  overflow:hidden;
+}
+/*section에 on클래스 추가시 section을 -10도만큼 회전시킴*/
+section.on{transform:rotateY(-10deg)}
+section > div{
+  position:absolute;
+  width:100%; 
+  height:100%;
+  z-index: 1;
+  opacity:0;
+  perspective: 700px;/*각각의 div안에 있는 p요소들이 입체적으로 회전하도록 perspective를 적용*/
+  transition:1.5s;
+}
+/*on클래스가 추가된 div요소를 z축으로 맨위로 올려주고 opacity를 1로 변경하여 화면에 표시*/
+section > div.on{
+  z-index:2;
+  opacity:1;
+}
+
+/*box1*/
+.box1 > p{height:25%; float:left;}
+.box1 > p:nth-child(1){
+  width:50%;
+  background-color:#333;
+}
+.box1 > p:nth-child(2){
+  width:25%;
+  background:url(../img/m1.jpg) right center/cover;
+}
+.box1 > p:nth-child(3){
+  width:25%;
+  background-color:#444;
+}
+.box1 > p:nth-child(4){
+  width:50%;
+  height:50%;
+  background:url(../img/m2.jpg) center top/cover;
+  float:right;
+}
+.box1 > p:nth-child(5){
+  width:25%;
+  background:#fff url(../img/m3.jpg) no-repeat left center/contain;
+  float:right;
+}
+.box1 > p:nth-child(6){
+  width:25%;
+  background:#888;
+  float:right;
+}
+.box1 > p:nth-child(7){
+  width:25%;
+  background:#444;
+  float:right;
+}
+.box1 > p:nth-child(8){
+  width:25%;
+  background:url(../img/m4.jpg) center/cover;
+  float:right;
+}
+.box1 > p:nth-child(9){
+  width:25%;
+  background:#444;
+}
+.box1 > p:nth-child(10){
+  width:50%;
+  background:url(../img/m5.jpg) right center/cover;
+}
+.box1 > p:nth-child(11){
+  width:25%;
+  background:#222;
+}
+/*.box2*/
+.box2 > p{
+  height:25%;
+  float:left;
+}
+.box2 > p:nth-child(1){
+  width:25%;
+  background-color:#444;
+}
+.box2 > p:nth-child(2){
+  width:25%;
+  background:#fff url(../img/w1.jpg) no-repeat center bottom/contain;
+}
+.box2 > p:nth-child(3){
+  width:50%;
+  background:#222;
+}
+.box2 > p:nth-child(4){
+  width:25%; height:50%;
+  background:url(../img/w2.jpg) right top/cover;
+}
+.box2 > p:nth-child(5){
+  width:50%; height:50%;
+  background:#fff url(../img/w3.jpg) center/cover;
+}
+.box2 > p:nth-child(6){
+  width:25%;
+  background:#fff url(../img/w4.jpg) no-repeat center/contain;
+}
+.box2 > p:nth-child(7){
+  width:25%;
+  background:#555;
+}
+.box2 > p:nth-child(8){
+  width:25%;
+  background:url(../img/w5.jpg) center/cover;
+}
+.box2 > p:nth-child(9){
+  width:25%;
+  background:#555;
+}
+.box2 > p:nth-child(10){
+  width:25%;
+  background:url(../img/w6.jpg) center top/cover;
+}
+.box2 > p:nth-child(11){
+  width:25%;
+  background:url(../img/w7.jpg) center/cover;
+}
+
+/*.box3*/
+.box3 > p{
+  width:25%;
+  height:25%;
+  float:left;
+}
+.box3 > p:nth-child(1){
+  width:50%;
+  height:100%;
+  background:url(../img/k1.jpg) center top/cover;
+}
+.box3 > p:nth-child(2){
+  background:#555;
+}
+.box3 > p:nth-child(3){
+  background:url(../img/k2.jpg) center/cover;
+}
+.box3 > p:nth-child(4){
+  width:50%;
+  background:#222;
+}
+.box3 > p:nth-child(5){
+  height:50%;
+  background:#fff url(../img/k3.jpg) center top/cover;
+}
+.box3 > p:nth-child(6){
+  background:#777;
+}
+.box3 > p:nth-child(7){
+  background:#fff url(../img/k4.jpg) center/cover;
+}
+
+
+/*컨텐츠 폰트 설정*/
+section > div > p{
+  text-align: center;
+  position:relative;
+  overflow:hidden;
+  /*p요소를 y축으로 180도만큼 회전시켜 놓음*/
+  transform:rotateY(180deg);
+  transition:1.5s;
+}
+/*on클래스가 추가되면 원래 방향으로 회전*/
+section > div.on > p{
+  transform:rotateY(0deg);
+}
+section p span{
+  display:block;
+  position:absolute;
+  width:100%; 
+  top:50%; margin-top:-10px;
+  font-size:20px;
+  color:#eee;
+}
+section p strong{
+  display:block;
+  position:absolute;
+  width:100%;
+  top:50%;
+  font-size:50px;
+  color:#fff;
+  margin-top:-25px;
+}
+section p video{width:100%;}
+/*웹 아이콘*/
+section p i{
+  font-size:30px;
+  color:#eee;
+  margin:0 15px;
+  position:relative;
+  top:50%; margin-top:-15px;
+  opacity:0.5;
+  transition:0.5s;
+}
+section p i:hover{
+  transform:scale(1.2); opacity:1;
+}

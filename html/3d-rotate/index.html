@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>입체적으로 회전하는 레이아웃</title>
+  <!--폰트어썸 CDN-->
+  <script src="https://kit.fontawesome.com/632d3e2496.js" crossorigin="anonymous"></script>
+  <!--외부정의 css-->
+  <link href="css/style.css" rel="stylesheet">
+  <!--외부정의 js-->
+  <script async src="js/script.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <!--nav 영역을 호출할 버튼-->
+    <a class="btnMenu" href="#">
+      <i class="fas fa-bars"></i>
+    </a>
+    <!--실제 카테고리 메뉴가 들어갈 nav영역-->
+    <nav>
+      <h1><img src="img/logo.png"></h1>
+      <ul id="gnb">
+        <li><a href="#">Homme</a></li>
+        <li><a href="#">Girl</a></li>
+        <li><a href="#">Kids</a></li>
+      </ul>
+    </nav>
+    <!--3개의 컨텐츠 상자가 들어갈 section영역-->
+    <section>
+      <div class="box1 on">
+        <p><!--p1-->
+          <strong>Vogue Homme</strong>
+        </p>
+        <p><!--p2--></p>
+        <p><!--p3-->
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+        </p>
+        <p><!--p4--></p>
+        <p><!--p5--></p>
+        <p><!--p6-->
+          <span>Travis Crown</span>
+        </p>
+        <p><!--p7-->
+          <video loop autoplay muted>
+            <source src="img/vid.mp4" type="video/mp4">
+          </video>
+        </p>
+        <p><!--p8--></p>
+        <p><!--p9-->
+          <span>Best Qualified Goods</span>
+        </p>
+        <p><!--p10--></p>
+        <p><!--p11-->
+          <span>Sports</span>
+        </p>
+      </div>
+      <div class="box2">
+        <p><!--p1--><span>tremendous</span></p>
+        <p><!--p2--></p>
+        <p><!--p3--><strong>Vogue Girl</strong></p>
+        <p><!--p4--></p>
+        <p><!--p5--></p>
+        <p><!--p6--></p>
+        <p><!--p7--><span>Accessories</span></p>
+        <p><!--p8--></p>
+        <p><!--p9--><span>Jewelry</span></p>
+        <p><!--p10--></p>
+        <p><!--p11--></p>
+      </div>
+      <div class="box3">
+        <p><!--p1--></p>
+        <p><!--p2--><span>Play &amp Dolls</span></p>
+        <p><!--p3--></p>
+        <p><!--p4--><strong>Vogue Kids</strong></p>
+        <p><!--p5--></p>
+        <p><!--p6--><span>Clothes</span></p>
+        <p><!--p7--></p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
