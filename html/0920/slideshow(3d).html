@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slideshow(3d)</title>
+  <style>
+    *{margin:0; padding:0;}
+    body{background-color:#000026;}
+    .slideshow{
+      width:1100px;
+      height:300px;
+      margin:100px auto 0;
+      position:relative;
+    }
+    /*버튼*/
+    .prev,
+    .next{
+      font-size:50px;
+      background-color:transparent;
+      border:none;
+      outline:none;
+      color:#fff;
+      position:absolute;
+      top:calc(50% - 25px);/*calc = 계산된 값을 설정*/
+      cursor:pointer;
+    }
+    .next{right:0;}
+
+    /*콘텐츠*/
+    .contents{
+      width:900px;
+      height:180px;
+      perspective:900px;/*입체적인 공간을 만들기위해 깊이감을 900px로 설정*/
+      position:absolute;
+      /*가운데 정렬*/
+      top:calc(50% - 90px);
+      left:calc(50% - 450px);
+    }
+    .content-carrousel{
+      width:100%;
+      height:100%;
+      /*자식요소인 이미지들을 3d공간에서 회전시키기위해 설정*/
+      transform-style:preserve-3d;
+      transition:0.5s;
+    }
+    /*이미지요소를 한곳에 겹쳐놓음*/
+    .content-carrousel > figure{
+      width:150px; 
+      height:150px;
+      border:1px solid #4d444d;
+      box-shadow:0 0 20px #000;
+      position:absolute;
+      left:calc(50% - 75px);
+    }
+    /*이미지요소를 앞(z축)으로 이동시킨후 40도씩 회전*/
+    .content-carrousel > figure:nth-child(1){
+      transform:rotateY(0deg) translateZ(400px);
+    }
+    .content-carrousel > figure:nth-child(2){
+      transform:rotateY(40deg) translateZ(400px);
+    }
+    .content-carrousel > figure:nth-child(3){
+      transform:rotateY(80deg) translateZ(400px);
+    }
+    .content-carrousel > figure:nth-child(4){
+      transform:rotateY(120deg) translateZ(400px);
+    }
+    .content-carrousel > figure:nth-child(5){
+      transform:rotateY(160deg) translateZ(400px);
+    }
+    .content-carrousel > figure:nth-child(6){
+      transform:rotateY(200deg) translateZ(400px);
+    }
+    .content-carrousel > figure:nth-child(7){
+      transform:rotateY(240deg) translateZ(400px);
+    }
+    .content-carrousel > figure:nth-child(8){
+      transform:rotateY(280deg) translateZ(400px);
+    }
+    .content-carrousel > figure:nth-child(9){
+      transform:rotateY(320deg) translateZ(400px);
+    }
+
+    figure img{
+      transition:0.3s;
+      width:100%;
+      height:100%;
+    }
+    figure img:hover{
+      transform:scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <section class="slideshow">
+    <button class="prev" type="button">&#10094;</button>
+    <button class="next" type="button">&#10095;</button>
+    <div class="contents">
+      <div class="content-carrousel">
+        <figure class="shadow">
+          <img src="https://dummyimage.com/150">
+        </figure>
+        <figure class="shadow">
+          <img src="https://dummyimage.com/150">
+        </figure>
+        <figure class="shadow">
+          <img src="https://dummyimage.com/150">
+        </figure>
+        <figure class="shadow">
+          <img src="https://dummyimage.com/150">
+        </figure>
+        <figure class="shadow">
+          <img src="https://dummyimage.com/150">
+        </figure>
+        <figure class="shadow">
+          <img src="https://dummyimage.com/150">
+        </figure>
+        <figure class="shadow">
+          <img src="https://dummyimage.com/150">
+        </figure>
+        <figure class="shadow">
+          <img src="https://dummyimage.com/150">
+        </figure>
+        <figure class="shadow">
+          <img src="https://dummyimage.com/150">
+        </figure>
+      </div>
+    </div>
+  </section>
+  <script>
+    //선택자
+    const carrousel = document.querySelector(".content-carrousel");
+    const slideshow = document.querySelector(".slideshow")
+    const prev = document.querySelector(".prev")
+    const next = document.querySelector(".next")
+
+    //변경되는 각도를 담을 변수
+    let count = 0;
+    //timer = clearInterval로 setInterval을 종료시키기위해 필요
+    let timer;
+    //이미지가 회전하는 동작을 만들 구문
+    function rotate(){
+      //count값을 1씩 증가
+      count += 1;
+      //carrousel의 rotateY값으로 count값을 적용
+      carrousel.style.transform = `rotateY(${count}deg)`
+    }
+    //0.05초에 한번씩 rotate함수를 호출하여 회전
+    timer = setInterval(rotate,50);
+
+    //slideshow에 마우스를 올려놓으면
+    slideshow.addEventListener("mouseover",() => {
+      clearInterval(timer);//setInterval종료
+    })
+    //slideshow에서 마우스가 떠나면
+    slideshow.addEventListener("mouseout",() => {
+      timer = setInterval(rotate,50);//다시 setInterval함수 호출
+    })
+
+    //왼쪽 화살표 버튼 클릭시
+    prev.addEventListener("click",() => {
+      count += 40
+      //reminder 변수에 count값을 40으로 나눴을때 남는 값을 할당
+      let reminder = count % 40;
+      //40으로 나눴을때 남는값을 count변수 값에서 빼주면 count값은 항상 40의 배수만 나옴
+      count -= reminder
+      carrousel.style.transform = `rotateY(${count}deg)`
+    })
+
+    //오른쪽 화살표 버튼 클릭시
+    next.addEventListener("click",() => {
+      count -= 40
+      //reminder 변수에 count값을 40으로 나눴을때 남는 값을 할당
+      let reminder = count % 40;
+      //40으로 나눴을때 남는값을 count변수 값에서 빼주면 count값은 항상 40의 배수만 나옴
+      count -= reminder
+      carrousel.style.transform = `rotateY(${count}deg)`
+    })
+  </script>
+</body>
+</html>

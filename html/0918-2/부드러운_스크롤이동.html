@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부드러운_스크롤이동</title>
+  <style>
+    *{margin:0; padding:0;}
+    section{
+      width:100%;
+      height:100vh;
+    }
+    section:nth-child(1){background-color:skyblue;}
+    section:nth-child(2){background-color:lightgreen;}
+    section:nth-child(3){background-color:lightyellow;}
+    section:nth-child(4){background-color:brown;}
+  </style>
+</head>
+<body>
+  <section></section>
+  <section></section>
+  <section></section>
+  <section></section>
+  <script>
+    const contains = document.querySelectorAll("section");
+    contains.forEach((contain, index) => contain.addEventListener('wheel', (e) => {
+      console.log("실행")
+      e.preventDefault();//window의 기본 스크롤 이벤트를 제거
+      
+      if(e.deltaY < 0){//마우스 휠을 위로 올렸을 때
+        //이벤트가 발생된 section요소의 이전 형제요소 index * window의 높이 = 스크롤 이동할 top위치
+        const prevScrollTop = (index-1) * window.innerHeight;
+        //prevScrollTop위치로 스크롤위치를 변경
+        window.scrollTo({
+          behavior: 'smooth',
+          left:0,
+          top: prevScrollTop
+        })
+
+      }else if(e.deltaY > 0){//마우스 휠을 아래로 내렸을 때
+        //이벤트가 발생된 section요소의 다음 형제요소 index * window의 높이 = 스크롤 이동할 top위치
+        const nextScrollTop = (index+1) * window.innerHeight;
+
+        //nextScrollTop위치로 스크롤위치를 변경
+        window.scrollTo({
+          behavior: 'smooth',
+          left:0,
+          top: nextScrollTop
+        })
+      }
+    }));
+    
+  </script>
+</body>
+</html>

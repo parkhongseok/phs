@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    body{background-color: #000026;}
+
+    .slideshow{
+      width: 1100px;
+      height: 300px;
+      margin: 100px auto 0;
+      position: relative;
+    }
+
+
+    img{
+      width: 150px;
+      height: 150px;
+    }
+
+    .prev, .next{
+      font-size: 50px;
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      position: absolute;
+      top: calc(50% - 25px);
+      cursor: pointer;
+    }
+
+    .next{
+      right: 0;
+
+    }
+    
+    .contents{
+      width: 900px;
+      height: 180px;
+      perspective: 900px;
+      position: absolute;
+      top: calc(50% - 90px);
+      left: calc(50% - 450px);
+    }
+
+    .content-carrousel{
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: 0.5s;
+    }
+
+
+h1{
+  text-align: center;
+  color: white;
+  font-size: 100px;
+  font-family: 'Times New Roman', Times, serif;}
+
+
+.content-carrousel>figure{
+  width: 150px;
+  height: 150px;
+  border: 1px solid #4d444d;
+  box-shadow: 0 0 20px #000;
+  position: absolute;
+  left: calc(50% - 75px);
+}
+
+.content-carrousel>figure:nth-child(1){
+  transform: rotateY(0deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(2){
+  transform: rotateY(40deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(3){
+  transform: rotateY(80deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(4){
+  transform: rotateY(120deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(5){
+  transform: rotateY(160deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(6){
+  transform: rotateY(200deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(7){
+  transform: rotateY(240deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(8){
+  transform: rotateY(280deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(9){
+  transform: rotateY(320deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(10){
+  transform: rotateY(360deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(11){
+  transform: rotateY(40deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(12){
+  transform: rotateY(80deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(13){
+  transform: rotateY(120deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(14){
+  transform: rotateY(180deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(15){
+  transform: rotateY(240deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(16){
+  transform: rotateY(280deg) translateZ(400px);
+}
+.content-carrousel>figure:nth-child(17){
+  transform: rotateY(320deg) translateZ(400px);
+}
+
+
+figure img{
+  transition: 0.3s;
+  width: 100%;
+  height: 100%;
+}
+
+figure img:hover{
+  transform: scale(1.1);
+}
+
+/* #img{
+  width: 200px;
+  height: 200px;
+} */
+
+  </style>
+</head>
+<body>
+  <br><br>
+  <h1>빙글빙글돌아가는나으하루</h1>
+  <section class="slideshow">
+    <button class="prev" type="button">&#10094;</button>
+    <button class="next" type="button">&#10095;</button>
+    <div class="contents">
+      <div class="content-carrousel">
+        <figure class="shadow">
+          <img src="../image/cat.jpg" alt="">
+        </figure>
+        <figure class="shadow">
+          <img src="../image/cat9.jpg" alt="">
+        </figure>
+        <figure class="shadow">
+          <img src="../image/catt.jpg" alt="">
+        </figure>
+        <figure class="shadow">
+          <img src="../image/cattc.jpg" alt="">
+        </figure>
+        <figure class="shadow">
+          <img src="../image/c.jpg" alt="">
+        </figure>
+        <figure class="shadow">
+          <img src="../image/dog.jpg" alt="">
+        </figure>
+        <figure class="shadow">
+          <img src="../image/img/c0192fba0362fb3a07bbb599faab235e.jpg" alt="">
+        </figure>
+        <figure class="shadow">
+          <img src="../image/img/f8a3361b309d537672568ea8b11c6223.jpg" alt="">
+        </figure>
+        <figure class="shadow">
+          <img src="../image/img/광수.jpg" alt="">
+        </figure>
+        <!-- <figure id="img" class="shadow">
+          <img src="../image/cat10.jpg" alt="">
+        </figure>
+        <figure id="img" class="shadow">
+          <img src="../image/cat10.jpg" alt="">
+        </figure>
+        <figure id="img" class="shadow">
+          <img src="../image/cat10.jpg" alt="">
+        </figure>
+        <figure id="img" class="shadow">
+          <img src="../image/cat10.jpg" alt="">
+        </figure>
+        <figure id="img" class="shadow">
+          <img src="../image/cat10.jpg" alt="">
+        </figure>
+        <figure id="img" class="shadow">
+          <img src="../image/cat10.jpg" alt="">
+        </figure>
+        <figure id="img" class="shadow">
+          <img src="../image/cat10.jpg" alt="">
+        </figure>
+        <figure id="img" class="shadow">
+          <img src="../image/cat10.jpg" alt="">
+        </figure>
+        <figure id="img" class="shadow">
+          <img src="../image/cat10.jpg" alt="">
+        </figure> -->
+      </div> 
+    </div>
+    <br><br>    <br><br>    <br><br>    <br><br>    <br><br>    <br><br>    <br><br>    <br><br>
+    <h1>얼렁뚱땅나으하루</h1>
+  </section>
+
+
+  <script>
+const carrousel = document.querySelector('.content-carrousel');
+const sideshow = document.querySelector(`.slideshow`)
+const prev = document.querySelector('.prev')
+const next = document.querySelector('.next')
+let count = 0;
+function rotate(){
+  count += 1;
+  // carrousel의 ratateY값으로 count값을 적용
+  carrousel.style.transform = `rotateY(${count}deg)`
+}
+//0.05초에 한 번씩 rotate함수를 호출하여 회전 회오리
+timer = setInterval(rotate, 50)
+sideshow.addEventListener('mouseover', ()=>{
+  clearInterval(timer);
+})
+
+sideshow.addEventListener('mouseout', ()=>{
+  timer = setInterval(rotate, 50)
+})
+
+prev.addEventListener('click', ()=>{
+  count += 40
+  //reminder 변수에 count값을 
+  let reminder = count % 40;
+  count -= reminder
+  carrousel.style.transform = `rotateY(${count}deg)`
+})
+
+next.addEventListener('click', ()=>{
+  count -= 40
+  //reminder 변수에 count값을 
+  let reminder = count % 40;
+  count -= reminder
+  carrousel.style.transform = `rotateY(${count}deg)`
+})
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+  
+</body>
+</html>

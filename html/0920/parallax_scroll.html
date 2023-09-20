@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>parallax_scroll</title>
+  <style>
+    *{margin:0; padding:0; box-sizing: border-box;}
+    #banner{
+      width:100%;
+      min-width:1600px;
+      height:900px;
+      position:relative;
+      overflow:hidden;
+    }
+    /*요소 하단에 gradient로 fadeOut효과 만들기*/
+    #banner::after{
+      content:'';
+      position:absolute;
+      width:100%; 
+      height:100px;
+      bottom:0; left:0;
+      background:linear-gradient(0deg, #0a2a43, transparent);
+    }
+    #banner > img{
+      width:100%;
+      position:absolute;
+      top:0; left:0;
+    }
+    .bottom{
+      width:100%;
+      position:relative;
+      height:1000px;
+      background-color:#0a2a43;
+      color:#ccc;
+      font-size:24px;
+      padding:100px;
+      text-align: center;
+      line-height:3.5;
+    }
+  </style>
+</head>
+<body>
+  <section id="banner">
+    <img class="bg" src="img/sky.png">
+    <img class="mountain" src="img/mountain.png">
+    <img class="title" src="img/title.png">
+    <img class="road" src="img/road.png">
+    <img class="moon" src="img/moon.png">
+  </section>
+  <section class="bottom">
+    <b>패럴렉스 스크롤 사이트란?</b><br>
+    모니터상에서 화면이 (상하 또는 좌우)스크롤될 때, 배경 이미지와 오브젝트가 시차를 두고 움직이도록 하는 기법입니다.
+  </section>
+  <script>
+    //이미지 요소들을 각각 선택
+    const bg = document.querySelector(".bg");
+    const mountain = document.querySelector(".mountain");
+    const road = document.querySelector(".road");
+    const title = document.querySelector(".title");
+    const moon = document.querySelector(".moon");
+
+    //브라우저 내에서 스크롤 이벤트 발생시
+    window.addEventListener("scroll",() => {
+      let value = window.scrollY;//스크롤 이동값을 변수 value에 할당
+      //스크롤 이동값을 이미지요소의 위치값으로 대입 이때 스크롤 이동값을 0.n으로 곱하여 값의 크기를 줄여줍니다.
+      bg.style.top = value*0.5+"px";
+      mountain.style.top = -value*0.1+"px"
+      road.style.top = value*0.15+"px"
+      title.style.top = value*0.75+"px"
+      moon.style.left = -value*0.5+"px"
+    })
+  </script>
+</body>
+</html>
